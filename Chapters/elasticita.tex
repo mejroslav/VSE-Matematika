@@ -1,0 +1,90 @@
+\section{Aplikace derivace: cenová elasticita}
+
+Koeficient cenové elasticity $\epsilon$ udává poměrnou změnu ceny zboží k poměrné změně jeho množství. Označíme-li $Q$ množství a $P$ cenu zboží, pak 
+\begin{align}
+    \epsilon \coloneqq \dfrac{\frac{\Delta Q}{Q}}{ \frac{\Delta P}{P} } \:.
+\end{align}
+Formálními úpravami dospějeme ke tvaru
+\begin{align}
+    \epsilon = \dfrac{\frac{\Delta Q}{Q}}{ \frac{\Delta P}{P} }
+    = \frac{P}{Q} \dfrac{1}{\dder{P}{Q}}
+\end{align}
+a máme-li zadanou funkci $P=P(Q)$, můžeme vztah převést do infinitesimálního tvaru:
+\begin{align}
+    \dder{P}{Q} \overset{\text{nahradíme}} \longrightarrow \der{P}{Q} \coloneqq P'(Q) \:, \quad \text{takže} \quad
+    \boxed{
+        \epsilon(Q) = \frac{1}{Q} \dfrac{P(Q)}{P'(Q)} \label{eq:epsilon}
+    } \:.
+\end{align}
+Přirozeně platí $P(Q)>0$. V případě elasticity poptávky je $P(Q)$ klesající funkcí, to odpovídá tomu, že $P'(Q)<0$ a tedy i $\epsilon(Q) < 0$. Proto se často $\epsilon_{\mathrm{D}}$ udává v absolutní hodnotě.
+
+\subsection{Křivky konstantní elasticity}
+
+Zkusme hledat křivky konstantní elasticity. Zafixujme $\epsilon$ a hledejme takové funkce $P(Q)$, aby platilo \begin{align}
+    \epsilon = \frac{1}{Q} \dfrac{P(Q)}{P'(Q)} \:.
+\end{align}
+Tuto rovnici upravíme do tvaru \begin{align}
+    \frac{P'(Q)}{P(Q)} = \frac{1}{\epsilon Q} \:.
+\end{align}
+Nyní provedeme kouzelnou úpravu. Výraz $P'(Q) = \der{P}{Q}$ si představíme jako zlomek složený z výrazů $\D P$ a $\D Q$. Jmenovatelem vynásobíme celou rovnici a dostaneme
+\begin{align}
+    \frac{1}{P} \D P = \frac{1}{\epsilon Q} \D Q \:.
+\end{align}
+Nyní celou rovnici zintegrujeme (jednoduše napíšeme znaménko integrálu na každou stranu rovnice).
+\begin{align}
+    \int \frac{1}{P} \, \D P = \int \frac{1}{\epsilon Q} \, \D Q \:.
+\end{align}
+Oba integrály dávají logaritmus (nezapomínejme, že $\epsilon$ je konstantní):
+\begin{align}
+    \ln P = \frac{1}{\epsilon} \ln Q + C = \ln \left( Q^{1/\epsilon} \right) + \ln C = \ln \left( C Q^{1/\epsilon} \right) \:.
+\end{align}
+(Konstantu $C$ bychom získali z integrálu napravo i nalevo, můžeme si ji představit pouze na jedné straně. Rovněž nezáleží na tom, v jakém tvaru ji zapíšeme, klidně můžeme psát $\log C$, stále je to konstanta.)
+Tuto rovnici nyní odlogaritmujeme:
+\begin{align}
+    \boxed{ P(Q) = C Q^{1/\epsilon} }\:.
+\end{align}
+Právě jsme našli rovnice pro křivky konstantní elasticity. O tom, že splňují rovnici \eqref{eq:epsilon}, se lze přesvědčit jednoduchým derivováním.
+
+Při hodnotě $\epsilon = -1$ mluvíme o \textit{jednotkově pružné nabídce/poptávce}. Této hodnotě odpovídají funkce tvaru 
+\begin{align}
+    P(Q) = C Q^{-1} = \frac{C}{Q} \:.
+\end{align}
+
+
+Celkový příjem je dán součinem $P\cdot Q$. Pro všechny body na křivce s jednotkovou elasticitou platí, že dávají stejný příjem, neboť 
+\begin{align}
+    P \cdot Q = \frac{C}{Q} \cdot Q = C = \const \:.
+\end{align}
+
+
+\begin{example}[Cenová elasticita I]
+    Spočítejme křivku cenové elasticity $\epsilon(Q)$ pro funkci nabídky danou vztahem \begin{align}
+        S = P(Q) = Q^2 - 2Q + 4 \:.
+    \end{align}
+
+    Jednoduchým mechanickým derivováním dostaneme $P'(Q) = 2Q - 2$ a dosazením do vztahu pro $\epsilon$ dostaneme \begin{align}
+        \epsilon(Q) = \frac{1}{Q} \frac{Q^2 - 2Q + 4}{2Q - 2} = \frac{Q^2 - 2Q + 4}{2Q^2 - 2 Q} \:.
+    \end{align}
+\end{example}
+
+\begin{example}[Cenová elasticita III]
+    Ukažme si na vztahu \eqref{eq:epsilon} použití pravidla o derivování složených funkcí. Zaveďme si nové proměnné logaritmické proměnné
+    \begin{align}
+        \pi = \log P \:, \quad w = \log Q \:.
+    \end{align}
+    Dokažme vztah \begin{align}
+        \epsilon = \dfrac{1}{\pi'(w)} \:.
+    \end{align}
+    
+    
+    Pomocí pravidla o derivování složené funkce máme totiž \begin{align}
+        \der{\pi}{w} = \der{\pi}{Q} \der{Q}{w} 
+        = \der{(\log P)}{Q} \der{Q}{w} 
+        = \der{\log P}{P} \der{P}{Q} \dfrac{1}{\der{w}{Q}}
+        = \frac{1}{P} \der{P}{Q} \dfrac{1}{\frac{1}{Q}}
+        = \frac{Q}{P} \der{P}{Q} \:,
+    \end{align}
+    takže \begin{align}
+        \epsilon = \frac{P}{Q} \dfrac{1}{\der{P}{Q}} = \dfrac{1}{\frac{Q}{P} \der{P}{Q}} = \dfrac{1}{\der{\pi}{w}} \:.
+    \end{align}
+\end{example}

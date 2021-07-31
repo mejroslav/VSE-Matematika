@@ -1,0 +1,138 @@
+\section{Diferenciální rovnice}
+
+Rovnice tvaru \begin{align}
+    F(x,y(x),y'(x),\cdots, y^{(n)}(x)) = 0 \:,
+\end{align}
+kde $y(x)$ je neznámá funkce, se nazývá \textbf{obyčejná diferenciální rovnice} $n$-tého řádu.
+
+Rovnice tvaru \begin{align}
+    F(\vc x, y(\vc x), \DD^\lambda y(\vc x)) \:,
+\end{align}
+kde $\vc x = (x_1, \cdots, x_n) \in \R^n$, $y(\vc x)$ je neznámá funkce $n$ proměnných a $\DD^\lambda$ označuje její parciální derivace, se nazývá \textbf{parciální diferenciální rovnice}.
+
+
+Je snad na tomto místě vhodné zdůraznit, že diferenciální rovnice se svou povahou naprosto liší od rovnic lineárních, kvadratických, exponenciálních a podobně. Hledat neznámé funkce je totiž řádově těžší, než hledat obyčejná čísla. Proč? Pro většinu algebraických rovnic máme numerické metody, které jsou dnes velmi přesné a rychlé. Navíc máme většinou záruku, že existují. Řešení obyčejných diferenciálních rovnic (a hlavně jejich soustav) je zpravidla nemožné nalézt analyticky a časová náročnost řešení numericky je daleko větší. Nejhůře na tom jsou parciální diferenciální rovnice, o nich často nevíme, zda vůbec nějaké řešení mají, a pokud ho mají, je velmi obtížné ho hledat numericky. Kdybychom to uměli rychle, mohli bychom lépe porozumět mnoha jevům v mnoha vědeckých oblastech: například bychom porozuměli turbulencím, stavěli kvantové počítače, mohli bychom přesně předpovídat počasí i situaci na trhu na měsíce dopředu, projektovali bychom stavby, které by přežily tisíciletí, \dots
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c}
+        Typ rovnice & Neznámý objekt & Náročnost (na stupnici $1-10$) \\
+        \hline
+        lineární & jediné číslo $x$ & $1$ \\
+        kvadratická & dvě čísla $x_{1,2}$ & $2$ \\
+        algebraická (jakkoli ošklivá) & jedno nebo několik čísel $x_k$ & $3-5$ \\
+        \hline
+        obyčejná diferenciální (bez podmínek) & soubor funkcí $\set {y_\lambda(x)}$ & $8+$ \\
+        obyčejná diferenciální (s počáteční podmínkou) & jediná funkce $y(x)$ & $8$ \\
+        obyčejná diferenciální (s okrajovou podmínkou) & jediná funkce $y(x)$ & $10+$ \\
+        \hline
+        parciální diferenciální (s podmínkou či bez) & funkce více proměnných $y(x_1, \cdots, x_N)$ & $20+$
+    \end{tabular}
+\end{table}
+
+Diferenciální rovnice typicky řešíme na nějaké vybrané množině a můžeme je doplnit o takzvané počáteční nebo okrajové podmínky. Řešením rovnic bez podmínek jsou soubory (množiny, třídy, \dots) funkcí.
+
+\subsection{Lineární diferenciální rovnice}
+
+Nejjednodušší diferenciální rovnice jsou lineární diferenciální rovnice 
+\begin{align}
+    a_n(x) y^{(n)}(x) + a_{n-1}(x) y^{(n-1)}(x) + a_{n-2}(x) y^{(n-2)}(x) + \cdots + a_1(x) y(x) = f(x) \:,
+\end{align}
+kde $y(x)$ je neznámá funkce, $a_k(x)$ a $f(x)$ jsou známé funkce.
+
+Lineární se jim říká proto, že se tak trochu chovají jako vektory. Součet dvou různých řešení je zase řešení. Stejně tak libovolný násobek řešení je zase řešení.
+
+Ještě jednodušší jsou rovnice, kde funkce $a_k(x)$ jsou pouhé konstanty. Těm se říká rovnice s konstantními koeficienty:
+\begin{align}
+    c_n y^{(n)}(x) + c_{n-1} y^{(n-1)}(x) + c_{n-2} y^{(n-2)}(x) + \cdots + c_1 y(x) + a_0 = f(x) \:.
+\end{align}
+My se naučíme řešit lineární diferenciální rovnice druhého řádu s konstantními koeficienty 
+\begin{align}
+    a y''(x) + b y'(x) + c y(x) = f(x) \:.
+\end{align}
+
+\subsection{Homogenní (zkrácená) rovnice}
+
+Začneme s řešením rovnic, které na pravé straně obsahují nulu, tj. \begin{align}
+    a y''(x) + b y'(x) + c y(x) = 0 \:.
+\end{align}
+Tuto rovnici vždy totiž řeší exponenciální funkce $y(x) = e^{\lambda x}$ pro nějaké konkrétní $\lambda$, které nyní určíme. Zkusme tuto funkci do rovnice dosadit. Dostaneme
+\begin{align}
+    a (e^{\lambda x})'' + b (e^{\lambda x})' + c = a \lambda^2  e^{\lambda x} + b \lambda e^{\lambda x} + c e^{\lambda x} = e^{\lambda x} [a \lambda^2 + b \lambda + c ] = 0 \:.
+\end{align}
+Součin bude roven nule právě tehdy, když hranatá závorka bude nule. Tím jsme dostali obyčejnou algebraickou rovnici \begin{align}
+    a \lambda^2 + b \lambda + c = 0 \:.
+\end{align}
+Tato rovnice má obecně dvě řešení v oboru komplexních čísel $\C$. Je potřeba rozlišit tři případy:
+\begin{enumerate}
+    \item Oba kořeny $\lambda_1$, $\lambda_2$ jsou různé a reálné. Pak je řešení homogenní rovnice \begin{align}
+        y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \:,
+    \end{align}
+    kde $C_1$ a $C_2$ jsou \textbf{libovolné volitelné koeficienty} (vzpomeňme si, že součet dvou řešení a číselný násobek řešení je zase řešení).
+
+    \item Získáme-li dvojnásobný kořen $\lambda_1 = \lambda_2 := \lambda $, pak je řešení homogenní rovnice \begin{align}
+        y(x) = (Ax + B) e^{\lambda x } \:,
+    \end{align}
+    kde $A$ a $B$ jsou opět volitelné koeficienty.
+
+    \item Získáme-li komplexně sdružené kořeny $\lambda_{1,2} = p \pm i q$, pak je řešení homogenní rovnice \begin{align}
+        y(x) = e^{px} \left( C_1 \sin (q x) + C_2 \cos(qx) \right) \:,
+    \end{align}
+    kde $C_1$ a $C_2$ jsou volitelné koeficienty.
+\end{enumerate}
+
+\begin{example}[Množení populace]
+    Uvažujme populaci (např. bakterií), jejíž jedinci neumírají a stále se množí.
+    Populace v čase bude narůstat tím víc, čím více obsahuje jedinců. To matematicky můžeme vyjádřit vztahem
+    \begin{align}
+        \dder{P}{t} = k P(t) \:, \quad k > 0 \:.
+    \end{align} 
+    Zkusme tedy vyřešit diferenciální rovnici $P'(t) = k P(t)$ a podívat se, za jak dlouho populace vzroste na desetinásobek.
+
+    Charakteristická rovnice je $\lambda - k = 0$, odtud $\lambda = k$. Řešení této rovnice je tedy $P(t) = C e^{k t} $, kde $C$ je nějaká konstanta.
+
+    Předpokládejme nyní, že v čase $t=0$ obsahuje populace $P_0$ jedinců. Abychom tuto podmínku splnili, stačí dosadit do řešení nulu:
+    \begin{align}
+        P(0) = C e^{k \cdot 0} = P_0 \:, \quad \text{takže} \quad C = P_0
+    \end{align}
+    a máme řešení
+    \begin{align}
+        P(t) = P_0 e^{kt} \:.
+    \end{align}
+    Populace se bude množit exponenciálně! Za jaký čas $t_{10}$ vzroste populace na $10 P_0$? Stačí vyřešit rovnici 
+    \begin{align}
+        10 P_0 = P(t_{10}) = P_0 e^{k t_{10}} \:.
+    \end{align}
+    Její řešení je $t_{10} = \frac{1}{k} \log (10) \approx \frac{2,30}{k}$. Čím větší bude $k$, tím rychleji se populace bude množit.
+\end{example}
+
+\subsection*{Závěrečné poznámky}
+
+\begin{itemize}
+    \item Řešení diferenciálních rovnic nemusí být jednoznačné ani při zadání konkrétní počáteční podmínky. Například rovnici 
+    \begin{align}
+        y'(x) = \frac{1}{3} \sqrt[3]{y(x)}  \:, \quad \text{s počáteční podmínkou } y(0) = 0
+    \end{align}
+    řeší jak funkce $y(x) = (2 x)^{3/2}$, tak $y(x) = 0$. Tomuto jevu se říká \textbf{bifurkace} a je velmi důležité ho zkoumat, např. při konstrukci laseru nebo nanočipů.
+
+    \item Někdy malá změna počátečních podmínek vede ke kvalitativní změně řešení (řešení se začne chovat úplně jinak). Například rovnice
+    \begin{align}
+        y'(x) = 1 - y^2(x)
+    \end{align}
+    řeší pro podmínku $y(0) = -1$ konstantní funkce $y(x) = -1$. Změníme-li ale počáteční podmínku o chloupeček, řekněme na $y(0) = -0.999$, pak dostaneme řešení, která buďto rostou do $+1$ anebo utíkají z minus nekonečna.
+
+    Tento jev se nazývá \textbf{efekt motýlích křídel} (butterfly effect) a je zodpovědný za to, že nemůžeme přesně předpovědět počasí na více než dva dny dopředu (\uv{zamávání křídla motýla v Texasu vyvolá tornádo v Číně}). Máme sice správné rovnice (a umíme je řešit), ale kvůli nepřesné znalosti počátečních podmínek (tlaku vzduchu, teploty, složení ovzduší, atd\dots) si nemůžeme být jisti, která varianta nastane. Podobný problém samozřejmě nastává i u předpovědí finančního trhu, chování společnosti a dokonce i u solárního systému (stále nevíme s jistotou, zda je naše Sluneční soustava stabilní - přitáhne nás jednoho krásného dne Jupiter?). Obecněji se těmito problémy zabývá \textbf{teorie chaosu} a teorie \textbf{fraktálů}. Více lze nalézt např. ve výborné, populárně naučné knížce \textsc{Hraje bůh kostky?} od Iana Stewarta.
+
+    \item Řešení \href{https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations}{jedné parciální diferenciální rovnice} bylo zařazeno mezi 
+    \href{https://en.wikipedia.org/wiki/Millennium_Prize_Problems}{Sedm problémů tisíciletí}. Tento problém (jeho formulace) je ze všech nejjednodušší na pochopení. Odměna za jeho řešení je jeden milion dolarů! Stále není pozdě připojit se k matematikům a pokračovat v jejich marném celoživotním boji. Motivací ale nejsou peníze, jak dokládá \href{https://www.youtube.com/watch?v=vNcarnNJPqs}{Grigorij Perelman, který jeden z těchto problémů vyřešil}.
+
+    \item Další důležitá třída rovnic jsou tzv. \textbf{diferenční rovnice}, jejichž cílem je nalézt z předpisu \begin{align}
+        F(n, a_n, a_{n-1}, \cdots , a_{n-k}) = 0
+    \end{align}
+    neznámou posloupnost $\set{a_n}$. Typickým příkladem je rovnice \begin{align}
+        a_{n} = a_{n-1} + a_{n-2} \:, \quad a_0 = a_1 = 1 \:,
+    \end{align}
+    jejímž řešením jsou Fibonacciho čísla $1,1,2,3,5,8,13,21,34,55,\cdots$. Náročnost diferenčních rovnic je pro člověka zhruba stejná jako náročnost diferenciálních, nicméně počítače je řeší mnohem snáze. Hodí se například k počítání úroků. 
+
+    \item 
+\end{itemize}

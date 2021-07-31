@@ -1,0 +1,41 @@
+\subsection{Návod pro zobrazování grafů funkcí}
+
+Existuje bezpočet placených i neplacených softwarů pro zobrazování funkcí. Jeden bezplatný lze nalézt na stránce \url{https://www.desmos.com/calculator}. Program umí počítat funkční hodnoty v jednotlivých bodech, sám vyznačí maxima a minima funkcí.
+
+Pro symbol mocnění lze použít \fbox{\textsc{Ctrl+Alt+3}} ve Windows na české klávesnici, \fbox{\textsc{AltGr+M}} v Linuxu na české klávesnici, na anglické klávesnici \fbox{\textsc{Shift+6}}.
+Pro zapsání zlomku stačí napsat \fbox{frac}, pro zapsání odmocniny \fbox{sqrt}. Symbol klávesnice dole na obrazovce umožní psát i složitější výrazy. Program rozlišuje přirozený \fbox{ln} a dekadický \fbox{log} logaritmus. 
+
+Software si snadno poradí s funkcemi jedné proměnné, s implicitními funkcemi (typu $x^2+y^2=1$) a nerovnicemi.
+
+Jeden ze silných nástrojů je posuvník. Pakliže do rovnice zadáme funkci s parametrem, můžeme vytvořit posuvník a sledovat, jak se se zvětšujícím nebo zmenšujícím parametrem mění její tvar.
+
+\begin{exercise}[Lineární a kvadratická funkce]
+    Až se dostaneme k pojmu derivace, budeme moci funkce aproximovat lineárními a kvadratickými funkcemi. Je velmi užitečné umět si takové funkce představit a vědět, kdy jsou rostoucí a klesající.
+    \begin{enumerate}
+        \item Zobrazte si lineární funkci $y(x) = px + q$ s posuvníky $p$ a $q$.
+        \item Určete, pro která $p$ je funkce rostoucí, klesající a konstantní.
+        \item Zjistěte, jakou roli hraje parametr $q$.
+        \item Zobrazte si kvadratickou funkci $y(x) = ax^2 + bx +c$ s posuvníky $a,b,c$.
+        \item Zjistěte, jakou roli hraje parametr $a$.
+        \item Zjistěte, jakou roli hraje parametr $c$.
+        \item Po kliknutí na graf funkce zobrazte minimum (maximum) a průsečíky s osami.
+        \item Zkuste zjistit, jakou roli hraje parametr $b$. Co se děje s extrémem funkce?
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Gaussova křivka]
+    V teorii pravděpodobnosti a statistiky je velmi důležitá tzv. Gaussova funkce (říká se jí též zvonová křivka, vlnový balík)
+    \begin{align}
+        f(x) = \frac{C}{\sqrt{2 \pi k^2}} \exp \left( - \frac{(x-m)^2}{2k^2}\right) \:.
+    \end{align}
+    Zobrazte si tuto funkci, měňte parametry $C$, $k$ a $m$. Zjišťujte, co se s funkcí děje.
+\end{exercise}
+
+\begin{exercise}[Příliš mnoho oscilací]
+    Zobrazte funkci \begin{align}
+        f(x) = \sin \left( \frac{1}{x} \right) \:.
+    \end{align}
+    Kolem počátku se nahrnuje příliš mnoho nulových bodů funkce. Zkuste je najít sami, tj. vyřešte rovnici $\sin(1/x) = 0$. 
+    
+    Funkce samozřejmě není definovaná v nule. V nějakém smyslu nabývá blízko nuly všech hodnot mezi $-1$ a $+1$. Vrátíme se k tomu, až budeme vyšetřovat limity funkcí. Tam si ukážeme, že $\sin(1/x)$ limitu v počátku nemá.
+\end{exercise}

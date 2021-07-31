@@ -1,0 +1,97 @@
+\section{Průběh funkce}
+
+
+
+\subsection{Kuchařka pro vyšetřování průběhu funkce}
+
+\begin{enumerate}
+
+    \item Určíme definiční obor $D(f)$.
+    
+    \item Zkusíme zjistit, zda je funkce symetrická:
+    \begin{itemize}
+        \item Pro sudou funkci platí $f(x) = f(-x)$.
+        \item Pro lichou funkci platí $-f(x) = - f(-x)$.
+    \end{itemize}
+
+    \item Spočítáme průsečíky funkce s osami $P_x$ a $P_y$:
+    \begin{itemize}
+        \item Bod $P_x$ nalezneme řešením rovnice
+        $f(x)=0$.
+        \item Bod $P_y$ nalezneme prostým dosazením bodu $0$ do funkce, tj. spočteme $f(0)$.
+    \end{itemize}
+     
+    \item Určíme limity v bodech nespojitosti funkce a limity v bodech $\pm \infty$ (pokud existují).
+
+    \item Vyšetříme lokální minima a maxima:
+    \begin{itemize}
+        \item Spočteme $f'(x)$, $f''(x)$ a najdeme stacionární body $x_0$, které odpovídají rovnici $f'(x_0) = 0$.
+        \item Jestliže $f''(x_0) < 0$, pak má $f$ v $x_0$ lokální maximum.
+        \item Jestliže $f''(x_0) > 0$, pak má $f$ v $x_0$ lokální minimum.
+        \item Nalezneme funkční hodnoty $f(x_0)$, případně je mezi sebou porovnáme.
+    \end{itemize}
+    
+    \item Nalezneme inflexní body řešením rovnice $f''(x_{\text{flex}}) = 0$.
+    
+    \item Určíme intervaly, na kterých $f'(x)$ a $f''(x)$ nemění znaménko.
+    \begin{itemize}
+        \item Na intervalu, kde platí $f'(x) > 0$, je $f$ rostoucí.
+        \item Na intervalu, kde platí $f'(x) < 0$, je $f$ klesající.
+        \item Na intervalu, kde platí $f''(x) > 0$, je $f$ konvexní.
+        \item Na intervalu, kde platí $f''(x) < 0$, je $f$ konkávní.
+    \end{itemize}
+
+    \item Někdy můžeme vyšetřovat asymptotické chování funkce.
+    \begin{itemize}
+        \item Lineární asymptoty jsou přímky $u(x) = px+q$, kde 
+        \begin{align*}
+            p = \lim_{x \rightarrow \pm \infty} \frac{f(x)}{x} \quad \text{a} \quad q = \lim_{x \rightarrow \pm \infty} f(x) - px \:.
+        \end{align*}
+        Samozřejmě nemusí existovat.
+        \item Můžeme také limitní chování porovnávat s mocninnými funkcemi typu $x^\alpha$, tj. nalézt takové $\alpha$, aby \begin{align*}
+            \lim_{x \rightarrow \pm \infty} \frac{f(x)}{x^\alpha} \quad \text{byla vlastní a nenulová} \:.
+        \end{align*}
+        V takovém případě pak píšeme $f(x) = O(x^\alpha)$ pro $x \rightarrow \pm \infty$.
+    \end{itemize}
+
+    \item Nakreslíme graf funkce $f(x)$.
+\end{enumerate}
+
+\begin{example}
+    Vyšetříme průběh funkce $f(x) = \frac{x^2-1}{x^2-5x+6}$.
+
+\begin{enumerate}
+    \item Definiční obor funkce: jmenovatel nesmí být nulový, tedy řešíme rovnici $x^2-5x +6 = 0$. Jejím řešením jsou body $3$ a $2$, tedy \begin{align*}
+        D(f) = \R \setminus \set{3,2} \:.
+    \end{align*}
+
+    \item Funkce zjevně není ani symetrická, ani antisymetrická.
+    \item Průsečík s osou x: řešíme rovnici $x^2-1 = 0$. Řešením jsou body $\pm 1$.
+    Průsečík s osou y: stačí spočítat $f(0) = -\frac{1}{6} $.
+    Průsečíky jsou tedy \begin{align*}
+        P_x^{(1)} = [-1;0] \:, \quad P_x^{(2)} = [1;0] \:, \quad P_y = [0;-1/6] \:.
+    \end{align*}
+    \item Určíme limity funkce v $\pm \infty$:
+    \begin{align*}
+        \lim_{x \rightarrow + \infty} \frac{x^2-1}{x^2-5x+6} = 1 \:, \quad \lim_{x \rightarrow - \infty} \frac{x^2-1}{x^2-5x+6} = 1 \:.
+    \end{align*}
+    Také nesmíme zapomenout na limity v bodech nespojitosti:
+    \begin{align*}
+        \lim_{x \rightarrow 2_-} \frac{x^2-1}{x^2-5x+6} 
+        =+ \infty \:, 
+        \quad 
+        \lim_{x \rightarrow 2_+} \frac{x^2-1}{x^2-5x+6} 
+        = - \infty \:, \\
+        \lim_{x \rightarrow 3_-} \frac{x^2-1}{x^2-5x+6} 
+        = - \infty \:,
+        \quad 
+        \lim_{x \rightarrow 3_+} \frac{x^2-1}{x^2-5x+6} 
+        = + \infty \:.
+    \end{align*}
+\end{enumerate}
+\end{example}
+
+
+
+
+
