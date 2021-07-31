@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1627728799 "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.tex" "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf" "main" 1627728801
-  "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.aux" 1627728801 3051 f1e72c0378986a4896d5dbb084a6cc0c ""
-  "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.tex" 1627679301 3698 b7763cee6d23ac5e9180a28d4bbf8711 ""
+["pdflatex"] 1627729916 "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.tex" "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf" "main" 1627729918
+  "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.aux" 1627729918 3051 cfd8f60c5587cee1e8bada39a094c3f4 ""
+  "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.tex" 1627729916 3728 d5457c360de42ab7728f2b241ea2a39b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1617738065 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc" 1617690507 3022 10a3376a8bb3e451b08862d68ba20e28 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_cb34qf.enc" 1617690507 3360 688870a129a51da65c9a3616e3c23032 ""
@@ -200,13 +200,13 @@
   "Gnuplot/Figures/funkce-druha-derivace.pdf" 1627406641 40466 2c00f1af846c4cab702925c5dd81cc9f ""
   "Styles/mathematics.tex" 1627650227 1828 5c3069763f023b2808c72f40c28dfd05 ""
   "Styles/structure.tex" 1627652543 2871 dce01c7c7dcf915d746ffb2636c1fd95 ""
-  "main.aux" 1627728801 3051 f1e72c0378986a4896d5dbb084a6cc0c "pdflatex"
-  "main.out" 1627728801 1669 e2e95ef131c28eddac273ae688951ae0 "pdflatex"
-  "main.tex" 1627679301 3698 b7763cee6d23ac5e9180a28d4bbf8711 ""
+  "main.aux" 1627729918 3051 cfd8f60c5587cee1e8bada39a094c3f4 "pdflatex"
+  "main.out" 1627729918 1669 e2e95ef131c28eddac273ae688951ae0 "pdflatex"
+  "main.tex" 1627729916 3728 d5457c360de42ab7728f2b241ea2a39b ""
   (generated)
+  "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf"
   "main.out"
   "main.pdf"
   "main.log"
   "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.log"
   "main.aux"
-  "/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf"

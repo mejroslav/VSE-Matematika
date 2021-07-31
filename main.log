@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.5.24)  31 JUL 2021 12:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.5.24)  31 JUL 2021 13:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -901,36 +901,26 @@ LaTeX Info: Redefining \Ref on input line 50.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 70.
-LaTeX Font Info:    Trying to load font information for T1+LibertinusSans-TLF on input line 70.
-(/usr/share/texmf-dist/tex/latex/libertinus-type1/T1LibertinusSans-TLF.fd
-File: T1LibertinusSans-TLF.fd 2020/08/22 (autoinst) Font definitions for T1/LibertinusSans-TLF.
-)
-LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 70.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `LibertinusSans-TLF' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+pplx on input line 70.
- (/usr/share/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+(Font)              scaled to size 8.0pt on input line 96.
+LaTeX Font Info:    Trying to load font information for OT1+pplx on input line 96.
+(/usr/share/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 70.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 96.
  (/usr/share/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 70.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 96.
  (/usr/share/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 70.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 96.
  (/usr/share/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 70.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 96.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
@@ -939,47 +929,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 18.00587pt on input line 70.
+(Font)              scaled to size 8.33606pt on input line 96.
  (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 70.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 70.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 18.00587pt on input line 70.
- (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 70.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 70.
-LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 70.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 70.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 70.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 70.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 70.
-LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 70.
-LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 70.
-LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 96.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 96.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 96.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 96.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 8.33606pt on input line 96.
+ (/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 96.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
@@ -991,8 +953,16 @@ LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/b/n' will be
  (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/Chapters/min-max.tex
 LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Trying to load font information for T1+LibertinusSans-TLF on input line 1.
+ (/usr/share/texmf-dist/tex/latex/libertinus-type1/T1LibertinusSans-TLF.fd
+File: T1LibertinusSans-TLF.fd 2020/08/22 (autoinst) Font definitions for T1/LibertinusSans-TLF.
+)
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LibertinusSans-TLF' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/sc' will be
 (Font)              scaled to size 14.4pt on input line 1.
 Package microtype Info: Character `029' is missing
@@ -1000,8 +970,12 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 15.0049pt on input line 1.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 1.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 15.0049pt on input line 1.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 3.
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/b/n' will be
@@ -1033,41 +1007,48 @@ LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 32.
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 32.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/aproximace-sinus.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/aproximace-sinus2.pdf>]
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 32.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 32.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 32.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 32.
 LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
 (Font)              scaled to size 7.6pt on input line 43.
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 85.
- [2]
-<Gnuplot/Figures/funkce-derivace.pdf, id=111, 361.35pt x 252.945pt>
+(Font)              scaled to size 10.0pt on input line 46.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+ </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/aproximace-sinus.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/aproximace-sinus2.pdf>]
+<Gnuplot/Figures/funkce-derivace.pdf, id=104, 361.35pt x 252.945pt>
 File: Gnuplot/Figures/funkce-derivace.pdf Graphic file (type pdf)
 <use Gnuplot/Figures/funkce-derivace.pdf>
 Package pdftex.def Info: Gnuplot/Figures/funkce-derivace.pdf  used on input line 92.
 (pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
-<Gnuplot/Figures/funkce-druha-derivace.pdf, id=112, 361.35pt x 252.945pt>
+<Gnuplot/Figures/funkce-druha-derivace.pdf, id=105, 361.35pt x 252.945pt>
 File: Gnuplot/Figures/funkce-druha-derivace.pdf Graphic file (type pdf)
 <use Gnuplot/Figures/funkce-druha-derivace.pdf>
 Package pdftex.def Info: Gnuplot/Figures/funkce-druha-derivace.pdf  used on input line 93.
 (pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
- [3 </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-derivace.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-druha-derivace.pdf>]) [4] (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.aux)
+ [2] [3 </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-derivace.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-druha-derivace.pdf>]) [4] (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: E2E95EF131C28EDDAC273AE688951AE0;1669.
  ) 
 Here is how much of TeX's memory you used:
- 19812 strings out of 478994
- 340991 string characters out of 5864751
- 866236 words of memory out of 5000000
- 36824 multiletter control sequences out of 15000+600000
- 576238 words of font info for 171 fonts, out of 8000000 for 9000
+ 19747 strings out of 478994
+ 338768 string characters out of 5864751
+ 865236 words of memory out of 5000000
+ 36765 multiletter control sequences out of 15000+600000
+ 534058 words of font info for 146 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 131i,23n,133p,637b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 131i,23n,133p,637b,774s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_mfadfl.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_cb34qf.enc}</usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSans-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSans-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf (4 pages, 490520 bytes).
+Output written on /home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf (4 pages, 487985 bytes).
 PDF statistics:
  229 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
  40 named destinations out of 1000 (max. 500000)
- 23645 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 18013 words of extra memory for PDF output out of 20736 (max. 10000000)
 
