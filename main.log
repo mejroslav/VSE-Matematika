@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.5.24)  31 JUL 2021 13:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.5.24)  2 AUG 2021 01:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -950,7 +950,7 @@ LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 96.
 LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/b/n' will be
 (Font)              scaled to size 8.0pt on input line 96.
- (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/Chapters/min-max.tex
+ (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/Chapters/1a-funkce.tex
 LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Trying to load font information for T1+LibertinusSans-TLF on input line 1.
@@ -986,69 +986,68 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/LibertinusSans-TLF/b/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 6.
+(Font)              scaled to size 7.91925pt on input line 11.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 6.
+(Font)              scaled to size 7.91925pt on input line 11.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 30.
+ (/usr/share/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+)
 LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 6.
-<Gnuplot/Figures/aproximace-sinus.pdf, id=41, 361.35pt x 252.945pt>
-File: Gnuplot/Figures/aproximace-sinus.pdf Graphic file (type pdf)
-<use Gnuplot/Figures/aproximace-sinus.pdf>
-Package pdftex.def Info: Gnuplot/Figures/aproximace-sinus.pdf  used on input line 29.
-(pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
-<Gnuplot/Figures/aproximace-sinus2.pdf, id=42, 361.35pt x 252.945pt>
-File: Gnuplot/Figures/aproximace-sinus2.pdf Graphic file (type pdf)
-<use Gnuplot/Figures/aproximace-sinus2.pdf>
-Package pdftex.def Info: Gnuplot/Figures/aproximace-sinus2.pdf  used on input line 30.
-(pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
-LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 32.
-LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 32.
-LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 32.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 32.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 32.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 32.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 32.
-LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
-(Font)              scaled to size 7.6pt on input line 43.
+(Font)              scaled to size 10.0pt on input line 52.
 LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 46.
+(Font)              scaled to size 10.0pt on input line 58.
+LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 58.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/aproximace-sinus.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/aproximace-sinus2.pdf>]
-<Gnuplot/Figures/funkce-derivace.pdf, id=104, 361.35pt x 252.945pt>
-File: Gnuplot/Figures/funkce-derivace.pdf Graphic file (type pdf)
-<use Gnuplot/Figures/funkce-derivace.pdf>
-Package pdftex.def Info: Gnuplot/Figures/funkce-derivace.pdf  used on input line 92.
+]
+<Gnuplot/Figures/funkce-rostouci-klesajici-obr.pdf, id=53, 361.35pt x 252.945pt>
+File: Gnuplot/Figures/funkce-rostouci-klesajici-obr.pdf Graphic file (type pdf)
+<use Gnuplot/Figures/funkce-rostouci-klesajici-obr.pdf>
+Package pdftex.def Info: Gnuplot/Figures/funkce-rostouci-klesajici-obr.pdf  used on input line 62.
 (pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
-<Gnuplot/Figures/funkce-druha-derivace.pdf, id=105, 361.35pt x 252.945pt>
-File: Gnuplot/Figures/funkce-druha-derivace.pdf Graphic file (type pdf)
-<use Gnuplot/Figures/funkce-druha-derivace.pdf>
-Package pdftex.def Info: Gnuplot/Figures/funkce-druha-derivace.pdf  used on input line 93.
+LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 63.
+LaTeX Font Info:    Font shape `T1/LibertinusSans-TLF/b/n' will be
+(Font)              scaled to size 9.0pt on input line 63.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 63.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 63.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 63.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 63.
+LaTeX Font Info:    Font shape `T1/LibertinusSerif-TLF/m/it' will be
+(Font)              scaled to size 10.0pt on input line 67.
+<Gnuplot/Figures/periodicka-klesajici.pdf, id=54, 361.35pt x 252.945pt>
+File: Gnuplot/Figures/periodicka-klesajici.pdf Graphic file (type pdf)
+<use Gnuplot/Figures/periodicka-klesajici.pdf>
+Package pdftex.def Info: Gnuplot/Figures/periodicka-klesajici.pdf  used on input line 71.
 (pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
- [2] [3 </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-derivace.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-druha-derivace.pdf>]) [4] (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.aux)
+<Gnuplot/Figures/neprima-umernost.pdf, id=55, 361.35pt x 252.945pt>
+File: Gnuplot/Figures/neprima-umernost.pdf Graphic file (type pdf)
+<use Gnuplot/Figures/neprima-umernost.pdf>
+Package pdftex.def Info: Gnuplot/Figures/neprima-umernost.pdf  used on input line 82.
+(pdftex.def)             Requested size: 252.94327pt x 177.06029pt.
+ [2 </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/funkce-rostouci-klesajici-obr.pdf> </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/periodicka-klesajici.pdf>] [3 </home/mir/Disk/Projects/LaTeX/VSE-Matematika/Gnuplot/Figures/neprima-umernost.pdf>] [4]) [5] (/home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E2E95EF131C28EDDAC273AE688951AE0;1669.
+(rerunfilecheck)             Checksum: 9B5229C236C63AC8D74FFDAD134B502D;1079.
  ) 
 Here is how much of TeX's memory you used:
- 19747 strings out of 478994
- 338768 string characters out of 5864751
- 865236 words of memory out of 5000000
- 36765 multiletter control sequences out of 15000+600000
- 534058 words of font info for 146 fonts, out of 8000000 for 9000
+ 19755 strings out of 478994
+ 338912 string characters out of 5864751
+ 870236 words of memory out of 5000000
+ 36777 multiletter control sequences out of 15000+600000
+ 535244 words of font info for 153 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 131i,23n,133p,637b,774s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_mfadfl.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_cb34qf.enc}</usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSans-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSans-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf (4 pages, 487985 bytes).
+ 131i,23n,133p,665b,784s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_nufysp.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_sfissr.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_75t36g.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_mfadfl.enc}{/usr/share/texmf-dist/fonts/enc/dvips/libertinus-type1/lbts_cb34qf.enc}</usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSans-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSans-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Bold.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Italic.pfb></usr/share/texmf-dist/fonts/type1/public/libertinus-type1/LibertinusSerif-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on /home/mir/Disk/Projects/LaTeX/VSE-Matematika/main.pdf (5 pages, 573012 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 18013 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 17984 words of extra memory for PDF output out of 20736 (max. 10000000)
 
