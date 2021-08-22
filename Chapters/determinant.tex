@@ -1,0 +1,84 @@
+\subsection{Definice determinantu}
+
+\subsection{Cramerovo pravidlo}
+
+Determinant můžeme použít k řešení soustav lineárních rovnic. Mějme soustavu $\mat A \vc x = \vc b$. Je-li matice $\mat A$ regulární (její determinant je nenulový), pak má soustava právě jedno řešení ve tvaru \begin{align}
+    \boxed{ x_k = \frac{\det \mat A_k}{\det \mat A} }\:,
+\end{align}
+kde $\mat A_k$ je matice, která vznikne tak, že nahradíme $k$-tý sloupec matice $\mat A$ sloupcem pravé strany $\vc b$.
+
+\begin{example}
+    Pomocí Cramerova pravidla najdeme řešení soustavy 
+    \begin{align}
+        2x - y =& 1 \\
+        x + 4y =& 14 \:.
+    \end{align}
+
+    Soustavu převedeme na maticový problém \begin{align}
+        \begin{pmatrix}
+            2 & -1 \\ 1 & 4
+        \end{pmatrix}
+        \begin{pmatrix}
+            x \\ y
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 \\ 14
+        \end{pmatrix} \:.
+    \end{align}
+    Determinant matice je roven $2 \cdot 4 - 1 \cdot (-1) = 9 \neq 0$, můžeme proto Cramerovo pravidlo použít. Pro výpočet $x$ dosadíme sloupec pravé strany do prvního sloupce a dostaneme \begin{align}
+        x = \frac{1}{9} \det \begin{pmatrix}
+            1 & -1 \\ 14 & 4
+        \end{pmatrix}
+        = \frac{1}{9} \cdot (1 \cdot 4 - 14 \cdot (-1) ) = \frac{1}{9} \cdot 18 = 2 \:.
+    \end{align}
+    Pro výpočet $y$ dosadíme sloupec pravé strany do druhého sloupce matice:
+    \begin{align}
+        y = \frac{1}{9} \det \begin{pmatrix}
+            2 & 1 \\ 1 & 14
+        \end{pmatrix}
+        = \frac{1}{9} \cdot (2 \cdot 14 - 1 \cdot 1 ) = \frac{1}{9} \cdot 27 = 3 \:.
+    \end{align}
+\end{example}
+
+Cramerovo pravidlo používáme hlavně v situacích:
+\begin{enumerate}
+    \item když nás nezajímají všechny neznámé proměnné, ale jenom některé - nemusíme eliminovat celou soustavu, ale stačí relativně málo výpočtů
+    \item při výpočtu soustav s parametrem - je poměrně pracné takovou soustavu eliminovat
+\end{enumerate}
+
+\begin{example}
+    V závislosti na hodnotě parametru $p$ určete řešení soustavy \begin{align}
+        \begin{pmatrix}
+            p & 1 & -1 \\ 1 & 1-p & 0 \\ 0 & 2 & p
+        \end{pmatrix}
+        \begin{pmatrix}
+            x \\y \\ z
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 \\ p \\ 1 - p
+        \end{pmatrix}
+    \end{align}
+\end{example}
+
+\subsection{Vlastní čísla, diagonalizace}
+
+\begin{example}[Umocňování matic I]
+    Často se setkáváme s problémem mocnění matic, tj. počítání $\mat A^2 = \mat A \cdot \mat A$, $\mat A^3 = \mat A \cdot \mat A \cdot \mat A$ atd. Při počítání mocnin obyčejným násobením matic bychom brzo zjistili, že to je velmi pomalý způsob. Můžeme ale využít diagonalizaci. Diagonální matice $\mat D$ se totiž umocňují velmi snadno (stačí umocnit jednotlivé členy na diagonále). Dále, jestliže existuje rozklad $\mat A = \mat V \mat D \mat V^{-1}$, kde $\mat D$ je diagonální matice, pak \begin{align}
+        \mat A^2 = \mat A \mat A = \mat V \mat D \mat V^{-1} \mat V \mat D \mat V^{-1} 
+        = \mat V \mat D \mat E \mat D \mat V^{-1} = \mat V \mat D^2 \mat V^{-1}
+    \end{align}
+    a obdobně \begin{align}
+        \mat A^k = \mat V \mat D^k \mat V^{-1} \:.
+    \end{align}
+\end{example}
+
+\begin{example}[Umocňování matic II]
+    Vypočítejme třetí mocninu matice \begin{align}
+        \mat A = \begin{pmatrix}
+            2 & -6 \\ -6 & 2
+        \end{pmatrix} \:.
+    \end{align}
+    \textbf{Řešení:} Najdeme vlastní čísla a vlastní vektory. Charakteristický polynom je $(2 - \lambda)^2 - 36 = \lambda^2 - 4 \lambda - 32$, vlastní čísla jsou tedy $\lambda = -2 \pm 7$ 
+\end{example}

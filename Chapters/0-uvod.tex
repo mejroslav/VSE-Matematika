@@ -1,0 +1,60 @@
+\section{Úvod}
+
+Modře jsou vyznačeny odkazy na konkrétní rovnici, tabulku nebo obrázek v textu. Červeně jsou vyznačeny hypertextové odkazy na webové stránky.
+
+
+% A diagram of TeX engines
+% Author: Stefan Kottwitz
+% https://www.packtpub.com/hardware-and-creative/latex-cookbook
+\begin{figure}
+    \centering
+    \smartdiagram[bubble diagram]{matematická analýza,
+    derivace, diferenciální \\ rovnice, (ne)určitý \\ integrál, posloupnost, funkce více \\ proměnných, extrémy a \\monotonie, konvexita, limita, vázané \\ extrémy
+    }
+    \smartdiagram[bubble diagram]{lineární algebra,
+    lineární \\(ne)závislost, algebra matic, inverzní \\matice, determinant, Gaussova \\eliminace, řešení \\soustav \\ lineárních \\rovnic, skalární součin, vlastní \\ čísla
+    }
+    \caption{Obsah tohoto kursu v kostce.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[-stealth,
+        label/.style = { font=\footnotesize }]
+        \matrix (m)
+          [
+            matrix of math nodes,
+            row sep    = 4em,
+            column sep = 4em
+          ]
+          {
+            A_0 & A_1 & A_2 & A_3 & A_4 \\
+            B_0 & B_1 & B_2 & B_3 & B_4 \\
+          };
+        \foreach \i in {1,...,4} {
+          \path
+            let \n1 = { int(\i+1) } in
+              (m-1-\i) edge node [above, label] {$f_\i$} (m-1-\n1)
+              (m-2-\i) edge node [below, label] {$f^\prime_\i$} (m-2-\n1)
+              (m-1-\i) edge node [left,  label] {$g_\i$} (m-2-\i);
+        }
+        \path (m-1-5) edge node [left, label] {$g_5$} (m-2-5);
+      \end{tikzpicture}
+
+
+      \begin{tikzpicture}[-stealth, label/.style = { font=\footnotesize }]
+        
+        \matrix (m)
+        [
+          matrix of math nodes,
+          row sep    = 4em,
+          column sep = 4em
+        ]
+        {
+          f(x) & f'(x)\\
+          f'(x) & f(x) \\
+        };
+        \path (m-1-1) edge node [above, label] {derivace} (m-1-2);
+        \path (m-2-2) edge node [below, label] {integrace} (m-2-1);
+      \end{tikzpicture}
+\end{figure}

@@ -23,8 +23,8 @@ Kompletní přehled dává tabulka.
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{||c|c|c||}
-        \hline \hline
+    \begin{tabular}{|c|c|c|}
+        \hline
         funkce & definiční obor & obor hodnot \\
         \hline
         $x^k$, $k$ je sudé              & $\R$          & $[0, \infty)$ \\ 
@@ -42,9 +42,10 @@ Kompletní přehled dává tabulka.
         $\arccos x$                     & $[-1,1]$      & $[0,\pi]$ \\
         $\arctan x$                     & $\R$          & $(-\frac{\pi}{2}, \frac{\pi}{2})$ \\
         $\arccot x$                     & $\R$          & $(0,\pi)$ \\
-         \hline \hline
+         \hline
     \end{tabular}
-    
+    \caption{Tabulka elementárních funkcí. (Je víceméně potřeba umět ji nazpaměť.)}
+    \label{tab:funkce}
 \end{table}
 
 \subsection{Růst a pokles funkce}
@@ -110,14 +111,17 @@ Jestliže je funkce $f$ prostá na intervalu $I$, pak k ní existuje \textbf{inv
         R(x) = \frac{x^2-1}{(x+1)(x-4)(x^2 + 4x - 5)} \:.
     \end{align*}
 
-    Řešení: První pravidlo nám říká, že nesmíme dělit nulou. Musíme tedy najít všechna $x$ taková, že je jmenovatel zZákladní vlastnosti funkcílomku nulový: \begin{align*}
+    Řešení: První pravidlo nám říká, že nesmíme dělit nulou. Musíme tedy najít všechna $x$ taková, že je jmenovatel zlomku nulový: \begin{align*}
         (x+1)(x-4)(x^2 + 4x - 5) = 0 \:.
     \end{align*}
     Součin čísel (nebo výrazů, závorek) je nulový tehdy a jen tehdy, když je jedno z čísel nulové. Každou závorku tedy řešíme zvlášť:
     \begin{align*}
-        x+1 =& 0 \Longrightarrow x = -1 \:, \\
-        x-4 =& 0 \Longrightarrow x = 4 \:, \\
-        x^2 + 4x - 5 =& 0 \Longrightarrow \frac{-4 \pm \sqrt{16+20}}{2} = - 2 \pm 3 \:, \: x = -5, 1 \:.
+        \begin{cases}
+            x+1 = 0 \Longrightarrow x = -1 \:, \\
+        x-4 = 0 \Longrightarrow x = 4 \:, \\
+        x^2 + 4x - 5 = 0 \Longrightarrow x = \frac{-4 \pm \sqrt{16+20}}{2} = - 2 \pm 3 \:, \: x = -5, 1
+        \end{cases}
+         \:.
     \end{align*}
     Tato řešení jsou body, které musíme z definičního oboru vyloučit. Tedy \begin{align*}
         \boxed{D(R) = \R \setminus \set{-5,-1,1,4} }\:.
@@ -154,8 +158,11 @@ Jestliže je funkce $f$ prostá na intervalu $I$, pak k ní existuje \textbf{inv
     
     Nyní vyřešíme případ nerovnosti. Podíl dvou čísel je větší než nula právě tehdy, když jsou obě čísla kladná anebo obě čísla záporná (samozřejmě \uv{minus krát minus je plus}). Stačí tedy řešit podmínky:
     \begin{align*}
-        \left [\log (x-2) > 0 \right] \bigwedge \left[ x-4 > 0\right] \Longrightarrow [x \in (3,\infty)] \bigwedge [x \in (4, \infty)] \Longrightarrow x \in (4, \infty) \:, \\
-        \left [\log (x-2) < 0 \right] \bigwedge \left[ x-4 < 0\right] \Longrightarrow [x \in (2,3)] \bigwedge [x \in (-\infty, 4)] \Longrightarrow x \in (2,3) \:.
+        \begin{cases}
+            \left [\log (x-2) > 0 \right] \bigwedge \left[ x-4 > 0\right] \Longrightarrow [x \in (3,\infty)] \bigwedge [x \in (4, \infty)] \Longrightarrow x \in (4, \infty) \:, \\
+            \left [\log (x-2) < 0 \right] \bigwedge \left[ x-4 < 0\right] \Longrightarrow [x \in (2,3)] \bigwedge [x \in (-\infty, 4)] \Longrightarrow x \in (2,3)
+        \end{cases}
+         \:.
     \end{align*}
     Celkově máme \begin{align*}
         \boxed{ D(h) = (2,3) \cup \set{3} \cup (4,\infty) = (2,3] \cup (4,\infty) } \:.
@@ -167,7 +174,7 @@ Jestliže je funkce $f$ prostá na intervalu $I$, pak k ní existuje \textbf{inv
         P(x) = \frac{\arcsin (x-1)}{x^x} \:.
     \end{align*}
 
-    Řešení: jmenovatel vyloučí bod nula. Dále, definiční obor funkce $\arcsin$ je $[-1,1]$, tedy $ -1 \geq x-1 \geq 1$, takže $x \in [0,2]$. 
+    Řešení: jmenovatel vyloučí bod nula. Dále, definiční obor funkce $\arcsin$ je $[-1,1]$, tedy $ -1 \leq x-1 \leq 1$, takže $x \in [0,2]$. 
     Nyní se podívejme na funkci ve jmenovateli. Tu můžeme přepsat \begin{align*}
         x^x = \left( e^{\log x} \right) = e^{x \log x} \:,
     \end{align*}
@@ -212,15 +219,17 @@ Jestliže je funkce $f$ prostá na intervalu $I$, pak k ní existuje \textbf{inv
     \begin{table}[H]
         \centering
         \begin{tabular}{c||c|c|c}
-            interval & $(-\infty,-1)$ & $(-1,1/2)$ & $(1/2, +\infty)$ \\
-            \hline
+            
+            \textbf{interval} & $(-\infty,-1)$ & $(-1,1/2)$ & $(1/2, +\infty)$ \\
+            \hhline{=#=|=|=} 
             $|2x-1|$ & $-2x+1$ & $-2x+1$ & $+2x-1$ \\
             \hline
             $|x+1|$ & $-x-1$ & $+x+1$ & $+x+1$ \\
-            \hline \hline
+            \hhline{=#=|=|=}
             $|2x-1|-|x+1|-3$ & $(-2x+1)-(-x-1)-3$ & $(-2x+1)-(+x+1)-3$ & $(+2x-1)-(+x+1)-3$ \\
             \hline
-            po úpravě & $-x-1$ & $ -3x - 3$ & $x-5$   
+            po úpravě & $-x-1$ & $ -3x - 3$ & $x-5$
+            
         \end{tabular}
     \end{table}
     Nyní musíme vyřešit tři nerovnice \begin{align*}

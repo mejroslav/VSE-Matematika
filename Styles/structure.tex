@@ -17,12 +17,21 @@ dottedtoc % Dotted lines leading to the page numbers in the table of contents
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 
 \usepackage[utf8]{inputenc} % Required for including letters with accents
-
+%--------------------------------------------------------------
+% Fonts and languages
 \usepackage{libertinus} % The Libertinus font
 %\usepackage[adobe-utopia]{mathdesign} % The Utopia font
+%\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+%\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+%\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
+
 
 \usepackage[czech]{babel} % Český jazyk
-
+%--------------------------------------------------------------
 \usepackage{graphicx} % Required for including images
 \graphicspath{{Figures/}} % Set the default folder for images
 
@@ -43,6 +52,15 @@ dottedtoc % Dotted lines leading to the page numbers in the table of contents
 \usepackage{float}
 
 \usepackage{caption}
+
+%------------------------------------------------------------
+%	DIAGRAMS AND TIKZ
+\usepackage{smartdiagram}
+\usepackage{metalogo}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+
+\usepackage{hhline} % kvůli double line v tabulkách
 %------------------------------------------------------------
 %	THEOREM STYLES
 %------------------------------------------------------------

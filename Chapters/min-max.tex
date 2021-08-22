@@ -2,12 +2,12 @@
 
 \subsection{Lineární a kvadratická aproximace}
 
-Hlavní význam derivací spočívá v tom, že pokud existují (říkáme, že funkce jsou \uv{dostatečně hladké}), můžeme pomocí nich funkce lokálně aproximovat.
+Hlavní význam derivací spočívá v tom, že pokud pro dané funkce existují (o takových funkcích říkáme, že jsou \uv{dostatečně hladké}), můžeme pomocí nich funkce lokálně aproximovat.
 Představme si funkci $f(x)$, která má první i druhou derivaci. Uvažujme nějaký \textbf{pevný bod $x_0$}. Na jeho \textbf{malém okolí} můžeme funkci aproximovat přímkou
 \begin{align}
     \boxed{ T_1(x) = f(x_0) + f'(x_0) \cdot (x-x_0) }
 \end{align}
-nebo parabolou
+anebo parabolou
 \begin{align}
     \boxed{ T_2(x) = f(x_0) + f'(x_0) \cdot (x-x_0) +\frac{f''(x_0)}{2}  \cdot (x-x_0)^2 }\:.
 \end{align}
@@ -17,19 +17,20 @@ nebo parabolou
     Na nějakém malém okolí tedy můžeme aproximovat přímkou \begin{align}
         T_1(x) = \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \left(x - \frac{\pi}{4} \right)
     \end{align} 
-    anebo parabolou
+    a také parabolou
     \begin{align}
         T_2(x) = \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \left( x - \frac{\pi}{4} \right) 
         - \frac{\sqrt{2}}{4} \left( x - \frac{\pi}{4} \right)^2  \:.
     \end{align}
-
+    Jak je aproximace přesná, ukazuje obrázek \ref{fig:aproximace}.
     \begin{figure}[H]
         \centering
 
         \includegraphics[scale = 0.7]{Gnuplot/Figures/aproximace-sinus.pdf}
         \includegraphics[scale = 0.7]{Gnuplot/Figures/aproximace-sinus2.pdf}
-
+        
         \caption{Aproximace funkce $\sin x$ přímkou $T_1(x)$ a parabolou $T_2(x)$ kolem bodu $\frac{\pi}{4}$.}
+        \label{fig:aproximace}
     \end{figure}
 
 \end{example}
@@ -39,7 +40,7 @@ nebo parabolou
         (\sqrt{x})' = \frac{1}{2 \sqrt{x}} \:, \quad (\sqrt{x} )'' = -\frac{3}{2 \sqrt{x^3}} \:.
     \end{align}
     Můžeme tedy aproximovat parabolou \begin{align}
-        \sqrt{x} \overset{\text{na okolí kolem }16} \approx \sqrt{16} + \frac{x-16}{2 \sqrt{16}}  -\frac{3(x-16)^2}{4 \sqrt{16^3}} = 4 + \frac{x-16}{8} - \frac{3(x-16)^2}{256}\:.
+        \sqrt{x} \overset{\text{na okolí kolem }16} \approx \sqrt{16} + \frac{x-16}{2 \sqrt{16}}  -\frac{3\cdot(x-16)^2}{4 \sqrt{16^3}} = 4 + \frac{x-16}{8} - \frac{3\cdot(x-16)^2}{256}\:.
     \end{align}
     Nyní snadno spočteme \begin{align}
         \sqrt{14} = 4 - \frac{2}{8} - \frac{8}{256} = 3,72 \:.
@@ -120,7 +121,7 @@ Může samozřejmě nastat případ, kdy najdeme stacionární bod $x_0$ splňuj
         sedlový bod & $0$ & $0$ \\
         inflexní bod & jakákoli & $0$ \\ \hline
     \end{tabular}
-    \caption{Charakterizace speciálních bodů funkcí. U sedlového bodu nejsou podmínky postačující.}
+    \caption{Charakterizace speciálních bodů funkcí. (U sedlového bodu nejsou podmínky postačující.)}
 \end{table}
 
 \section{Příklady}
