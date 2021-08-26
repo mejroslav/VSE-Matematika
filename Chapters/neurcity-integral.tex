@@ -1,8 +1,148 @@
 \section{Primitivní funkce}
 
-\begin{figure}
-    \centering
-    \smartdiagram[circular diagram:clockwise]{
-        $f(x)$, $f'(x)$
-    }
-\end{figure}
+Mějme funkci $F(x)$ a $f(x)$. Jestliže platí $F'(x) = f(x)$, pak říkáme, že $F(x)$ je \textbf{primitivní funkcí} (neurčitým integrálem) k funkci $f(x)$. Zapisujeme \begin{align}
+    \boxed{ F(x) = \int f(x) \, \D x } \:.
+\end{align}
+\begin{itemize}
+    \item Symbol $\int$ se čte \uv{integrál}. Jeho původ vychází z přepisu písmene $S$ (suma, sčítání). Později uvidíme, že integrál představuje něco jako zobecněné sčítání.
+    \item Za integrálem následuje funkce, kterou integrujeme. Té říkáme argument integrálu.
+    \item Na konci integrálu píšeme běžně znak $\D$ a za něj proměnnou, přes kterou integrujeme, např. $\D x$, $\D t$, $\D \omega$. Je dobré ji psát, protože v praxi integrujeme i funkce s paramatry, a je třeba vědět, přes kterou proměnnou sčítáme. (Správně typograficky se $\D$ píše bez kurzívy. Spousta odborných textů na to zapomíná a píše kurzívou $dx$, což je nesprávně z toho důvodu, že kurzívou se označují proměnné, operátory s němenným významem by od nich měly být odlišeny.)
+    \item Celkově výraz přečteme jako \uv{integrál z funkce f od x dé x}.
+    \item Výrazu s $\D x$ se také říká \textbf{diferenciál}.
+\end{itemize}
+
+Protože je integrál jenom jistým \uv{obrácením} derivace, má podobné vlastnosti, jako například linearitu:
+    \begin{align}
+        \int [ f(x)+g(x) ] \, \D x = \int f(x) \, \D x + \int g(x) \, \D x \:, \quad \int c f(x) \, \D x = c \int f (x) \, \D x \:.
+    \end{align}
+
+Dále si musíme všimnout, že derivace konstantní funkce je nulová. \textbf{Primitivní funkce tedy není určena jednoznačně, ale liší se o libovolnou integrační konstantu.} Bývá zvykem psát
+\begin{align}
+    \int f(x) \, \D x = F(x) + C \:, \quad C \in \R \:.
+\end{align}
+Tím říkáme, že $C$ je nějaké číslo, které můžeme zvolit, ale také nemusíme.
+
+\begin{example}
+    Najděme primitivní funkce k funkcím $y(x) = x^p$, kde $p \in \R$.
+    
+    Víme, že derivace funkce $y(x) = x^\alpha$ je $y'(x) = \alpha x^{\alpha - 1}$ pro $\alpha \neq 0$. Proto \begin{align}
+        \int \alpha x^{\alpha - 1} \, \D x = x^\alpha + C\:.
+    \end{align}
+    Víme, že integrál je lineární, konstantu můžeme vytáhnout ven a celou rovnici jím vydělit:
+    \begin{align}
+        \int x^{\alpha - 1} \, \D x = \frac{x^\alpha}{\alpha} +C \quad \text{pro} \quad \alpha \neq 0 \:.
+    \end{align}
+    Nyní už stačí identifikovat $p = \alpha - 1$, takže \begin{align}
+        \int x^p \, \D x = \frac{x^{p+1}}{p+1} + C\quad \text{pro} \quad p \neq -1 \:.
+    \end{align}
+    Pro případ $p = -1$ si vzpomeneme na to, že $(\ln x)' = \frac{1}{x}$, tedy
+    \begin{align}
+        \int \frac{1}{x} \, \D x = \ln x + C \:.
+    \end{align}
+\end{example}
+
+\begin{example}[Varování]
+    Podobně jako neplatí $(fg)' \neq f' g'$, neplatí ani \begin{align}
+        \int f(x) g(x) \, \D x \neq \int f(x) \, \D x \cdot \int g(x) \, \D x \:.
+    \end{align}
+    Pokud na toto zapomeneme, dostaneme zřejmé nesmysly, například \begin{align}
+        \frac{x^3}{3} = \int x^2 \, \D x = \int x \cdot x \, \D x 
+        \neq \int x \, \D x \cdot \int x \, \D x = \frac{x^2}{2} \cdot \frac{x^2}{2} = \frac{x^4}{4} \:.
+    \end{align}
+    Proto integrování funkcí vzniklých součinem je mnohem obtížnější. Používá se k němu speciální metoda, se kterou se seznámíme.
+\end{example}
+
+\begin{example}
+    Spočítáme \begin{align}
+        \int \left( x^4 - 3x + 1 - \frac{2}{x^3} + \frac{5}{x} - \sin x \right) \, \D x \:.
+    \end{align}
+    Díky linearitě a výsledkům předchozího příkladu máme \begin{align}
+        \int \left( x^4 - 3x + 1 - \frac{2}{x^3} + \frac{5}{x} - \sin x \right) \, \D x = \frac{x^5}{5} - \frac{3x^2}{2} + x + \frac{1}{x^2} + 5 \ln x + \cos x + C \:.
+    \end{align}
+    $C$ je opět libovolná konstanta.
+\end{example}
+
+\begin{example}
+    Vypočítáme \begin{align}
+        \int \frac{4x^2+12}{x^2+1} \, \D x \:.
+    \end{align}
+
+    Čitatel upravíme a dostaneme \begin{align}
+        \int \frac{4(x^2+1) + 8}{x^2+1} \, \D x = \int 4 \, \D x + \int \frac{8}{1+x^2} \, \D x = 4x + 8 \arctan x + C \:.
+    \end{align}
+\end{example}
+
+\section*{Substituční metoda}
+
+Vzpomeneme si na vztah pro derivaci složené funkce \begin{align}
+    [f(g(x))]' = f'(g(x)) \cdot g'(x) \:.
+\end{align}
+Obě strany rovnice můžeme zintegrovat a dostáváme vztah \begin{align}
+    \boxed{
+        f(g(x)) = \int f'(g(x)) \cdot g'(x) \, \D x 
+    } \:.
+\end{align}
+Tento vztah je jádrem tzv. metody substituce.
+
+\begin{example}
+    \begin{align}
+        \int (2x-22)^{18} \, \D x \:.
+    \end{align}
+    Využijeme toho, že umíme integrovat funkci $x^{18}$. Označíme celou závorku jako pomocnou proměnnou $u$. Musíme nyní určit $\D x$ pomocí diferenciálu $\D u$. K tomu stačí napsat derivaci:
+    \begin{align}
+        u = 2x - 22 \:, \quad \D u = 2 \D x \:,\quad \D x = \frac{1}{2} \D u \:.
+    \end{align}
+    Proto \begin{align}
+        \int (2x-22)^{18} \, \D x = \int u^{18} \cdot \frac{1}{2} \, \D u = \frac{1}{2} \cdot \frac{u^{19}}{19} + C = \frac{u^{19}}{38} + C \:.
+    \end{align}
+    Nyní zpětně musíme za $u$ dosadit výraz s $x$ a dostaneme výsledek:
+    \begin{align}
+        \boxed{ \int (2x-22)^{18} \, \D x = \frac{(2x-22)^{19}}{38} + C }\:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        \int \sin \left(\frac{2 \pi }{3} t + 1 \right) \, \D t \:.
+    \end{align}
+    Využijeme toho, že umíme integrovat $\sin x$, který má primitivní funkci $- \cos x$. Označíme si proto argument $\left(\frac{2 \pi }{3} t + 1 \right)$ jako nějaké $u$. Nyní však ještě musíme vyjádřit ono $\D t$ pouze pomocí proměnné $u$. To dělá jednoduše tak, že výraz zderivujeme:
+    \begin{align}
+        u = \frac{2 \pi }{3} t + 1 \:, \quad \D u = \frac{2 \pi}{3} \D t \:, \quad \D t = \frac{3}{2 \pi} \D u \:.
+    \end{align}
+    Proto můžeme psát \begin{align}
+        \int \sin \left(\frac{2 \pi }{3} t + 1 \right) \, \D t = \int \sin u \cdot \frac{3}{2 \pi} \, \D u = -\frac{3}{2 \pi} \cos u + C \:.
+    \end{align}
+    Nyní zpětně dosadíme za $u$ a máme výsledek:
+    \begin{align}
+        \boxed{ \int \sin \left(\frac{2 \pi }{3} t + 1 \right) \, \D t = -\frac{3}{2 \pi} \cos \left(\frac{2 \pi }{3} t + 1 \right) + C }\:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        \int x e^{-x^2} \, \D x \:.
+    \end{align}
+    Víme, že umíme integrovat $e^{-x}$, proto zvolíme substituci $w = -x^2$ a vyjádříme $\D w = - 2 x \, \D x$. Tento člen můžeme \uv{vecpat} do integrálu:
+    \begin{align}
+        \int x e^{-x^2} \, \D x = -\frac{1}{2} \int e^{-x^2} \cdot (-2x) \, \D x = - \frac{1}{2} \int e^{w} \, \D w = - \frac{1}{2} \cdot e^{w} + C = -\frac{1}{2} e^{-x^2} + C \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        \int \frac{\cos x}{\sin^3 x} \, \D x \:.
+    \end{align}
+    Všimneme si, že v čitateli se vyskytuje derivace $\sin x$, takže položíme $\sin x = z$ a máme $\D z = \cos x \, \D x$.
+    \begin{align}
+        \int \frac{\cos x}{\sin^3 x} \, \D x = \int \frac{\D z}{z^3} = - \frac{2}{z^2} + C = - \frac{2}{\sin^2 x} + C \:.
+    \end{align}
+\end{example}
+
+Vidíme, že metoda substituce potřebuje \uv{zkušené oko} - je potřeba propočítat mnoho typových úloh, aby se s ní člověk smířil.
+
+\begin{enumerate}
+    \item Podíváme se, zda vystupuje v integrálu součin dvou funkcí.
+    \item Zjistíme, zda jedna z nich není derivací nějakého výrazu v druhé funkci.
+    \item Jestliže ano, můžeme ji položit jako substituci.
+    \item Často je potřeba vynásobit celý integrál nějakým číslem, aby všechno sedělo.
+\end{enumerate}
