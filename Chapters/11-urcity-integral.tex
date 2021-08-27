@@ -7,20 +7,31 @@ Představme si funkci $f(x)$, která má primitivní funkci $F(x)$ (neboli $F'(x
 \end{align}
 se nazývá \textbf{určitý integrál} z funkce $f(x)$ v mezích od $a$ do $b$. 
 
+Pro výpočet určitého integrálu tedy najdeme nejprve neurčitý integrál, pak ho vyčíslíme v krajních bodech intervalu a tato dvě čísla navzájem odečteme. To naznačují hranaté závorky $[\cdot]_a^b$ za první rovností.
+
+\begin{example}
+    \begin{align}
+        \int_1^4 3 x^2 \, \D x = [x^3 + C]_1^4 = (4^3 + C)- (1^3 + C) = 4^3 - 1 = 63 \:.
+    \end{align}
+    V první rovnosti jsme našli primitivní funkci k $x^3$, ve druhém kroku ji vyčíslili v bodech $4$ a $1$, ve třetím jsme je odečetli. Všimněme si, že konsanta $C$, kterou je nutné psát u neurčitého integrálu, se vždy v určitém integrálu odečte.
+\end{example}
+
 \textbf{Určitý integrál udává obsah plochy pod křivkou funkce $f(x)$.}
 Pokud pracujeme s funkcemi, které nabývají záporných hodnot, musíme dát pozor. \uv{Plocha pod křivkou} bude v takovém případě záporná. Pokud nás tedy zajímá plocha ohraničená nulou a danou funkcí, musíme nejdříve nalézt intervaly, na kterých je funkce kladná (tam se určitý integrál přičítá), a intervaly, na kterých je záporná (tam se odčítá).
 
 \subsection*{Příklady}
 
 \begin{example}[Obsah pravoúhlého trojúhelníka]
-    Pomocí určitého integrálu spočítáme obsah pravoúhlého trojúhelníka. Představme si takový objekt jako plochu mezi osami $x$ a $y$ a vhodnou lineární funkcí. Jestliže mají odvěsny délky $a$ a $b$, můžeme třeba zvolit funkci $y(x) = b(1-x/a)$ (ověřte její průsečíky). Obsah pak bude roven \begin{align}
+    Pomocí určitého integrálu spočítáme obsah pravoúhlého trojúhelníka. 
+    
+    Představme si takový objekt jako plochu mezi osami $x$ a $y$ a vhodnou lineární funkcí. Jestliže mají odvěsny délky $a$ a $b$, můžeme třeba zvolit funkci $y(x) = b(1-x/a)$ (ověřte její průsečíky). Obsah pak bude roven \begin{align}
         S = \int_0^a b\left(1-\frac{x}{a}\right) \, \D x = \left[ bx - \frac{bx^2}{2a} \right]_0^a =  ba - \frac{ba^2}{2a} - b \cdot 0 - \frac{b \cdot 0^2}{2a} = ab - \frac{ab}{2} = \frac{ab}{2} \:.
     \end{align}
     Samozřejmě, obsah trojúhelníka je \uv{základna krát výška děleno dvěma}, v případě pravoúhlého trojúhelníka polovina součinu délek odvěsen.
 \end{example}
 
 \begin{example}[Obsah obecnějšího trojúhelníka]
-    Uvažujme trojúhelník, který vznikne jako plocha ohraničená lineárními funkcemi $y=x$, $y=1-x$ a $y=x/2$. Spočítáme jeho obsah. TODO: obrázek
+    Uvažujme trojúhelník, který vznikne jako plocha ohraničená lineárními funkcemi $y=x$, $y=1-x$ a $y=x/2$. Spočítáme jeho obsah.
 
     Nejdříve najdeme vrcholy trojúhelníku. Zřejmě to jsou body $[0,0]$, $[1/2,1/2]$ a $[2/3,1/3]$.
     Nyní počítáme plochu integrálem \begin{align}
@@ -32,12 +43,22 @@ Pokud pracujeme s funkcemi, které nabývají záporných hodnot, musíme dát p
         =
         [\frac{1}{4 \cdot 2^2} - 0 ] + [\frac{2}{3} - 3 \cdot \frac{2^2}{3^2 \cdot 2} - \frac{1}{2} + 3 \cdot \frac{1}{2 \cdot 2^2}] = \frac{1}{48} \:.
     \end{align}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.8]{Gnuplot/Figures/priklad-trojuhelnik-obr.pdf}
+        \caption{Tři lineární funkce ohraničující trojúhelník.}
+    \end{figure}
+
 \end{example}
 
 
 \begin{example}[Obsah kruhu]
-    Pomocí určitého integrálu spočítáme obsah kruhu. Kružnice je definovaná jako množina bodů, které mají od středu stejnou vzdálenost. Jestliže umístíme střed do počátku souřadnic, je vzdálenost bodu $(x,y)$ dána Pythagorovou větou $x^2 + y^2$, tato vzdálenost je stále konstantní a je rovna $R^2$. Proto rovnice kružnice bude $x^2 + y^2 = R^2$. Položme pro jednoduchost $R=1$.
-    Z tohoto vztahu můžeme zkusit vyjádřit křivku jako funkci $y(x)$. Zřejmě máme dvě možnosti: $y = \pm \sqrt{1-x^2}$. Zamyslíme-li se nad obrázkem, bude nám stačit uvažovat čtvrtkruh - spočítáme obsah pod křivkou $y = \sqrt{1-x^2}$ v intervalu $[0,1]$ a výsledek vynásobíme čtyřmi.
+    Pomocí určitého integrálu spočítáme obsah kruhu. 
+    
+    Kružnice je definovaná jako množina bodů, které mají stejnou vzdálenost od středu. Jestliže umístíme střed do počátku souřadnic, je vzdálenost bodu $[x,y]$ dána Pythagorovou větou $x^2 + y^2$, tato vzdálenost je stále konstantní a je rovna kvadrátu poloměru $R^2$. Proto rovnice kružnice bude $x^2 + y^2 = R^2$. Položme pro jednoduchost $R=1$.
+    
+    Z tohoto vztahu můžeme zkusit vyjádřit kružnici jako funkci $y(x)$. Zřejmě máme dvě možnosti: $y = \pm \sqrt{1-x^2}$, jednu na horní polorovině a druhou na dolní, viz obrázek \ref{fig:obsah-kruhu}. Zamyslíme-li se nad obrázkem, bude nám stačit uvažovat čtvrtkruh - spočítáme obsah pod křivkou $y = \sqrt{1-x^2}$ v intervalu $[0,1]$ a výsledek vynásobíme čtyřmi.
 
     Je tedy třeba spočítat \begin{align}
         I = \int_0^1 \sqrt{1-x^2} \, \D x \:.
@@ -54,6 +75,15 @@ Pokud pracujeme s funkcemi, které nabývají záporných hodnot, musíme dát p
         I = \frac{\pi}{4} \:.
     \end{align}
     To je obsah jedné čtvrtiny kruhu. Celý kruh má proto obsah $S = \pi$.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.8]{Gnuplot/Figures/priklad-kruh-obr.pdf}
+        \caption{Kružnice vzniklá spojením dvou funkcí na horní a dolní polorovině. Pro výpočet obsahu stačí spočítat pravý horní kvadrant.}
+        \label{fig:obsah-kruhu}
+    \end{figure}
+
+
 \end{example}
 
 \subsection*{Aplikace}
@@ -151,5 +181,25 @@ Někdy se setkáváme se situacemi, kde lze spočítat plochu grafu funkce i na 
         \iint_{O} f(x,y) \, \D x \D y = \int_a^b \left[ \int_c^d f(x,y) \, \D y \right] \, \D x = \int_c^d \left[ \int_a^b f(x,y) \, \D x \right] \, \D y \:.
     \end{align}
     \item Matematická oblast zabývající se integrálem se nazývá \textbf{teorie míry}. Jde ruku v ruce s \textbf{teorií pravděpodobnosti a statistiky}. Myšlenka je založená na tom, že pravděpodobnost má stejné vlastnosti jako objem. Jakýkoli problém z pravděpodobnosti lze tedy geometrizovat - převést na problém výpočtu nějakého \uv{zobecněného objemu}. Koho zajímá pravděpodobnost, musí umět dobře rozumět integrálům!
+    
+    \item Díky určitému integrálu můžeme také sestrojit funkce, které nejsou elementární (nevzniknou konečným počtem operací z jednoduchých funkcí).
+    
+    Příkladem je tzv. \textbf{error funkce}, která je definovaná předpisem \begin{align}
+        \mathrm{erf}\,x = \frac{2}{\pi} \int_0^x e^{-t^2}\, \D t \:.
+    \end{align}
+    Funkce $e^{-t^2}$ má jistě primitivní funkci (je spojitá), ale ta nelze zapsat jednoduchým předpisem. Error funkce má použití ve statistice.
+
+    Jiným příkladem je tzv. \textbf{gama funkce} (viz obrázek \ref{fig:gammafce}) definovaná integrálem
+    \begin{align}
+        \Gamma (x) = \int_0^{\infty} e^{-t} t^{x-1} \, \D t \:.
+    \end{align}
+    Její zajímavostí je, že zobecňuje faktoriál. Platí $\Gamma(n) = (n-1)!$ pro $n \in \N$.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.8]{Gnuplot/Figures/gammafce-obr.pdf}
+        \caption{Gama funkce $\Gamma(x)$ jako příklad neelementární funkce. Pro nekladná celá čísla není definovaná, pro kladná čísla dává hodnoty faktoriálu.}
+        \label{fig:gammafce}
+    \end{figure}
 \end{itemize}
 

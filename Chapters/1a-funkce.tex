@@ -65,12 +65,14 @@ O funkci řekneme, že je \begin{itemize}
 \end{figure}
 
 \begin{remark}
-    Pokud mluvíme o růstu nebo poklesu funkce, je vždy nutné uvést, na jakém intervalu se pohybujeme. Důležitost je vidět na následujícím příkladu.
+    Pokud mluvíme o růstu nebo poklesu funkce, je vždy nutné uvést, na jakém intervalu se pohybujeme. Důležitost je vidět na následujícím příkladu, viz obrázek \ref{fig:1a-funkce-ne}.
 
     \begin{figure}[H]
         \centering
         \includegraphics[scale = 0.7]{Gnuplot/Figures/periodicka-klesajici.pdf}
-        \caption{Příklad funkce, která je klesající na každém intervalu $(2p-1,2p+1)$, $p \in \Z$, ale není klesající na celém $\R$ (nesplňuje definici klesající funkce - stačí porovnat dva body v oddělených intervalech). Dokonce se jeví jako \uv{globálně rostoucí}, ale s takovým pojmem nepracujeme. Všimněme si, že funkce je v krajních bodech intervalů nespojitá.}
+        
+        \caption{Příklad funkce, která je klesající na každém intervalu $I_p = (2p-1,2p+1)$, kde $p \in \Z$. Na celém $\R$ ale není ani rostoucí, ani klesající. Porovnáme-li dva body $x_1 < x_2$ v témže intervalu $I_p$, splňují $f(x_1) > f(x_2)$. Porovnáme-li však body v různých intervalech, dostaneme $f(x_1) < f(x_2)$. Není tedy splněna ani jedna z podmínek pro růst nebo pokles na $\R$. Všimněme si, že funkce je v krajních bodech intervalů nespojitá, má v nich skoky.}
+        \label{fig:1a-funkce-ne}
     \end{figure}
 
 \end{remark}

@@ -35,9 +35,9 @@ Tím říkáme, že $C$ je nějaké číslo, které můžeme zvolit, ale také n
     Nyní už stačí identifikovat $p = \alpha - 1$, takže \begin{align}
         \int x^p \, \D x = \frac{x^{p+1}}{p+1} + C\quad \text{pro} \quad p \neq -1 \:.
     \end{align}
-    Pro případ $p = -1$ si vzpomeneme na to, že $(\ln x)' = \frac{1}{x}$, tedy
+    Pro případ $p = -1$ si vzpomeneme na to, že $(\ln x)' = \frac{1}{x}$ pro $x>0$ a $(\ln (-x))' = \frac{1}{x}$ pro $x<0$. Oba vztahy spojíme do jednoho zápisem
     \begin{align}
-        \int \frac{1}{x} \, \D x = \ln x + C \:.
+        \int \frac{1}{x} \, \D x = \ln |x| + C \:.
     \end{align}
 \end{example}
 
@@ -138,11 +138,54 @@ Tento vztah je jádrem tzv. metody substituce.
     \end{align}
 \end{example}
 
-Vidíme, že metoda substituce potřebuje \uv{zkušené oko} - je potřeba propočítat mnoho typových úloh, aby se s ní člověk smířil.
+\subsubsection*{Integrály typu $\int \frac{f'(x)}{f(x)}\, \D x$}
+Typický příklad, kde použít metodu substituce, jsou integrály typu \begin{align}
+    \int \frac{f'(x)}{f(x)} \, \D x \:.
+\end{align}
+Zde totiž stačí položit $f(x) = u$, $\D u = f'(x) \, \D x$, takže \begin{align}
+    \int \frac{f'(x)}{f(x)} \, \D x = \int \frac{1}{u} \, \D u = \ln |u| + C = \ln |f(x)| + C \:.
+\end{align}
+
+\begin{example}
+    Spočítáme \begin{align}
+        \int \frac{3x^5}{12-x^6} \, \D x \:.
+    \end{align}
+    Vidíme, že v čitateli se nachází derivace jmenovatele (až na konstanty). Proto položíme $u = 12 - x^6$, $\D u = - 6 x^5 \, \D x$ a dosadíme:
+    \begin{align}
+        \int \frac{3x^5}{12-x^6} \, \D x = -\frac{1}{2} \int \frac{-6x^5}{12-x^6} \, \D x = -\frac{1}{2} \int \frac{1}{u} \, \D u = \ln |u| + C = \ln |12-x^6| + C \:.
+    \end{align}
+\end{example}
+
+
+
+\subsubsection*{Metoda substituce - shrnutí}
+
+Viděli jsme, že metoda substituce potřebuje \uv{zkušené oko} - k jejímu ovládnutí je potřeba propočítat mnoho typových úloh.
 
 \begin{enumerate}
     \item Podíváme se, zda vystupuje v integrálu součin dvou funkcí.
     \item Zjistíme, zda jedna z nich není derivací nějakého výrazu v druhé funkci.
     \item Jestliže ano, můžeme ji položit jako substituci.
     \item Často je potřeba vynásobit celý integrál nějakým číslem, aby všechno sedělo.
+    \item Spočítáme substituovaný integrál.
+    \item Do výsledného výrazu dosadíme zpětnou substituci, abychom měli výsledek v původních proměnných.
 \end{enumerate}
+
+\subsection*{Poznámky}
+
+\begin{itemize}
+    \item Každá spojitá funkce má primitivní funkci.
+    \item Nespojité funkce nemusejí primitivní funkci mít. Například funkce 
+    \begin{align}
+        \mathrm{sign}\, x = \begin{cases}
+            +1 & x>0 \\
+            0 & x=0 \\
+            -1 & x<0
+        \end{cases}
+    \end{align}
+    nemá primitivní funkci. Primitivní funkcí k ní nemůže být $|x|$, protože ta nemá v bodě $0$ derivaci definovanou.
+
+    \item Doposud jsme v matematické analýze postupovali tak, že jsme z předpisu pro zadanou funkci uměli vyšetřit její lokální chování na nějakém intervalu, určit extrémy, limity v nekonečnu a podobně. To všechno umožňuje operace derivování.
+    
+    Častější situace však je, že známe předpis pro to, jak se daná funkce mění (například nám někdo zadá derivaci) a my ji potřebujeme nalézt. To nám právě umožňuje integrování.
+\end{itemize}
