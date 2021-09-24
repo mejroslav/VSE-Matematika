@@ -1,0 +1,184 @@
+\section*{Definiční obory elementárních funkcí}
+
+Při určování definičního oboru elementárních funkcí se v podstatě můžeme řídit jednoduchými zásadami.
+
+\begin{enumerate}
+    \item Nesmíme dělit nulou.
+    \item Sudé odmocniny jsou definované pouze pro nezáporná čísla.
+    \item Logaritmus je definovaný pouze pro kladná čísla.
+    \item Speciální pozornost si zaslouží funkce $\tg x$, $\cotg x$, $\arcsin x $ a $\arccos x$.
+\end{enumerate}
+
+Kompletní přehled dává tabulka \ref{tab:funkce}. (Je víceméně potřeba umět ji nazpaměť.)
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{funkce} & \textbf{definiční obor} & \textbf{obor hodnot} \\
+        \hline
+        $x^k$, $k$ je sudé              & $\R$          & $[0, \infty)$ \\ 
+        $x^k$, $k$ je liché             & $\R$          & $\R$ \\ 
+        $\sqrt[k]{x}$, $k$ je sudé      & $[0, \infty)$ & $[0, \infty)$ \\
+        $\sqrt[k]{x}$, $k$ je liché     & $\R$          & $\R$ \\
+        \hline
+        $e^x$                           & $\R$          & $(0, \infty)$ \\
+        $a^x$, $a>0$                    & $\R$          & $(0, \infty)$ \\
+        $\ln x$                         & $(0, \infty)$ & $\R$ \\
+        $\log_a x$, $a>0$               & $(0, \infty)$ & $\R$ \\
+        \hline
+        $\sin x$                        & $\R$          & $[0,1]$ \\
+        $\cos x$                        & $\R$          & $[0,1]$ \\
+        $\tg x$                         & $\R \setminus \set{\pi/2 + k \pi, k \in \Z}$ & $\R$ \\
+        $\cotg x$                       & $\R \setminus \set{k \pi, k \in \Z}$  & $\R$ \\
+        \hline
+        $\arcsin x$                     & $[-1,1]$      & $[-\frac{\pi}{2}, \frac{\pi}{2}]$ \\
+        $\arccos x$                     & $[-1,1]$      & $[0,\pi]$ \\
+        $\arctg x$                      & $\R$          & $(-\frac{\pi}{2}, \frac{\pi}{2})$ \\
+        $\arccotg x$                    & $\R$          & $(0,\pi)$ \\
+         \hline
+    \end{tabular}
+    \caption{Tabulka elementárních funkcí.}
+    \label{tab:funkce}
+\end{table}
+
+\section*{Příklady}
+
+\begin{example}
+    Určíme definiční obor funkce \begin{align}
+        f(x) = \frac{1}{x-4} + \frac{1}{x+6} \:.
+    \end{align}
+    P1 nám říká, že nesmíme dělit nulou. To vede na podmínky $x \neq 4$ a $x \neq -6$. Celkově $D_f = \R \setminus \set{4,-6}$.
+\end{example}
+
+\begin{example}
+    Určíme definiční obor funkce \begin{align}
+        g(x) = \frac{(x-2)(x-6)}{(x-4)(x^2-9)} \:.
+    \end{align}
+    Použijeme opět P1 a dostáváme rovnici \begin{align}
+        (x-4)(x^2-9) = 0 \:.
+    \end{align}
+    Nyní využijeme toho, že \textit{součin čísel je roven nule právě tehdy, když alespoň jedno z nich je rovno nule}. Dostáváme tedy podmínky:
+    \begin{align}
+        x - 4 = 0 \implies x \neq 4 \\
+        x^2 - 9 = 0 \implies x \neq \pm 3 \:.
+    \end{align}
+    Celkově $D_g = \R \setminus \set{-3,3,4}$.
+\end{example}
+
+\begin{example}
+    Určíme definiční obor funkce \begin{align}
+        h(x) = \sqrt{1 - \frac{6}{x+1}} \:.
+    \end{align}
+    P1 nám dává podmínku $x \neq -1$. P2 nám říká, že celý výraz pod odmocninou musí být nezáporný, tedy \begin{align}
+        1 - \frac{6}{x+1} \geq 0 \:.
+    \end{align}
+    Tuto nerovnici můžeme vyřešit například tak, že převedeme oba členy na stejného jmenovatele
+    \begin{align}
+        \frac{x+1}{x+1} - \frac{6}{x+1} = \frac{x-5}{x+1} \geq 0
+    \end{align}
+    a poté využijeme toho, že \textit{podíl dvou čísel je nezáporný tehdy, když čitatel i jmenovatel budou buďto oba dva kladné nebo oba dva záporné}. Samozřejmě ale musíme vyloučit možnost $x=-1$. Takže \begin{align}
+        [x-5 \leq 0] \bigwedge [x+1 > 0] \implies x \in [5,\infty) \\
+        [x-5 \geq 0] \bigwedge [x+1 < 0] \implies x \in (-\infty,-1) 
+    \end{align}
+    Celkově $D_h = (-\infty, -1) \cup [5,\infty)$.
+\end{example}
+
+\begin{example}
+    Určíme definiční obor funkce \begin{align}
+        F(x) = \frac{\sqrt{4-\ln x}}{2^x - 16} \:.
+    \end{align}
+    P1 vede na rovnici $2^x - 16 = 0$. Tu můžeme snadno vyřešit, když si všimneme, že $16 = 2^4$, takže $x \neq 4$.
+    P3 vede na podmínku $x>0$. Konečně P2 vede na nerovnici \begin{align}
+        4 - \ln x \geq 0 \:.
+    \end{align}
+    Tu můžeme vyřešit tak, že logaritmus převedeme na jednu stranu rovnice
+    \begin{align}
+        4 \geq \ln x \:.
+    \end{align}
+    Nyní můžeme na rovnici \uv{zapůsobit exponenciálou}. Exponenciála je funkce prostá a rostoucí, nemění se tedy znaménko nerovnosti. Dostáváme \begin{align}
+        \exp(4) = e^4 \geq \exp(\ln x) = x \:,
+    \end{align}
+    takže $x \in (-\infty, e^4]$.
+    
+    Celkově dostáváme $D_F = (0,4)\cup(4,e^4]$.
+\end{example}
+
+\begin{example}
+    Určíme definiční obor funkce \begin{align}
+        G(t) = \arcsin (\ln t) \:.
+    \end{align}
+    P3 nám říká, že $t>0$. Nyní se podíváme na pravidlo P4. To nám říká, že vnitřek arkussinu musí být v mezích $[-1,1]$. Odtud dostáváme podmínku \begin{align}
+        -1 \leq \ln t \leq +1 \:.
+    \end{align}
+    Tyto nerovnice můžeme vyřešit opět tak, že zapůsobíme exponenciálou:
+    \begin{align}
+        e^{-1} \leq t \leq e^1 \:.
+    \end{align}
+    Celkově tedy $D_G = [e^{-1},e]$.
+\end{example}
+
+\begin{example}
+    Určíme definiční obor funkce \begin{align}
+        y(x) = \ln \left( \frac{\pi}{6} - \arcsin x \right) \:.
+    \end{align}
+    P4 nám říká, že $x \in [-1,1]$. P3 nám dává nerovnici \begin{align}
+        \frac{\pi}{6} - \arcsin x > 0 \:.
+    \end{align}
+    Takovou nerovnici opět vyřešíme tak, že arkussinus převedeme na druhou stranu rovnice
+    \begin{align}
+        \frac{\pi}{6} > \arcsin x
+    \end{align}
+    a na rovnici \uv{zapůsobíme} funkcí sinus. Ta je opět rostoucí, takže nezmění znaménko nerovnosti. Dostáváme
+    \begin{align}
+        \frac{1}{2} = \sin \left( \frac{\pi}{6} \right)  > \sin (\arcsin(x)) = x \:,
+    \end{align}
+    takže máme $x \in (-\infty, \frac{1}{2})$.
+
+    Celkově $D_y = [-1,\frac{1}{2})$.
+\end{example}
+
+\begin{example}[Náročnější]
+    Určíme definiční obor funkce \begin{align}
+        T(z) = \ln \left(\ln(\ln z) \right) \:.
+    \end{align}
+    Aplikujeme pravidlo P3, postupovat budeme od funkce uvnitř. Dostaneme podmínky \begin{align}
+        z > 0 \:, \quad \ln (z) > 0 \:, \quad \ln (\ln z) > 0 \:.
+    \end{align}
+    Druhá z nerovnic nám dává podmínku $z > 1$. Na třetí nerovnici aplikujeme exponenciálu a dostaneme \begin{align}
+        \ln z > \exp 0 = 1 \:.
+    \end{align}
+    Nyní znova zapůsobíme exponenciálou a dostaneme \begin{align}
+        z >  \exp 1 = e \:.
+    \end{align}
+
+    Takže $D_T = (e, \infty)$.
+\end{example}
+
+\begin{example}[S absolutní hodnotou]
+    Určíme definiční obor funkce \begin{align}
+        A(x) = \frac{1}{\sqrt{|x+2|-|x+4|}} \:.
+    \end{align}
+    P1 a P2 vedou na podmínku \begin{align}
+        |x+2|-|x+4| > 0 \:.
+    \end{align}
+    Absolutních hodnot se zbavíme tak, že se podíváme na jednotlivé intervaly. Nulové body v absolutních hodnotách jsou $-2$ a $-4$. Dostáváme tak tři intervaly, na kterých budeme absolutní hodnoty řešit:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c|c}
+            interval & $(-\infty,-4) $ & $(-4,-2)$ & $(-2,\infty)$ \\
+            \hline
+            $|x+2|$ & $-x-2$ & $-x-2$ & $x+2$ \\
+            $|x+4|$ & $-x-4$ & $x+4$ & $x+4$ \\
+            \hline
+            $|x+2|-|x+4|$ & $(-x-2)-(-x-4)=2$ & $(-x-2)-(x+4)=-2x-6$ & $(x+2)-(x+4) = -2$
+        \end{tabular}
+    \end{table}
+    Na intervalu $(-\infty,-4)$ se tedy suma absolutních hodnot chová jako konstanta $2$, která je zřejmě větší než nula. 
+    
+    Na intervalu $(-4,-2)$ musíme vyřešit nerovnici $-2x-6>0$, která vede na $x < -3$. 
+    
+    Na intervalu $(-2,\infty)$ už je chování zase konstantní, $-2<0$. 
+    
+    Celkově vyhovují pouze $x$ z intervalu $(-\infty,-4]$ a ještě z intervalu $[-4,-3)$. Takže $D_A = (-\infty,-3)$.
+\end{example}
