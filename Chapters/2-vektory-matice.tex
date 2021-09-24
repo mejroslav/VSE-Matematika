@@ -1,0 +1,121 @@
+\section{Vektory}
+
+Uspořádanou $n$-tici reálných čísel $\vc v = (v_1,v_2,v_3, \cdots, v_n)$ budeme nazývat \textbf{vektorem} délky $n$. Množinu všech vektorů délky $n$ budeme značit $V_n$ a nazývat ji \textbf{vektorovým prostorem}. Číslu $a_j$ na $j$-té pozici ve vektoru $\vc a$ říkáme \textbf{$j$-tá složka vektoru}.
+
+Definujeme součet vektorů (po složkách) \begin{align}
+    (a_1,a_2,\cdots, a_n) + (b_1,b_2,\cdots, b_n) = (a_1+b_1, a_2 + b_2, \cdots , a_n + b_n)
+\end{align}
+a násobek vektoru reálným číslem (rovněž po složkách) \begin{align}
+    c (a_1, a_2, \cdots, a_n) = (c a_1, c a_2, \cdots, c a_n) \:.
+\end{align}
+Je tedy jasné, že sčítat lze pouze dva vektory stejné délky.
+
+\begin{example}
+    Nechť $\vc x = (1,-2,4,6)$, $\vc y = (1,0,0,2)$ a $\vc z = (2,-1,1)$. Platí \begin{align}
+        \vc x - 3 \vc y = (1,-2,4,6) - 3\cdot(1,0,0,2) = (1-3,-2,4,6-6) = (-2,-2,4,0) \:.
+    \end{align}
+    Vektor $\vc z$ nemůžeme sčítat s vektory $\vc x$ a $\vc y$, protože $\vc z \in V_3$, ale $\vc x, \vc y \in V_4$.
+\end{example}
+
+\subsection*{Příklady použití vektorů}
+
+\begin{itemize}
+    \item Prostor $V_1$ je složen z vektorů délky $1$, tedy z objektů typu $ \vc a = (a)$. Je tedy v nějakém smyslu totožný, jako množina reálných čísel $\R$.
+    \item Prostor $V_2$ je složen z vektorů délky $2$, které mohou reprezentovat například aritmetické vektory v rovině, známé z analytické geometrie. Tam se většinou značí se šipkou:
+    \begin{align}
+        \overrightarrow{v} = (v_x,v_y) \:.
+    \end{align}
+    \item Prostor $V_3$ z vektorů délky $3$, které mohou reprezentovat aritmetické vektory v prostorové třírozměrné geometrii. Také se často značí se šipkou:
+    \begin{align}
+        \overrightarrow{v} = (v_x,v_y,v_z) \:.
+    \end{align}
+    \item Operace násobení vektoru číslem v prostorech $V_2$ a $V_3$ představuje \uv{natahování nebo zkracování vektoru}.
+    \item V Newtonově pohybovém zákonu $\overrightarrow{F} = m \overrightarrow{a}$ vystupují vektory z $V_3$. $m$ je hmotnost objektu, $\overrightarrow{F}$ je působící síla a $\overrightarrow{a}$ je zrychlení objektu, které tato síla způsobí.
+    \item Do vektoru délky $n$ můžeme ukládat například ceny jednotlivých výrobků, které máme seřazené podle nějakého kritéria.
+\end{itemize}
+
+\section{Lineární kombinace, lineární (ne)závislost}
+
+Řekneme, že vektor $\vc x$ je \textbf{lineární kombinací} vektorů $\vc a_1, \vc a_2, \cdots, \vc a_k$, jestliže existují čísla $c_1, c_2, \cdots, c_n$ taková, že platí \begin{align}
+    \vc x = c_1 \vc a_1 + c_2 \vc a_2 + \cdots + c_k \vc a_k \:.
+\end{align}
+Koeficientům $c_1, \cdots, c_k$ říkáme \textbf{koeficienty lineární kombinace}. 
+
+Řekneme, že vektory $\vc a_1, \vc a_2, \cdots, \vc a_k$ jsou \textbf{lineárně závislé}, jestliže existuje jejich netriviální lineární kombinace nulového vektoru, tj. existují \underline{nenulová čísla} $c_1, c_2 \cdots, c_n$ taková, že \begin{align}
+    \vc 0 = c_1 \vc a_1 + c_2 \vc a_2 + \cdots + c_k \vc a_k \:.
+\end{align}
+Jestliže vektory nejsou lineárně závislé, říkáme, že jsou \textbf{lineárně nezávislé}.
+
+Zřejmě platí, že vektory $\vc a_1, \vc a_2, \cdots, \vc a_k$ jsou lineárně závislé právě tehdy, když je jeden z nich lineární kombinací ostatních. Nechť je to například vektor $\vc a_j$, takže ho lze vyjádřit vztahem \begin{align}
+    \vc a_j = c_1 \vc a_1 + c_2 \vc a_2 + \cdots + c_{j-1} \vc a_{j-1} + c_{j+1} \vc a_{j+1} + \cdots + c_k \vc a_k \:.
+\end{align}
+Pak ho zřejmě můžeme od obou stran rovnice odečíst a dostáváme \begin{align}
+    \vc 0 = c_1 \vc a_1 + c_2 \vc a_2 + \cdots + c_{j-1} \vc a_{j-1} - 1 \cdot \vc a_j + c_{j+1} \vc a_{j+1} + \cdots + c_k \vc a_k \:.
+\end{align}
+Tím jsme našli netriviální lineární kombinaci nuly, takže jsou vektory lineárně závislé. Úvaha funguje oběma směry.
+
+\begin{example}
+    Vektory $\vc a = (1,2,-4)$ a $\vc b = (-2,-4,8)$ jsou zřejmě lineárně závislé, protože je jeden lineární kombinací druhého: $-2 \vc a = \vc b$, takže
+    \begin{align}
+        \vc 0 = 2 \vc a + \vc b  \:.
+    \end{align}
+
+    Vektory $\vc a = (1,1,0)$ a $\vc b = (0,0,4)$ jsou lineárně nezávislé. Jediná možnost, jak z těchto vektorů \uv{poskládat} nulový vektor, je \begin{align}
+        \vc 0 = 0 \cdot \vc a + 0 \cdot \vc b \:.
+    \end{align}
+\end{example}
+
+\section{Matice}
+
+Obdélníkové schéma reálných čísel typu \begin{align}
+    \mat A = \begin{pmatrix}
+        a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+        a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} 
+    \end{pmatrix}
+\end{align}
+o $m$ řádcích a $n$ sloupcích nazýváme \textbf{maticí} typu $m \times n$.
+
+Jednotlivé řádky, resp. sloupce mohou reprezentovat vektory. Můžeme se také dívat na vektory jako na matice typu $1 \times n$.
+
+Sčítání matic a násobení matic reálným číslem definujeme stejně jako u vektorů po složkách:
+\begin{align}
+    c \mat A = \begin{pmatrix}
+        c a_{11} & c a_{12}  & \cdots & c a_{1n} \\
+        c a_{21} & c a_{22}  & \cdots & c a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        c a_{m1} & c a_{m2} & \cdots & c a_{mn} 
+    \end{pmatrix} \:, 
+    \quad 
+    \mat A + \mat B = \begin{pmatrix}
+        a_{11} + b_{11} & a_{12} + b_{21}  & \cdots & a_{1n}+ b_{1n} \\
+        a_{21} + b_{21} & a_{22} + b_{22} & \cdots & a_{2n} + b_{2n}\\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} + b_{m1} & a_{m2} + b_{m2} & \cdots & a_{mn} + b_{mn} 
+    \end{pmatrix} \:.
+\end{align}
+
+\subsection*{Příklady použití matic}
+
+\begin{itemize}
+    \item Do matice typu $12 \times n$ můžeme uložit ceny jednotlivých výrobků během roku. Prvek matice $a_{ij}$ bude reprezentovat cenu $j$-tého výrobku v $i$-tém kalendářním měsíci.
+    \item Stejně tak bychom mohli ukládat např. ceny akcií v jednotlivých dnech. Hospodářské přílohy novin nebo zpravodajské weby zveřejňují každý den nový řádek matice.
+    \item Digitální fotoaparát zaznamenává každý pixel jako jeho barvu. Barva se skládá ze tří základních složek - RGB. Intenzitu každé jedné barvy zaznamenává číslo mezi $-127$ až $128$. Jedna fotka vyrobená fotoaparátem, který má $8$ Mpixelů by tak vyžadovala paměť $24$ MB, takže na disk o velikosti $1$ GB by se dalo uložit pouze $40$ fotek. Proto je fotografie nutné komprimovat. To se dělá pomocí nejrůznějších operací s maticemi.
+    \item V programování se vektory označují jako \textit{pole} (array, tuple, vector). Matice pak bývají označována jako \textit{pole polí}.
+\end{itemize}
+
+\subsection{Hodnost matice}
+
+Hodnost matice $h(\mat A)$ (někdy se značí $\mathrm{rank}\, \mat A$) je maximální počet jejích lineárně nezávislých řádků.
+
+\begin{example}
+
+\end{example}
+
+\subsection{Trojúhelníková matice}
+
+\subsection{Elementární řádkové úpravy}
+
+\subsection{Výpočet hodnosti matice převedením na trojúhelníkovou}

@@ -19,7 +19,7 @@ set key spacing 1.5
 set zeroaxis lw 2 lt -1
 
 
-plot atan(x) title "$\\mathrm{arctan}\\,(x)$" lw 3 lt 7, 0.5*pi-atan(x) title "$\\mathrm{arccot}\\,(x)$" lw 3 lt 6
+plot atan(x) title "$\\mathrm{arctg}\\,(x)$" lw 3 lt 1, 0.5*pi-atan(x) title "$\\mathrm{arccotg}\\,(x)$" lw 3 lt 7
 
 
 

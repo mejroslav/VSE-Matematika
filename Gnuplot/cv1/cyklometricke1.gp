@@ -18,7 +18,7 @@ set key tmargin box
 set key width 3.5
 set key spacing 1.5
 
-plot asin(x) title "$\\arcsin(x)$" lw 3, acos(x) title "$\\arccos(x)$" lw 3
+plot asin(x) title "$\\arcsin(x)$" lw 3 lt 4, acos(x) title "$\\arccos(x)$" lw 3 lt 6
 
 set zeroaxis lw 2 lt -1
 

@@ -44,7 +44,7 @@
 % Load packages for testing
 \usepackage{blindtext}
 %\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
-\usepackage[inline]{showlabels}  \showlabels[\small\color{JungleGreen}]{}  % Uncomment to output the content of \label commands to the document where they are used
+%\usepackage[inline]{showlabels}  \showlabels[\small\color{JungleGreen}]{}  % Uncomment to output the content of \label commands to the document where they are used
 
 
 \begin{document}
@@ -93,17 +93,15 @@
 %	AUTHOR AFFILIATIONS
 %---------------------------------------
 
-\let\thefootnote\relax\footnotetext{* \textbf{Autor:} \href{miroslav@burysek.eu}{miroslav@burysek.eu}. \textbf{Verze:} \today }
+\let\thefootnote\relax\footnotetext{\textbf{Verze:} \today }
 
 %--------------------------------------
 
 %\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
 
-\input{Chapters/9-neurcity-integral.tex}
-
-
-
-
+%\input{Chapters/1a-funkce.tex}
+%\input{Chapters/1b-cyklometricke.tex}
+\input{Chapters/1-def-obor.tex}
 %\input{Styles/biblography}
 
 \end{document}

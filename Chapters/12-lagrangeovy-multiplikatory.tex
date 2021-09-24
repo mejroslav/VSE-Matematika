@@ -1,0 +1,95 @@
+\section{Metoda Lagrangeových multiplikátorů}
+
+Nejmocnější technika hledání extrémů funkce více proměnných při vazbových podmínkách je metoda Lagrangeových multiplikátorů.
+
+Hledejme extrémy funkce $f(x,y)$ s danou vazbou ve tvaru $w(x,y)=0$. Klíčová myšlenka je, že do problému zavedeme nový parametr $\lambda$ zvaný \textbf{Lagrangeův multiplikátor}, sestrojíme pomocnou funkci \begin{align}
+    \boxed{L(x,y;\lambda) = f(x,y) + \lambda w(x,y) }
+\end{align}
+a budeme hledat extrémy této funkce. Dostaneme totiž podmínky \begin{align}
+    \boxed{ \partial_x L = 0 \:, \quad \partial_y L = 0 \:, \quad \partial_\lambda L = 0 }\:.
+\end{align}
+Třetí podmínka totiž říká, že \begin{align}
+    \partial_\lambda f(x,y) + \partial_\lambda [\lambda w(x,y)] = 0 + w(x,y) = 0 \:,
+\end{align}
+což je právě ona vazbová rovnice.
+
+\begin{example}
+    Najdeme minimum funkce \begin{align}
+        f(x,y) = x+2y
+    \end{align}
+    za podmínky
+    \begin{align}
+        x^2 + y^2 = 4 \:.
+    \end{align}
+
+    Podmínku převedeme na funkci \begin{align}
+        w(x,y) = x^2 + y^2 - 4 = 0
+    \end{align}
+    a sestrojíme pomocnou funkci
+    \begin{align}
+        L(x,y;\lambda) = x + 2 y + \lambda [x^2 + y^2 - 4] \:.
+    \end{align}
+    Standardním způsobem budeme hledat minimum, takže spočteme parciální derivace
+    \begin{align}
+        \partial_x L = 1 + 2 \lambda x \:, \quad \partial_y L = 2 + 2 \lambda y \:, \quad \partial_\lambda L = x^2 + y^2 - 4 \:.
+    \end{align}
+    Všechny tyto derivace musí být nulové. Dostaneme (třetí podmínka je identická vazbě ze zadání)\begin{align}
+        x = - \frac{1}{2 \lambda} \:, \quad y = - \frac{1}{\lambda} \:, \quad x^2 + y^2 = 4 \:.
+    \end{align}
+    Nyní spočítáme $\lambda$. Dosadíme za $x$ a $y$ do třetí podmínky:
+    \begin{align}
+        \left( -\frac{1}{2 \lambda }\right)^2 + \left( \frac{1}{\lambda }\right)^2 = 4
+    \end{align}
+    a odtud dostaneme
+    \begin{align}
+        \frac{5}{4 \lambda^2} = 4 \:, \quad \lambda_{1,2} = \pm \sqrt{\frac{16}{5}} = \pm \frac{4}{\sqrt{5}} = \pm \frac{4 \sqrt{5}}{5} \:.
+    \end{align}
+
+    Máme tedy dva kandidáty na extrémy:
+    \begin{align}
+        x_1 =& -\frac{1}{2 \lambda_1} = - \frac{\sqrt{5}}{8} \:, \quad
+        y_1 = -\frac{1}{\lambda_1} = - \frac{\sqrt{5}}{4} \:, \\
+        x_2 =& -\frac{1}{2 \lambda_2} = + \frac{\sqrt{5}}{8} \:, \quad
+        y_2 = -\frac{1}{\lambda_2} = + \frac{\sqrt{5}}{4} \:.
+    \end{align}
+    Nyní můžeme porovnat jejich funkční hodnoty:
+    \begin{align}
+        f(x_1,y_1) = - \frac{\sqrt{5}}{8} - \frac{\sqrt{5}}{2} = - \frac{5\sqrt{5}}{8} \:, \quad f(x_2,y_2) = + \frac{5\sqrt{5}}{8} \:.
+    \end{align}
+    Je tedy jasné, že v bodě $(x_1,y_1)$ je minimum a v bodě $(x_2,y_2)$ maximum. V jiných bodech být nemůže, protože by nebyla splněna Lagrangeova podmínka.
+\end{example}
+
+\begin{example}[O konzervách]
+    Představme si firmu, která vyrábí konzervy ve tvaru válce s kruhovou podstavou. Samozřejmě chtějí výrobci ušetřit co nejvíce plechu, proto chtějí minimalizovat povrch válce, ovšem za daného objemu.
+    Označíme-li $R$ poloměr podstavy válce, $h$ jeho výšku, $S$ jeho povrch a $V$ objem, pak se dá tato úloha přeformulovat do podoby: nalezněte minimum funkce \begin{align}
+        S = 2 \pi R^2 + 2 \pi R h = 2 \pi R (R+h)
+    \end{align}
+    za podmínky
+    \begin{align}
+        V = \pi R^2 h = \mathrm{const} \:.
+    \end{align}
+    Sestrojíme tedy pomocnou funkci \begin{align}
+        L(R,h; \lambda) = 2 \pi R (R+h) + \lambda (\pi R^2 h - V)\:.
+    \end{align}
+    Najdeme její extrémy. Derivace jsou \begin{align}
+        \partial_R L = 4 \pi R + 2 \pi h + 2 \lambda \pi R h \:, 
+        \quad 
+        \partial_h L = 2 \pi R + \lambda \pi R^2 \:, 
+        \quad 
+        \partial_\lambda L = \pi R^2 h - V \:.
+    \end{align}
+    Dostáváme tedy rovnice \begin{align}
+        2R + h + \lambda R h = 0 \:, \quad 2 R + \lambda R^2 = 0 \:, \quad \pi R^2 h = V \:.
+    \end{align}
+    Z druhé rovnice vidíme, že $2+\lambda R = 0$ (druhý kořen $R=0$ by nevyhovoval třetí podmínce), takže $\lambda = -\frac{2}{R}$. Můžeme dosadit do první rovnice a získáme vztah mezi poloměrem a výškou:
+    \begin{align}
+        2 R + h - \frac{2}{R} R h = 2 R + h - 2h = 2R - h = 0 \:, \quad \boxed{h = 2R} \:.
+    \end{align}
+    Dosadíme ještě do třetí rovnice za $h$:
+    \begin{align}
+        \pi R^2 \cdot 2 R = V \:, \quad \boxed{ R = \sqrt[3]{\frac{V}{2 \pi} } } \:.
+    \end{align}
+    Dá se ukázat, že se opravdu jedná o minimum.
+
+    \textbf{Můžeme tedy učinit závěr: nejvíce úsporné konzervy jsou takové, které mají výšku stejnou jako svůj průměr.} V~praxi potkáváme konzervy i jiných proporcí, protože se také uplatňují jiná kritéria (estetická, možnost skladování a transportu, \dots).
+\end{example}
