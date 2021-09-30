@@ -26,8 +26,8 @@
 
 \begin{itemize}
     \item Funkce $f: \R \to \R$ je reálná funkce jedné reálné proměnné. Zapisujeme ji ve tvaru $f(x)$, kde $x$ je nezávislá proměnná.
-    \item Funkce $a: \N \to \R$ je posloupnost reálných čísel, přiřazuje hodnoty číslům $1,2,3, \cdots$. Namísto $a(n)$ píšeme $a_n$, čímž naznačujeme, že indexy probíhají přirozená čísla. (Posloupnostem se budeme věnovat od poloviny semestru.)
-    \item Funkce $F: \R \times \R \to \R$ přiřazuje dvěma reálným číslům jiné reálné číslo, hovoříme o funkci dvou proměnných. Zapisujeme ji ve tvaru $F(x,y)$, kde $x$ a $y$ jsou nezávislé proměnné. (Funkce dvou proměnných potkáme v poslední čtvrtině semestru.) 
+    \item Funkce $a: \N \to \R$ je posloupnost reálných čísel, přiřazuje hodnoty číslům $1,2,3, \cdots$. Namísto $a(n)$ píšeme $a_n$, čímž naznačujeme, že indexy probíhají přirozená čísla. Tak například $a_n = 2n-1$ bude posloupnost, kterou můžeme zapsat jako $\set{1,3,5,7,\cdots}$ - do vzorečku dosazujeme postupně čísla $1,2,3,\cdots$. (Posloupnostem se budeme věnovat od poloviny semestru.)
+    \item Funkce $F: \R \times \R \to \R$ přiřazuje dvěma reálným číslům jiné reálné číslo, hovoříme o funkci dvou proměnných. Zapisujeme ji ve tvaru $F(x,y)$, kde $x$ a $y$ jsou nezávislé proměnné. Příkladem může být třeba $F(x,y) = x^2+y^2-xy$. (Funkce dvou proměnných potkáme v poslední čtvrtině semestru.) 
 \end{itemize}
 
 Nezávislé proměnné $x$ ve funkci $f(x)$ také někdy říkáme \textbf{argument funkce}, závislé proměnné $f(x_0)$ říkáme \textbf{funkční hodnota v bodě $x_0$}.
@@ -43,7 +43,9 @@ Jiné funkce než elementární v kurzu prakticky nepotkáme. Je jich ale spoust
 
 \subsection*{Prostá funkce, inverzní funkce}
 
-Označíme-li $f(x) = y$, můžeme se ptát na otázku, zda bychom mohli zpětně dopočítat argument funkce $x$ při znalosti $y$. Pokud to lze, můžeme vytvořit \textbf{inverzní funkci} $f^{-1}(x)$ danou vztahem $f^{-1}(y) = x$.
+Označíme-li $f(x) = y$, můžeme se ptát na otázku, zda bychom mohli zpětně dopočítat argument funkce $x$ při znalosti $y$. Pokud to lze, můžeme vytvořit \textbf{inverzní funkci} $f^{-1}(x)$ danou vztahem $f^{-1}(y) = x$. 
+
+(Symbol \uv{na minus prvou} neznamená mocnění, je to specifické označení pro inverzní funkci, tedy $f^{-1}(x) \neq \frac{1}{f(x)}$.)
 
 \begin{example}[Lineární funkce]
     K funkci $f(x) = 3x-6$ můžeme najít inverzní. Označíme si $3x-6=y$ a pokusíme se vyjádřit $x$. Zřejmě $x = \frac{1}{3}(y+6)$. Předpis pro inverzní funkci tedy bude $f^{-1}(x) = \frac{1}{3} (x+6)$.
@@ -56,7 +58,7 @@ Označíme-li $f(x) = y$, můžeme se ptát na otázku, zda bychom mohli zpětn�
 Předchozí příklad nás vede k podmínce, kterou musí daná funkce splňovat, abychom k ní mohli sestrojit inverzní. Řekneme, že funkce $f$ je \textbf{prostá} na intervalu $I$, jestliže \begin{align}
     x_1, x_2 \in I : x_1 \neq x_2 \implies f(x_1) \neq f(x_2) \:.
 \end{align}
-Slovně řečeno: vybereme-li si dvě různá $x$, nesmí se rovnat jejich funkční hodnoty $f(x)$.
+Slovně řečeno: vybereme-li si dvě různá $x$, nesmí se rovnat jejich funkční hodnoty $f(x)$. Pakliže je tato podmínka splněna, můžeme na intervalu $I$ najít inverzní funkci k $f$.
 
 Definiční obor a obor hodnot se u inverzní funkce prohazují: \begin{align}
     D_{f^{-1}} = H_f \:, \quad H_{f^{-1}} = D_f \:.

@@ -48,8 +48,17 @@ Kompletní přehled dává tabulka \ref{tab:funkce}. (Je víceméně potřeba um
     Určíme definiční obor funkce \begin{align}
         f(x) = \frac{1}{x-4} + \frac{1}{x+6} \:.
     \end{align}
-    P1 nám říká, že nesmíme dělit nulou. To vede na podmínky $x \neq 4$ a $x \neq -6$. Celkově $D_f = \R \setminus \set{4,-6}$.
+    P1 nám říká, že nesmíme dělit nulou. To vede na podmínky $x \neq 4$ a $x \neq -6$. To jsou body, které musíme vyřadit z množiny reálných čísel, abychom získali definiční obor. Množinově to lze zapsat jako 
+    \begin{align}
+        D_f = \R \setminus \set{4,-6} \:,
+    \end{align}
+    kde symbol \uv{$\setminus$} značí množinový rozdíl. To samé můžeme napsat pomocí sjednocení intervalů 
+    \begin{align}
+        D_f = (-\infty,-6) \cup (-6,4) \cup (4,+\infty) \:.
+    \end{align}
+    Kulaté závorky značí otevřené intervaly, to znamená, že do nich krajní body nepatří.
 \end{example}
+
 
 \begin{example}
     Určíme definiční obor funkce \begin{align}
@@ -108,7 +117,7 @@ Kompletní přehled dává tabulka \ref{tab:funkce}. (Je víceméně potřeba um
     Určíme definiční obor funkce \begin{align}
         G(t) = \arcsin (\ln t) \:.
     \end{align}
-    P3 nám říká, že $t>0$. Nyní se podíváme na pravidlo P4. To nám říká, že vnitřek arkussinu musí být v mezích $[-1,1]$. Odtud dostáváme podmínku \begin{align}
+    P3 nám říká, že $t>0$. Nyní se podíváme na pravidlo P4. To nám říká, že argument (\uv{vnitřek}) arkussinu musí být v mezích $[-1,1]$. Odtud dostáváme podmínku \begin{align}
         -1 \leq \ln t \leq +1 \:.
     \end{align}
     Tyto nerovnice můžeme vyřešit opět tak, že zapůsobíme exponenciálou:
@@ -182,3 +191,18 @@ Kompletní přehled dává tabulka \ref{tab:funkce}. (Je víceméně potřeba um
     
     Celkově vyhovují pouze $x$ z intervalu $(-\infty,-4]$ a ještě z intervalu $[-4,-3)$. Takže $D_A = (-\infty,-3)$.
 \end{example}
+
+\subsection*{Závěrečné poznámky}
+
+\begin{itemize}
+    \item Časté chyby, na které je dobré dát zvláštní pozor:
+    \begin{itemize}
+        \item Záporná mocnina kladného čísla je stále kladné číslo! Například $2^{-4} = \frac{1}{2^4} = \frac{1}{16} > 0$.\newline To je rozdíl oproti $2^{-4} \neq -2^4 = -16$!
+        \item Násobíme-li nerovnici záporným číslem, obrací se znaménko nerovnosti! Například nerovnici $-2x^2 > -4x$ můžeme vydělit $-2$ a dostaneme $x^2 < 2x$.
+        \item Definiční obor musíme určit z původního výrazu, ještě předtím, než ho začneme dále upravovat. Tak například funkce \begin{align}
+            f(x) = 1 \:, \quad g(x) = \frac{x(x+1)}{x(x+1)}
+        \end{align}
+        dávají pro všechna přípustná $x$ stejné hodnoty, ale definiční obor funkcí je různý! \newline $D_f = \R$, zatímco $D_g = \R \setminus \set{0,-1}$.
+    \end{itemize}
+
+\end{itemize}

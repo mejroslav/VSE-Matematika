@@ -1,7 +1,7 @@
 reset
 set term wxt
 
-
+set grid
 set xlabel "$x$"
 set ylabel "$y$"
 set xrange [-pi:3*pi]

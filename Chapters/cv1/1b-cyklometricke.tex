@@ -1,33 +1,41 @@
 \section*{Goniometrické a cyklometrické funkce}
 
-\textbf{Goniometrické} (též trigonometrické) funkce jsou $\sin x$, $\cos x$, $\tg x$ a $\cotg x$. Funkce k nim inverzní, $\arcsin x$, $\arccos x$, $\arctg x$ a $\arccotg x$ nazýváme \textbf{cyklometrické}.
+\textbf{Goniometrické} (též trigonometrické) funkce jsou $\sin x$, $\cos x$, $\tg x$ a $\cotg x$. Funkce k nim inverzní, $\arcsin x$, $\arccos x$, $\arctg x$ a $\arccotg x$ nazýváme \textbf{cyklometrické}. Souhrnné grafy cyklometrických funkcí jsou na obrázcích \ref{obr:arcsin-arccos} a \ref{obr:arctan-arccot}.
 
 \subsubsection*{Arkussinus}
 
-Graf funkce $\sin x$ je na obrázku \ref{fig:sinus}. Platí $D(\sin x) = \R$ a $H(\sin x) = [-1,1]$. Nyní potřebujeme vybrat interval, na kterém je tato funkce prostá, abychom k ní mohli nalézt inverzní. Zároveň chceme pokrýt \uv{co největší obor hodnot}. Nabízí se interval $[-\pi/2, \pi/2]$. Definujeme tedy funkci \textbf{arkussinus} $\arcsin x$ předpisem \begin{align}
-    D(\arcsin x) = H(\sin x) = [-1,1] \:, \quad H(\arcsin x) = [-\pi/2, \pi/2] \:, \quad \arcsin(x) = y \Longleftrightarrow x = \sin y \:.
+Graf funkce $\sin x$ je na obrázku \ref{fig:sinus} vlevo. Platí $D(\sin x) = \R$ a $H(\sin x) = [-1,1]$. Nyní potřebujeme vybrat interval, na kterém je tato funkce prostá, abychom k ní mohli nalézt inverzní. Zároveň chceme pokrýt \uv{co největší obor hodnot}. Nabízí se interval $[-\pi/2, \pi/2]$. Definujeme tedy funkci \textbf{arkussinus} $\arcsin x$ jako funkci inverzní, takže \begin{align}
+    \arcsin(x) = y \Longleftrightarrow x = \sin y \:.
 \end{align}
+Definiční obor a obor hodnot se prohazují:
+\begin{align}
+    D(\arcsin x) = H(\sin x) = [-1,1] \:, \quad H(\arcsin x) = [-\pi/2, \pi/2] \:.
+\end{align}
+
+Graf funkce $\arcsin x$ je na obrázku \ref{fig:sinus} vpravo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics{Gnuplot/cv1/Figures/sinusgraf.pdf}
-    \caption{Graf funkce sinus. Zeleně je vyznačen interval, kde je funkce prostá. Ten zvolíme jako obor hodnot funkce arkussinus.}
+    \includegraphics[scale = 0.7]{Gnuplot/cv1/Figures/sinusgraf.pdf}
+    \includegraphics[scale = 0.7]{Gnuplot/cv1/Figures/arcsin.pdf}
+    \caption{Vlevo: graf funkce sinus. Zeleně je vyznačen interval, kde je funkce prostá. Ten zvolíme jako obor hodnot funkce arkussinus. Vpravo: graf funkce arkussinus. Definiční obor a obor hodnot se prohazují. Grafy funkcí sinus a arkussinus jsou osově symetrické podle osy $y=x$.}
     \label{fig:sinus}
 \end{figure}
 
 
 \subsubsection*{Arkuskosinus}
 
-Graf funkce $\cos x$ je na obrázku \ref{fig:kosinus}. Platí $D(\cos x) = \R$ a $H(\cos x) = [-1,1]$. Opět se chceme omezit na interval, kde je funkce prostá. Správný interval bude $[0,\pi]$. Definujeme funkci \textbf{arkuskosinus} $\arccos x$ předpisem \begin{align}
+Stejným způsobem postupujeme u funkce $\cos x$. Graf této funkce je na obrázku \ref{fig:kosinus}. Platí $D(\cos x) = \R$ a $H(\cos x) = [-1,1]$. Opět se chceme omezit na interval, kde je funkce prostá. Správný interval bude $[0,\pi]$. Definujeme funkci \textbf{arkuskosinus} $\arccos x$ předpisem \begin{align}
     D(\arccos x) = H(\cos x) = [-1,1] \:, \quad H(\arccos x) = [0, \pi] \:, \quad \arccos(x) = y \Longleftrightarrow x = \cos y \:.
 \end{align}
 
 \begin{figure}[H]
     \centering
     \includegraphics{Gnuplot/cv1/Figures/cosinusgraf.pdf}
-    \caption{Graf funkce kosinus. Zeleně je vyznačen interval, kde je funkce prostá. Ten zvolíme jako obor hodnot funkce arkuskosinus.}
+    \caption{Graf funkce kosinus. Zeleně je vyznačen interval, kde je funkce prostá. Ten zvolíme opět jako obor hodnot funkce arkuskosinus.}
     \label{fig:kosinus}
 \end{figure}
+
 
 \subsubsection*{Arkustangens}
 
@@ -55,9 +63,6 @@ Graf funkce $\cotg x$ je na obrázku \ref{fig:kotangens}. Platí $D(\cotg x) = \
     \caption{Graf funkce kotangens. Zeleně je vyznačen interval, kde je funkce prostá. Ten zvolíme jako obor hodnot funkce arkustangens. Povšimněme si, že v bodech $0$ a $\pi$ jsou svislé asymptoty. Z nich se stanou vodorovné asymptoty funkce arkuskotangens.}
     \label{fig:kotangens}
 \end{figure}
-
-
-Grafy funkcí $\arcsin x$ a $\arccos x$ jsou na obrázku \ref{obr:arcsin-arccos}, grafy $\arctg x$ a $\arccotg x$ jsou na obrázku \ref{obr:arctan-arccot}.
 
 \begin{figure}[H]
     \centering

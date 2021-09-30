@@ -1,7 +1,7 @@
 reset
 set term wxt
 set samples 100000
-
+set grid
 set xlabel "$x$"
 set ylabel "$y$"
 set xrange [-pi:3*pi]
