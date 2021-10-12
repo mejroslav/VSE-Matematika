@@ -1,0 +1,343 @@
+\section*{Soustavy lineárních rovnic}
+
+Soustavou \underline{$m$ lineárních rovnic} o \underline{$n$ neznámých} nazýváme rovnice tvaru
+\begin{align}
+    a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + \cdots + a_{1n} x_n &= b_1 \:, \\
+    a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + \cdots + a_{2n} x_n &= b_2 \:, \\
+    \vdots \\
+    a_{m1} x_1 + a_{m2} x_2 + a_{m3} x_3 + \cdots + a_{mn} x_n &= b_m \:.
+\end{align}
+Seřadíme-li neznámé proměnné do vektoru $ \vc x = (x_1, x_2, \cdots, x_n) \in V_n$ a vytvoříme vektor z pravých stran \newline$\vc b = (b_1, b_2, \cdots, b_m) \in V_m$, můžeme soustavu napsat také v maticovém tvaru:
+\begin{align}
+    \mat A \vc x = \vc b \:.
+\end{align}
+
+\subsection*{Existence a počet řešení}
+
+Definujeme matici soustavy \begin{align}
+    \mat A = \begin{pmatrix}
+        a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+        a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} 
+    \end{pmatrix}
+\end{align}
+a rozšířenou matici soustavy \begin{align}
+    \mat A_r = 
+    \left(\begin{array}{rrrrr|r}
+        a_{11} & a_{12} & a_{13} & \cdots & a_{1n} & b_1\\
+        a_{21} & a_{22} & a_{23} & \cdots & a_{2n} & b_2\\
+        a_{31} & a_{32} & a_{33} & \cdots & a_{3n} & b_3\\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \\
+        a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} & b_m \\
+        \end{array}\right) \:.
+\end{align}
+
+Klíčem k úspěchu je všimnout si, že elementární řádkové úpravy (eřú), které zachovávají hodnost matice, můžeme provádět i s rovnicemi: prohodit dvě rovnice zcela jistě můžeme, vynásobit rovnici nenulovým číslem také a součet dvou platných rovnic je rovněž platná rovnice. Můžeme tedy pracovat s maticemi, protože to je pohodlnější, a kdykoli je zpátky převádět na rovnice.
+
+Pro určení počtu řešení soustavy se používají podmínky, které se ptají na hodnost obou těchto matic:
+\begin{itemize}
+    \item Jestliže $h(\mat A) \neq h(\mat A_r)$, pak soustava nemá žádné řešení.
+    \item Jestliže $h(\mat A) = h(\mat A_r) = n$, pak má soustava právě jedno řešení.
+    \item Jestliže $h(\mat A) = h(\mat A_r) < n$, pak má soustava nekonečně mnoho řešení. V takovém případě můžeme $n - h(\mat A)$ neznámých volit jako reálné parametry a zbylých $h(\mat A)$ neznámých dopočítáme.
+\end{itemize}
+
+\subsection*{Jediné řešení}
+
+\begin{example}
+    Uvažujme soustavu \begin{align}
+        2x - y = 5 \:, \quad  x + 4y = -2 \:.
+    \end{align}
+    Napíšeme si rozšířenou matici soustavy:
+    \begin{align}
+       \mat A_r = \left( \begin{array}{rr|r}
+            2 & -1 & 5 \\ 1 & 4 & -2
+        \end{array}\right) \:.
+    \end{align}
+    Chtěli bychom určit hodnost. Tu určíme pomocí eřú převedením matice na odstupňovaný tvar:
+    \begin{align}
+        \left( \begin{array}{rr|r}
+            2 & -1 & 5 \\ 1 & 4 & -2
+        \end{array}\right)
+        \sim
+        \left( \begin{array}{rr|r}
+            2 & -1 & 5 \\ -2 & -8 & 4
+        \end{array}\right)
+        \sim
+        \left( \begin{array}{rr|r}
+            2 & -1 & 5 \\ 0 & -9 & 9
+        \end{array}\right) \:.
+    \end{align}
+    (V prvním kroku jsme druhý řádek vynásobili $-2$ a ve druhém kroku k němu přičetli první řádek.)
+    Vidíme, že $h(\mat A) = h(\mat A_r) = 2$. Počet neznámých je rovněž $2$, proto má soustava právě jediné řešení.
+
+    V odstupňovaném tvaru máme dvě rovnice 
+    \begin{align}
+        2x - y = 5 \:, \quad -9y = 9 \:.
+    \end{align}
+    Z druhé rovnice okamžitě vidíme $ y = -1$. Dosazením do první rovnice dostaneme $2x + 1 =5$, takže $x = 2$.
+
+    Řešení můžeme zapsat ve vektorovém tvaru jako $\vc x = (2,-1)$.
+\end{example}
+
+\subsection*{Nekonečně mnoho řešení - jeden parametr}
+
+\begin{example}
+    Uvažujme soustavu \begin{align}
+        x + 4y + 2z = 4 \:, \quad -3x+y+z=1 \:, \quad -x + 9y + 5z = 9 \:.
+    \end{align}
+    Sestavíme matici
+    \begin{align}
+       \mat B_r = \left( \begin{array}{rrr|r}
+        1 & 4 & 2 & 4 \\ -3 & 1 & 1 & 1 \\ -1 & 9 & 5 & 9
+    \end{array}\right) \:.
+    \end{align}
+    Opět ji pomocí eřú převedeme na odstupňovaný tvar:
+    \begin{align}
+        \left( \begin{array}{rrr|r}
+            1 & 4 & 2 & 4 \\ -3 & 1 & 1 & 1 \\ -1 & 9 & 5 & 9
+        \end{array}\right)
+        \sim
+        \left( \begin{array}{rrr|r}
+            1 & 4 & 2 & 4 \\ 0 & 13 & 7 & 13 \\ 0 & 13 & 7 & 13
+        \end{array}\right)
+        \sim
+        \left( \begin{array}{rrr|r}
+        1 & 4 & 2 & 4 \\ 0 & 13 & 7 & 13 \\ 0 & 0 & 0 & 0
+        \end{array}\right) \:.
+    \end{align}
+    (K druhému řádku jsme přičetli $3$-násobek prvního a ke třetímu první řádek.)
+
+    Vidíme, že $h(\mat B) = h(\mat B_r) = 2 < 3$. Můžeme tedy volit $3-2 =1$ neznámých jako volitelné parametry. V našem případě můžeme jednu z proměnných volit jako libovolné reálné číslo, např. tu poslední:
+    \begin{align}
+        z = t \in \R \:.
+    \end{align}
+    Druhá rovnice nám dává $13y + 7t = 13$, odtud
+    \begin{align}
+        y = 1 - \frac{7}{13} t \:.
+    \end{align}
+    První rovnice nám říká $x + 4y + 2z = 4$, po dosazení \begin{align}
+        x + 4 \left( 1 - \frac{7}{13} t \right) + 2t = 4 \:, 
+    \end{align}
+    odtud
+    \begin{align}
+        x = \frac{2}{13} t \:.
+    \end{align}
+
+    Proměnné $x$ a $y$ jsme tedy vyjádřili pomocí reálného parametru $t$. Řešení můžeme zapsat ve vektorovém tvaru. Pro přehlednost rozdělujeme řešení na konstantní část, která na žádném parametru nezávisí, a na proměnnou část, která je násobkem daného parametru. Zde
+    \begin{align}
+        \vc x = \left( \frac{2}{13} t , 1 - \frac{7}{13}, t \right) = \left( 0, 1, 0 \right) + ( \frac{2}{13}, -\frac{7}{13} , 1 ) \cdot t \:.
+    \end{align}
+
+\end{example}
+
+\subsection*{Žádné řešení}
+
+\begin{example}
+    Uvažujme soustavu 
+    \begin{align}
+        x_1 - 4 x_2 + 2x_3 = 1 \:, \quad 3 x_1 - 7 x_2 + x_3 - 5 x_4 = -6 \:, \\
+        x_2 - x_3 - x_4 = -1 \:, \quad 2 x_1 - 3 x_2 - x_3 - 5 x_4 = -7 \:.
+    \end{align}
+    Matice soustavy je
+    \begin{align}
+        \mat D_r = \left( \begin{array}{rrrr|r}
+            1 & -4 & 2 & 0 & 1 \\ 3 & -7 & 1 & -5 & -6 \\ 0 & 1& -1 & -1 & -1 \\ 2 & -3 & -1 & -5 & -7 
+        \end{array}\right)
+    \end{align}
+    Opět převádíme na odstupňovaný tvar:
+    \begin{align}
+        \left( \begin{array}{rrrr|r}
+            1 & -4 & 2 & 0 & 1 \\ 3 & -7 & 1 & -5 & -6 \\ 0 & 1& -1 & -1 & -1 \\ 2 & -3 & -1 & -5 & -7 
+        \end{array}\right)
+        \sim
+        \left( \begin{array}{rrrr|r}
+            1 & -4 & 2 & 0 & 0 \\ 0 & 5 & -5 & -5 & -9 \\ 0 & 1& -1 & -1 & -1 \\ 0 & 5 & -5 & -5 & -9 
+        \end{array}\right)
+        \sim
+        \left( \begin{array}{rrrr|r}
+            1 & -4 & 2 & 0 & 0 \\ 0 & 5 & -5 & -5 & -9 \\ 0 & 0 & 0 & 0 & -4 \\ 0 & 0 & 0 & 0 & 0
+        \end{array}\right) \:.
+    \end{align}
+    Vidíme, že $h(\mat D) = 2$, ale $h(\mat D_r) = 3$. Tato soustava tedy nemá žádné řešení.
+
+    Proč tomu tak je? Třetí řádek nám vlastně dává rovnici $0x_1 + 0x_2 + 0x_3 + 0x_4 = -4$. Takovou rovnici nikdy nebudeme schopni splnit. To nám říká, že jedna z původních rovnic \uv{je tam navíc}, nemůžeme ji splnit nikdy.
+\end{example}
+
+\subsection*{Nekonečně mnoho řešení - více parametrů}
+
+\begin{example}
+    Řešme soustavu
+    \begin{align}
+        x_1 + x_2 + x_3 - x_4 - 2x_5 = 4 \:, \quad x_1 - x_3 + 2 x_4 = 0 \:.
+    \end{align}
+    Sestavíme matici
+    \begin{align}
+        \mat C_r = \left(\begin{array}{rrrrr|r}
+            1 & 1 & 1 & -1 &-2 &4 \\ 1 &0 &-1 &2 &0 &0 
+        \end{array}\right)
+    \end{align}
+    a dál to známe:
+    \begin{align}
+        \left(\begin{array}{rrrrr|r}
+            1 & 1 & 1 & -1 &-2 &4 \\ 1 &0 &-1 &2 &0 &0 
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{rrrrr|r}
+            1 & 1 & 1 & -1 &-2 &4 \\ 0 &1 &2 &-3 &-2 & 4 
+        \end{array}\right)
+    \end{align}
+    Zde jsme druhý řádek vynásobili $-1$ a přičetli k němu první řádek. Platí $h(\mat C) = h(\mat C_r) = 2 < 5$, máme tedy k dispozici $5-2=3$ parametrů, které můžeme volit.
+    
+    \underline{Při volbě více parametrů postupujme odzadu.} Označme tedy
+    \begin{align}
+        x_5 = t_5 \in \R \:, x_4 = t_4 \in \R :, x_3 = t_3 \in \R \:.
+    \end{align}
+    Druhá rovnice říká \begin{align}
+        x_2 + 2 t_3 - 3 t_4 - 2 t_5 = 4 \implies x_2 = 4 - 2 t_3 + 3 t_4 + 2 t_5 \:.
+    \end{align}
+    První rovnice říká \begin{align}
+        x_1 + (4 - 2 t_3 + 3 t_4 + 2 t_5) + t_3 - t_4 - 2 t_5 = 4 \implies x_1 = t_3 - 2t_4 \:.
+    \end{align}
+
+    Nyní už je snad lépe vidět výhoda vektorového zápisu, který rozdělíme na čtyři části:
+    \begin{align}
+        \vc x = (0,4,0,0,0) + (1,-2,1,0,0) t_3 + (-2,3,0,1,0) t_4 + (0,2,0,0,1) t_5 \:.
+    \end{align}
+\end{example}
+
+\subsection*{Dodatek: jaké proměnné mohou býti volitelné?}
+
+\begin{example}
+    Uvažujme soustavu (napišme ji rovnou v maticovém tvaru)
+    \begin{align}
+        \mat K_r = \left(\begin{array}{rrrrrrrrr|r}
+            x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8 & x_9 \\ \hline
+            1 & 2 & -1 & 0 & 3 & 4 & 5 & 6 & 4 & 2 \\
+            0 & 0 & 2  & -1 & 1 & 1 & 2 & -1 & 0 & 1 \\
+            0 & 0 & 0  & 0 & 0 & 0 & 1 & 1 & 2 & 4 \\
+        \end{array}\right) \:.
+    \end{align}
+    Hodnost matice $\mat K = \mat K_r = 3$, máme k dispozici $9-3=6$ volitelných parametrů. Jak je vybrat? Stačí se řídit dvěma zásadami:
+    \begin{itemize}
+        \item Jako parametry volíme proměnné postupně \uv{směrem odzadu}. 
+        \item V jednom řádku (rovnici) nemohou vystupovat samé volitelné proměnné. První nenulové číslo tedy musí příslušet závislé proměnné.
+    \end{itemize}
+    Podívejme se na třetí řádek. To je rovnice \begin{align}
+        x_7 + x_8 + 2x_9 = 4 \:.
+    \end{align}
+    Postupujeme směrem odzadu a označíme volitelné parametry $x_9 = t_9 \in \R$, $x_8 = t_8 \in \R$. Nemůžeme ovšem jako volitelný parametr označit $x_7$, protože pak bychom dostali rovnici
+    \begin{align}
+        t_7 + t_8 + 2t_9 = 4 \:,
+    \end{align}
+    která zjevně nemůže být splněna pro všechna reálná čísla! Z toho plyne, že $x_7$ musí být závislé na $t_8$ a $t_9$, konkrétně
+    \begin{align}
+        x_7 = 4 - t_8 - 2 t_9 \:.
+    \end{align}
+    Teď se podívejme na druhý řádek, který říká:
+    \begin{align}
+        2 x_3 - x_4 + x_5 + x_6 + 2 (4 - t_8 - 2 t_9) -t_8  = 1 \:.
+    \end{align}
+    Řídíme se pravidlem a můžeme opět označit $x_6 = t_6 \in \R$, $x_5 = t_5 \in \R$, $x_4 = t_4 \in \R$. Ale opět nesmí být $x_3$ volitelné, protože bychom dostali rovnici se samými volitelnými parametry, která by nebyla platná.
+    Úplně stejně v první rovnici označíme $x_2$ jako volitelnou proměnnou, ale $x_1$ musí být závislá proměnná. Situace je tedy následující (symbolem $\checkmark$ označuji proměnnou, kterou lze volit jako parametr, symbolem $\times$ proměnnou, která musí být závislá na ostatních):
+    \begin{align}
+        \left(\begin{array}{rrrrrrrrr|r}
+            x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & x_8 & x_9 \\ \hline
+            1 & 2 & -1 & 0 & 3 & 4 & 5 & 6 & 4 & 2 \\
+            0 & 0 & 2  & -1 & 1 & 1 & 2 & -1 & 0 & 1 \\
+            0 & 0 & 0  & 0 & 0 & 0 & 1 & 1 & 2 & 4 \\ \hline
+            \times & \checkmark & \times & \checkmark & \checkmark & \checkmark & \times & \checkmark & \checkmark
+        \end{array}\right) \:.
+    \end{align}
+\end{example}
+
+\subsection*{Soustavy s parametry}
+
+\begin{example}
+    V závislosti na $\alpha, \beta$ určíme řešení soustavy rovnic \begin{align}
+        x_1 + \alpha x_2 + x_3 = 4 \:, \quad x_1 + x_2 + 2 x_3 = 4 \:, x_1 + x_2 + \beta x_3 = 3 \:.
+    \end{align}
+    Soustavu přepíšeme do matice a určíme její hodnost převedením na odstupňovaný tvar:
+    \begin{align}
+        \left(\begin{array}{rrr|r}
+            1 & \alpha & 1 & 4 \\ 1 & 1 & 2 & 4 \\ 1 & 1 & \beta & 3 
+        \end{array}\right) 
+        \sim
+        \left(\begin{array}{rrr|r}
+            1 & \alpha & 1 & 4 \\ 0 & \alpha - 1 & -1 & 0 \\ 0 & 0 & \beta - 2 & -1 
+        \end{array}\right)
+        \:.
+    \end{align}
+    Nyní musíme rozlišit případy, kdy budeme mít nějaký nulový člen na hlavní diagonále.
+
+    \begin{itemize}
+        \item Případ $\beta - 2 = 0$, tj $\beta = 2$: soustava má tvar
+        \begin{align}
+            \left(\begin{array}{rrr|r}
+                1 & \alpha & 1 & 4 \\ 0 & \alpha - 1 & -1 & 0 \\ 0 & 0 & 0 & -1 
+            \end{array}\right)
+            \:,
+        \end{align}
+        takže hodnost původní a rozšířené matice jsou různé. Soustava nemá žádné řešení.
+
+        \item Případ $\beta \neq 2$, $\alpha - 1 =0$, tj $\alpha = 1$: soustava má tvar
+        \begin{align}
+            \left(\begin{array}{rrr|r}
+                1 & \alpha & 1 & 4 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & \beta - 2 & -1 
+            \end{array}\right)
+            \sim
+            \left(\begin{array}{rrr|r}
+                1 & \alpha & 1 & 4 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1 
+            \end{array}\right) \:.
+        \end{align}
+        Opět vidíme, že hodnosti jsou různé, proto soustava nemá žádné řešení.
+        
+        \item Případ $\beta \neq 2$, $\alpha \neq 1$. Nyní soustava nemá nuly na diagonále a je ve tvaru
+        \begin{align}
+            \left(\begin{array}{rrr|r}
+                1 & \alpha & 1 & 4 \\ 0 & \alpha - 1 & -1 & 0 \\ 0 & 0 & \beta - 2 & -1 
+            \end{array}\right)
+            \:.
+        \end{align}
+        Hodnost původní a rozšířené matice jsou stejné a jsou stejné jako počet neznámých, máme proto jediné řešení. To snadno určíme. Třetí řádek nám říká
+        \begin{align}
+            (\beta - 2 ) x_3 = -1 \implies x_3 = - \frac{1}{\beta - 2} \:.
+        \end{align}
+        Druhý řádek říká
+        \begin{align}
+            (\alpha - 1 ) x_2 + \frac{1}{\beta - 2} = 0 \implies x_2 = - \frac{1}{(\alpha - 1)(\beta - 2)} \:.
+        \end{align}
+        První řádek Je
+        \begin{align}
+            x_1 - \frac{\alpha}{(\alpha - 1)(\beta - 2)} - \frac{4}{\beta - 2} = 4
+            \implies x_1 = 4 + \frac{\alpha}{(\alpha - 1)(\beta - 2)} + \frac{4}{\beta - 2} \:.
+        \end{align}
+        Povšimněme si, že nulou v tomto případě nikdy nedělíme, protože tyto speciální případy jsme právě vyřešili výše.
+    \end{itemize}
+
+    Závěr: pro $\beta = 2$ anebo $\alpha = 1$ nemá soustava řešení. Pro $\alpha \neq 1$ a $\beta \neq 2$ má soustava jediné řešení.
+\end{example}
+
+\subsection*{Homogenní soustavy}
+
+\textbf{Homogenní soustavy} jsou ve tvaru
+\begin{align}
+    a_{11} x_1 + a_{12} x_2  + \cdots + a_{1n} x_n &= 0 \:, \\
+    a_{21} x_1 + a_{22} x_2  + \cdots + a_{2n} x_n &= 0 \:, \\
+    \vdots \\
+    a_{m1} x_1 + a_{m2} x_2  + \cdots + a_{mn} x_n &= 0 \:.
+\end{align}
+
+Takové soustavě přísluší matice s nulovým sloupcem pravé strany \begin{align}
+    \mat A_r = \left( \mat A | \vc 0 \right) \:.
+\end{align}
+Hodnost matice se nezmění, přidáme-li k ní nulový sloupec, proto je vždy splněna podmínka $h(\mat A) = h(\mat A_r)$. Soustava má vždy řešení - je to řešení ze samých nul! Řešení ve tvaru $\vc x = \vc 0$ se nazývá \textbf{triviální řešení}. Samozřejmě nemusí být jediné, to bychom opět určili pomocí $h(\mat A)$.
+
+
+\subsection*{Závěrečné poznámky}
+\begin{itemize}
+    \item Postup, který provádíme při řešení rovnic pomocí matic, se nazývá \textbf{Gaussova eliminace}.
+    \item Drobnou modifikací tohoto postupu je \textbf{Jordanova metoda}, která spočívá v tom, že po převedení matice na odstupňovaný tvar se ji ještě snažíme vynulovat nad diagonálou, opět pomocí eřú. Získáme tak diagonální matici (kterou můžeme ještě převést na jednotkovou) a z ní můžeme přímo určit hodnoty neznámých. Protože je ale časově náročná, pro praktické počítání soustav se jí nepoužívá, bohatě si vystačíme s Gaussovou eliminací.
+    \item Gaussova eliminace je praktická pro počítání na papíře, pokud chceme znát hodnoty všech neznámých proměnných. Seznámíme se později ještě s Cramerovým pravidlem, které je praktičtější v situacích, kdy nám stačí znát jenom některé neznámé, ale nepotřebujeme všechny.
+\end{itemize}

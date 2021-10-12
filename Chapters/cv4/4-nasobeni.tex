@@ -1,0 +1,88 @@
+\section*{Násobení matic}
+
+Matice $\mat A$ typu $n \times m$ a $\mat B$ typu $m \times k$ lze spolu vynásobit. Výsledná matice $\mat A \mat B$ je typu $n \times k$ a získáme ji pomocí pravidla \uv{řádek na sloupec}.
+
+\begin{example}[Násobení pomocí tabulky]
+    Nechť
+    \begin{align}
+        \mat A = \begin{pmatrix}
+            2 & 4 & -1 & 0 \\
+            1 & 0 & 3 & -2
+        \end{pmatrix}
+        \:, \quad
+        \mat B = \begin{pmatrix}
+            -1 & 1 & 2 \\
+            3 & 0 & 0 \\
+            1 & -2 & -1 \\
+            -4 & 1 & 0 \\
+        \end{pmatrix} \:.
+    \end{align}
+    Matice můžeme vynásobit pomocí pravidla řádek na sloupec. Výsledná matice bude zřejmě typu $2 \times 3$. Zápis, který může být užitečný, je sepsat si do tabulky \textbf{vlevo první matici} a \textbf{nahoru druhou matici}:
+    \begin{align}
+        \begin{array}{rrrr|rrr}
+            &&&&-1 & 1 & 2 \\
+            &&&&3 & 0 & 0 \\
+            &&&&1 & -2 & -1 \\
+            &&&&-4 & 1 & 0 \\
+            \hline
+            2 & 4 & -1 & 0 &     9 & 4 & 5\\
+            1 & 0 & 3 & -2 &     10 & -7 & -5\\
+        \end{array}
+    \end{align}
+    Například člen $1,1$ jsme získali součtem součinů: 
+    \begin{align}
+        2 \cdot (-1) + 4 \cdot 3 + (-1) \cdot 1 + 0 \cdot (-4) = 9 \:.
+    \end{align}
+    Takže \begin{align}
+        \mat A \mat B = \begin{pmatrix}
+            9 & 4 & 5 \\
+            10 & -7 & -5
+        \end{pmatrix} \:.
+    \end{align}
+    Matice v opačném pořadí vůbec vynásobit nelze, protože by neseděly rozměry.
+\end{example}
+
+\begin{example}[Nekomutativita matic]
+    Ačkoli například čtvercové matice $\mat A$ a $\mat B$ můžeme násobit v obou směrech, neplatí, že by $\mat A \mat B$ a $\mat B \mat A$ byly stejné matice!
+    Například \begin{align}
+        \begin{pmatrix}
+            1 & -1 \\
+            0 & 2
+        \end{pmatrix}
+        \begin{pmatrix}
+            -1 & -1 \\
+            1 & 4
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -2 & -5 \\
+            2 & 8
+        \end{pmatrix} \:, \quad
+        \begin{pmatrix}
+            -1 & -1 \\
+            1 & 4
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & -1 \\
+            0 & 2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -1 & -1\\
+            1 & 7\\
+        \end{pmatrix} \:.
+    \end{align}
+
+    Přesvědčte se sami, že násobit v obou směrech lze i matice typu $m \times n$ a $n \times m$. Rozměr výsledné matice ale bude pokaždé jiný!
+
+    \underline{Musíme proto přísně rozlišovat mezi násobením matic zleva a zprava.}
+\end{example}
+
+
+\section*{Inverzní matice}
+
+Čtvercové matice typu $n \times n$ označujeme jako matice řádu $n$.
+
+Definujeme \textbf{jednotkovou matici} řádu $n$ $\mat J$ (v literatuře se pro ni používá též značení $\mat E$, $\mat I$, $\mat I_n$, $\mat{Id}$) jako čtvercovou matici řádu $n$, která má na hlavní diagonále samé jedničky a jinde nuly.
+
+Je-li $\mat A$ čtvercová matice řádu $n$, pak zjevně platí $\mat A \mat J = \mat J \mat A = \mat A$.
