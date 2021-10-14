@@ -26,7 +26,7 @@ Matice $\mat A$ typu $n \times m$ a $\mat B$ typu $m \times k$ lze spolu vynáso
             &&&&-4 & 1 & 0 \\
             \hline
             2 & 4 & -1 & 0 &     9 & 4 & 5\\
-            1 & 0 & 3 & -2 &     10 & -7 & -5\\
+            1 & 0 & 3 & -2 &     10 & -7 & -1\\
         \end{array}
     \end{align}
     Například člen $1,1$ jsme získali součtem součinů: 
@@ -78,11 +78,160 @@ Matice $\mat A$ typu $n \times m$ a $\mat B$ typu $m \times k$ lze spolu vynáso
     \underline{Musíme proto přísně rozlišovat mezi násobením matic zleva a zprava.}
 \end{example}
 
+Pro násobení matic platí
+\begin{itemize}
+    \item \textbf{nekomutativita}: $\mat A \mat B \neq \mat B \mat A$
+    \item \textbf{asociativita}: $\mat A (\mat B \mat C) = (\mat A \mat B) \mat C$
+    \item \textbf{distributivita} (zprava a zleva): $(\mat A + \mat B) \mat C = \mat A \mat C + \mat B \mat C$, $\mat A(\mat B + \mat C) = \mat A \mat B + \mat A \mat C$
+\end{itemize}
 
 \section*{Inverzní matice}
 
 Čtvercové matice typu $n \times n$ označujeme jako matice řádu $n$.
 
-Definujeme \textbf{jednotkovou matici} řádu $n$ $\mat J$ (v literatuře se pro ni používá též značení $\mat E$, $\mat I$, $\mat I_n$, $\mat{Id}$) jako čtvercovou matici řádu $n$, která má na hlavní diagonále samé jedničky a jinde nuly.
+Definujeme \textbf{jednotkovou matici} $\mat J$ řádu $n$ (v literatuře se pro ni používá též značení $\mat E$, $\mat I$, $\mat E_n$, $\mat{Id}$) jako čtvercovou matici řádu $n$, která má na hlavní diagonále samé jedničky a jinde nuly. Je-li $\mat A$ čtvercová matice řádu $n$, pak zjevně platí $\mat A \mat J = \mat J \mat A = \mat A$.
 
-Je-li $\mat A$ čtvercová matice řádu $n$, pak zjevně platí $\mat A \mat J = \mat J \mat A = \mat A$.
+\textbf{Inverzní matice} $\mat A^{-1}$ je čtvercová matice stejného řádu $n$, která splňuje $\mat A \mat A^{-1} = \mat A^{-1} \mat A = \mat J$. Pokud inverzní matice existuje, je definována jednoznačně. Není ale definována pro všechny čtvercové matice. 
+
+Řekneme, že matice $\mat A$ řádu $n$ je \textbf{regulární}, jestliže $h(\mat A) = n$, v opačném případě řekneme, že je \textbf{singulární}. Pouze pro regulární matice existuje matice inverzní.
+
+\subsection*{Hledání inverzní matice Jordanovou metodou}
+
+Pro výpočet inverzní matice lze použít metodu, kterou jsme zmiňovali u řešení soustavy lineárních rovnic. Matici $\mat A$ rozšíříme o jednotkovou matici $\mat J$ a pomocí elementárních řádkových úprav se ji pokusíme převést na tvar, kde bude na levé straně vystupovat jednotková matice $\mat J$. Na pravé straně pak získáme inverzní matici $\mat A^{-1}$.
+\begin{align}
+    (\mat A | \mat J) \rightarrow \text{eřú} \rightarrow (\mat J | \mat A^{-1})
+\end{align}
+
+\begin{example}
+    Určíme inverzní matici k \begin{align}
+        \mat B = \begin{pmatrix}
+            1 & -1 & 0 \\
+            2 & 0 & 1 \\
+            -1 & -1 & 4
+        \end{pmatrix} \:.
+    \end{align}
+    Tato matice má $h(\mat B ) = 3$, je proto regulární a inverzní matice k ní existuje.
+    Napíšeme si tvar \begin{align}
+        (\mat B | \mat J) = \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            2 & 0 & 1 & 0 & 1 & 0\\
+            -1 & -1 & 4 & 0 & 0 & 1
+        \end{array}\right) \:.
+    \end{align}
+    Nyní začneme provádět eřú. Nejprve se snažíme vynulovat členy pod diagonálou, stejně jako u Gaussovy eliminace. Začneme standartně prvním sloupcem a pokračovat budeme druhým sloupcem.
+    \begin{align}
+        \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            2 & 0 & 1 & 0 & 1 & 0\\
+            -1 & -1 & 4 & 0 & 0 & 1
+        \end{array}\right) 
+        \sim
+        \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            0 & 2 & 1 & -2 & 1 & 0\\
+            0 & -2 & 4 & 1 & 0 & 1
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            0 & 2 & 1 & -2 & 1 & 0\\
+            0 & 0 & 5 & -1 & 1 & 1
+        \end{array}\right) \:.
+    \end{align}
+    Nyní chceme vynulovat členy nad diagonálou. Začneme posledním sloupcem a pokračovat budeme prostředním. Poslední řádek rovnou vydělíme pěti.
+    \begin{align}
+        \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            0 & 2 & 1 & -2 & 1 & 0\\
+            0 & 0 & 5 & -1 & 1 & 1
+        \end{array}\right)
+        \sim&
+        \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            0 & 2 & 0 & -2+\frac{1}{5} & 1-\frac{1}{5} & -\frac{1}{5}\\
+            0 & 0 & 1 & -\frac{1}{5} & \frac{1}{5} & \frac{1}{5}
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{rrr|rrr}
+            1 & -1 & 0 & 1 & 0 & 0\\
+            0 & 1 & 0 & -\frac{9}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            0 & 0 & 1 & -\frac{1}{5} & \frac{1}{5} & \frac{1}{5}
+        \end{array}\right)
+        \sim \\ \sim&
+        \left(\begin{array}{rrr|rrr}
+            1 & 0 & 0 & 1-\frac{9}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            0 & 1 & 0 & -\frac{9}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            0 & 0 & 1 & -\frac{1}{5} & \frac{1}{5} & \frac{1}{5}
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{rrr|rrr}
+            1 & 0 & 0 & \frac{1}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            0 & 1 & 0 & -\frac{9}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            0 & 0 & 1 & -\frac{2}{10} & \frac{2}{10} & \frac{2}{10}
+        \end{array}\right) \:.
+    \end{align}
+    Nalevo máme jednotkovou matici. Napravo jsme získali matici inverzní:
+    \begin{align}
+        \mat B^{-1} = \begin{pmatrix}
+            \frac{1}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            -\frac{9}{10} & \frac{4}{10} & -\frac{1}{10}\\
+            -\frac{2}{10} & \frac{2}{10} & \frac{2}{10}
+        \end{pmatrix}
+        = \frac{1}{10} \begin{pmatrix}
+            1 & 4 & -1 \\
+            -9 & 4 & -1 \\
+            -2 & 2 & 2
+        \end{pmatrix}
+    \end{align}
+
+    Můžeme se přesvědčit o tom, že je to správná inverzní matice:
+    \begin{align}
+        \mat B \mat B^{-1} = \frac{1}{10} \begin{pmatrix}
+            1 & -1 & 0 \\
+            2 & 0 & 1 \\
+            -1 & -1 & 4
+        \end{pmatrix} \begin{pmatrix}
+            1 & 4 & -1 \\
+            -9 & 4 & -1 \\
+            -2 & 2 & 2
+        \end{pmatrix}
+        =
+        \frac{1}{10}
+        \begin{pmatrix}
+            10 & 0 & 0 \\ 0 & 10 & 0 \\ 0 & 0 & 10
+        \end{pmatrix}
+        = \mat J
+    \end{align}
+    a obdobně v opačném pořadí.
+\end{example}
+
+\begin{example}
+    Matice \begin{align}
+        \mat M = \begin{pmatrix}
+            4 & 2 \\
+            -2 & -1
+        \end{pmatrix}
+    \end{align}
+    nemá k sobě inverzní, protože $h(\mat M) = 1$. Pokud bychom se pokusili hledat ji Jordanovou metodou, narazili bychom na potíže:
+    \begin{align}
+        \left(\begin{array}{rr|rr}
+            4 & 2 & 1 & 0\\
+            -2 & -1 & 0 & 1
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{rr|rr}
+            4 & 2 & 1 & 0\\
+            0 & 0 & 1 & 2
+        \end{array}\right) \:.
+    \end{align}
+    Na levé straně se nám žádným způsobem nepovede vynulovat dvojku nad diagonálou.
+\end{example}
+
+\subsection*{Poznámky}
+
+\begin{itemize}
+    \item Asi nejsnáze se určuje regularita/singularita matice pomocí determinantu.
+    \item K hledání inverzní matice řádu 2 se používá často triku, který je v českých zemích pojmenován \uv{Čihákovo pravidlo} na počest profesora Čiháka, který přednášel dlouhá léta na MATFYZu. Seznámíme se s ním v jednom pozdějším domácím úkolu.
+    \item Další vlastnost maticové algebry je, že $(\mat A \mat B)^{-1} \neq \mat A^{-1} \mat B^{-1}$. Ve skutečnosti $(\mat A \mat B)^{-1} = \mat B^{-1} \mat A^{-1}$, což si ověříme rovněž v domácím úkolu.
+    \item Stejně tak platí $(\mat A \mat B)^T = \mat B^T \mat A^T$.
+\end{itemize}

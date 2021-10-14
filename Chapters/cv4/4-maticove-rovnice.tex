@@ -1,0 +1,316 @@
+\section*{Maticové rovnice}
+
+\begin{example}
+    Řešme rovnici
+    \begin{align}
+        \mat X \mat A - \mat B = 2 \mat X + \mat J \:,
+        \quad \text{kde} \:
+        \mat A = \begin{pmatrix}
+            5 & 5 \\ 1 & 4 
+        \end{pmatrix} \:,\:
+        \mat B = \begin{pmatrix}
+            0 & 1 \\ 3 & 2 
+        \end{pmatrix} \:,\: \mat X \text{ je neznámá}\:.
+    \end{align}
+    Postupujeme podobně, jako bychom řešili obyčejnou lineární rovnici. Musíme však dbát na to, že násobené matic není komutativní - musíme rozlišovat násobení rovnic zprava a zleva.
+
+    V prvním kroku přesuneme všechny $\mat X$ na levou stranu:
+    \begin{align}
+        \mat X \mat A - 2 \mat X = \mat J + \mat B \:. 
+    \end{align}
+    Symbol $2 \mat X$ lze také číst jako $\mat X \cdot 2 \mat J$. Můžeme proto vytknout před závorku $\mat X$:
+    \begin{align}
+        \mat X (\mat A - 2 \mat J) = \mat J + \mat B \:.
+    \end{align}
+    Jestliže existuje matice $(\mat A - 2 \mat J)^{-1}$, mohli bychom touto maticí vynásobit celou rovnici zprava:
+    \begin{align}
+        \mat X (\mat A - 2 \mat J)(\mat A - 2 \mat J)^{-1} = (\mat J + \mat B)(\mat A - 2 \mat J)^{-1}
+    \end{align}
+    a dostaneme řešení
+    \begin{align}
+        \mat X = (\mat J + \mat B)(\mat A - 2 \mat J)^{-1} \:.
+    \end{align}
+
+    Spočítejme tedy matici $\mat A - 2 \mat J$:
+    \begin{align}
+        \mat A - 2 \mat J = \begin{pmatrix}
+            5 & 5 \\ 1 & 4 
+        \end{pmatrix} - 2 \begin{pmatrix}
+            1 & 0 \\ 0 & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            3 & 5 \\ 1 & 2
+        \end{pmatrix} \:.
+    \end{align}
+    Tato matice je regulární, proto k ní můžeme inverzi najít. To učiníme Jordanovou metodou:
+    \begin{align}
+        \left(\begin{array}{cc|cc}
+            3 & 5 & 1 & 0 \\
+            1 & 2 & 0 & 1
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{cc|cc}
+            3 & 5 & 1 & 0 \\
+            0 & -1 & 1 & -3
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{cc|cc}
+            3 & 0 & 6 & -15 \\
+            0 & 1 & -1 & 3
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{cc|cc}
+            1 & 0 & 2 & -5 \\
+            0 & 1 & -1 & 3
+        \end{array}\right)
+    \end{align}
+    Takže \begin{align}
+        (\mat A - 2 \mat J)^{-1} = \begin{pmatrix}
+            2 & -5 \\
+            -1 & 3
+        \end{pmatrix} \:.
+    \end{align}
+    Nyní už řešení najdeme jednoduchým násobením:
+    \begin{align}
+        \mat X = \left[
+            \begin{pmatrix}
+            1 & 0 \\ 0 & 1
+            \end{pmatrix} 
+        +
+            \begin{pmatrix}
+                0 & 1 \\ 3 & 2
+            \end{pmatrix}    
+        \right] \begin{pmatrix}
+            2 & -5 \\ -1 & 3
+        \end{pmatrix}
+        = \begin{pmatrix}
+            1 & 1 \\ 3 & 3
+        \end{pmatrix}
+        \begin{pmatrix}
+            2 & -5 \\ -1 & 3
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & -2 \\ 3 & -6
+        \end{pmatrix} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Řešme maticovou rovnici \begin{align}
+        2 \mat X \mat K = \mat X + \mat B \:, \quad \text{kde} \: 
+        \mat K = \begin{pmatrix}
+            2 & 2 \\ -1 & -1
+        \end{pmatrix} \:,
+        \:
+        \mat B = \begin{pmatrix}
+            0 & 3 \\ 0 & -2
+        \end{pmatrix} \:.
+    \end{align}
+    Ukážeme si alternativní způsob řešení takové rovnice. Tento způsob se používá hlavně v případě, když narazíme na součin neznámé matice s jinou, která není regulární, a nemá proto inverzi. Tento postup lze použít vždy, ale je trochu časově náročnější.
+    
+    Rozepíšeme si neznámou matici $\mat X$ do složek a budeme hledat rovnice pro jednotlivé složky (označíme je postupně):
+    \begin{align}
+        \mat X = \begin{pmatrix}
+            x_1 & x_2 \\ x_3 & x_4
+        \end{pmatrix} \:.
+    \end{align}
+    Dostáváme rovnici
+    \begin{align}
+        2
+        \begin{pmatrix}
+            x_1 & x_2 \\ x_3 & x_4
+        \end{pmatrix}
+        \begin{pmatrix}
+            2 & 2 \\ -1 & -1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            x_1 & x_2 \\ x_3 & x_4
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            0 & 3 \\ 0 & -2
+        \end{pmatrix}
+        \:.
+    \end{align}
+    Spočítáme levou stranu:
+    \begin{align}
+        \begin{pmatrix}
+            4 x_1 - 2 x_2 & 4 x_1 - 2 x_2 \\ 4 x_3 - 2 x_4 & 4 x_3 - 2 x_4
+        \end{pmatrix} 
+        =
+        \begin{pmatrix}
+            x_1 & x_2 \\ x_3 & x_4
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            0 & 3 \\ 0 & -2
+        \end{pmatrix}
+    \end{align}
+    a odečteme první matici na pravé straně
+    \begin{align}
+        \begin{pmatrix}
+            3 x_1 - 2 x_2 & 4 x_1 - 3 x_2 \\ 3 x_3 - 2 x_4 & 4 x_3 - 3 x_4
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 & 3 \\ 0 & -2
+        \end{pmatrix} \:.
+    \end{align}
+    To je ekvivalentní soustavě rovnic
+        \begin{align}
+            3 x_1 - 2 x_2 = 0 \:,\quad
+            4 x_1 - 3 x_2 = 3 \:,\quad
+            3 x_3 - 2 x_4 = 0 \:,\quad
+            4 x_3 - 3 x_4 = -2 \:.
+        \end{align}
+    Tuto soustavu nyní vyřešíme standartně Gaussovou metodou.
+    \begin{align}
+        \left(\begin{array}{cccc|c}
+            3 & -2 & 0 & 0 & 0 \\
+            4 & -3 & 0 & 0 & 3 \\
+            0 & 0 & 3 & -2 & 0 \\
+            0 & 0 & 4 & -3 & -2 
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{cccc|c}
+            12 & -8 & 0 & 0 & 0 \\
+            -12 & 9 & 0 & 0 & -9 \\
+            0 & 0 & 12 & -8 & 0 \\
+            0 & 0 & -12 & 9 & 6 
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{cccc|c}
+            12 & -8 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 & -9 \\
+            0 & 0 & 12 & -8 & 0 \\
+            0 & 0 & 0 & 1 & 6 
+        \end{array}\right)
+    \end{align}
+    Takže vidíme, že $x_4 = 6$, $x_2 = -9$, dále máme dvě rovnice
+    \begin{align}
+        12 x_3 - 48 = 0 \implies x_3 = 4 \:, \quad 12 x_1 + 72 = 0 \implies x_1 = -6 \:.
+    \end{align}
+    Výsledná matice je rovna
+    \begin{align}
+        \mat X = \begin{pmatrix}
+            -6 & -9 \\ 4 & 6
+        \end{pmatrix} \:.
+    \end{align}
+    Můžeme se přesvědčit o správnosti: levá strana je
+    \begin{align}
+        \begin{pmatrix}
+            -12 & -18 \\ 8 & 12
+        \end{pmatrix}
+        \begin{pmatrix}
+            2 & 2 \\ -1 & -1 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -6 & -6 \\ 4 & 4
+        \end{pmatrix}
+    \end{align}
+    a pravá strana je \begin{align}
+        \begin{pmatrix}
+            -6 & -9 \\ 4 & 6
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            0 & 3 \\ 0 & -2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -6 & -6 \\ 4 & 4
+        \end{pmatrix} \:,
+    \end{align}
+    takže všechno vychází.
+\end{example}
+
+
+
+\begin{example}
+    Hledejme všechny matice, které komutují s maticí \begin{align}
+        \mat F = \begin{pmatrix}
+            0 & 2 \\ -2 & 0
+        \end{pmatrix} \:.
+    \end{align}
+    Hledanou matici si označíme jako $\mat X$. Řešíme maticovou rovnici
+    \begin{align}
+        \mat X \mat F = \mat F \mat X \:.
+    \end{align}
+    Rozepišme si $\mat X$ do složek:
+    \begin{align}
+        \begin{pmatrix}
+            x_1 & x_2 \\ x_3 & x_4
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & 2 \\ -2 & 0
+        \end{pmatrix}
+        = 
+        \begin{pmatrix}
+            0 & 2 \\ -2 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_1 & x_2 \\ x_3 & x_4
+        \end{pmatrix} \:.
+    \end{align}
+    Obě strany upravíme:
+    \begin{align}
+        \begin{pmatrix}
+            -2x_2 & 2x_1 \\
+            -2x_4 & 2x_3
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            2x_3 & 2x_4 \\
+            -2x_1 & -2x_2
+        \end{pmatrix} \:.
+    \end{align}
+    Porovnáním jednotlivých složek dostáváme čtyři rovnice
+    \begin{align}
+        -2x_2 = 2x_3 \:,\quad 2x_1=2x_4 \:,\quad -2x_4=-2x_1 \:,\quad 2x_3=-2x_2
+    \end{align}
+    a hned vidíme, že nebude ani potřeba psát velké matice: dvě rovnice jsou identické a máme
+    \begin{align}
+        x_1 = x_4 = t \in \R \:, \quad -x_2 = x_3 = s \in \R \:,
+    \end{align}
+    takže
+    \begin{align}
+        \mat X = \begin{pmatrix}
+            1 & 0 \\ 0 & 1
+        \end{pmatrix} t
+        +
+        \begin{pmatrix}
+            0 & -1 \\ 1 & 0
+        \end{pmatrix} s \:.
+    \end{align}
+    (Výsledek je dosti intuitivní: s maticí komutují násobky jednotkové matice a násobky matice samotné.)
+\end{example}
+
+\subsection*{Řešení soustav lineárních rovnic pomocí inverzní matice}
+
+Soustavu lineárních rovnic lze zapsat ve tvaru $\mat A \vc x = \vc b$, kde na $\vc x$ a $\vc b$ lze pohlížet jako na sloupcové vektory. Máme-li $n$ rovnic pro $n$ neznámých, jsou $\vc x \in V_n$, $\vc b \in V_n$ a matice $\mat A$ je řádu n. Jestliže je $\mat A$ regulární (její hodnost je $n$, tzn. má všechny řádky/sloupce lineárně nezávislé), pak můžeme rovnici vynásobit zleva maticí $\mat A^{-1}$ a dostáváme okamžitě řešení
+\begin{align}
+    \vc x = \mat A^{-1} \vc b \:.
+\end{align}
+Tento vztah platí, pokud matice $\mat A^{-1}$, to odpovídá případu, kdy má soustava právě jedno řešení. Pokud bychom měli soustavu s nekonečně mnoha řešeními nebo žádným řešením, pak by inverze neexistovala a rovnice by samozřejmě neplatila.
+
+Protože hledání inverzní matice je v podstatě ekvivalentní Jordanově metodě, pro počítání na papíře se příliš nehodí. Užitečné je například v situacích, kdy máme více soustav se stejnou maticí $\mat A$ a rozdílnými vektory pravých stran $\vc b$.
+
+\subsection*{Poznámky}
+\begin{itemize}
+    \item Maticové rovnice nemají velké uplatnění v praxi. Slouží hlavně k procvičování vlastností maticové algebry.
+    \item Přestože spolu matice běžně nekomutují, existují velmi speciální třídy matic, které spolu komutují. Jednu takovou třídu jsme našli v příkladu výše. Takovým maticím se říká \textbf{normální} a mají velké uplatnění. Například mají zásadní úlohu v kvantové fyzice nebo v odvětví tzv. lineárního programování.
+    \item Každá matice komutuje s jednotkovou maticí a sama se sebou (a samozřejmě s libovolnými násobky.)
+    \item Jestliže matice $\mat A$ komutuje s $\mat B$ a současně i s $\mat C$, pak komutuje i s jejich součtem:
+    \begin{align}
+        \mat A (\mat B + \mat C) = \mat A \mat B + \mat A \mat C = \mat B \mat A + \mat C \mat A = (\mat B + \mat C) \mat A
+    \end{align}
+    i součinem:
+    \begin{align}
+        \mat A (\mat B \mat C) = (\mat A \mat B) \mat C = (\mat B \mat A) \mat C = \mat B (\mat A \mat C) = \mat B (\mat C \mat A) = (\mat B \mat C) \mat A \:. 
+    \end{align}
+    \item Matice $\mat A$ a $\mat A^T$ spolu běžně nekomutují.
+\end{itemize}
