@@ -1,0 +1,50 @@
+\section*{Domácí úkol 3}
+\textbf{Termín odevzdání:} na cvičení 4. nebo 5.11.2021.
+\newline
+\textbf{Zadání:} V první části domácího úkolu si vyzkoušejte zkratku pro počítání inverzní matice typu $2 \times 2$. Mějme matici \begin{align}
+    \mat A = \begin{pmatrix}
+        a & b \\ c & d
+    \end{pmatrix} \:.
+\end{align}
+Pak inverzní matice má tvar
+\begin{align}
+    \mat A^{-1} = \frac{1}{ad-bc} \begin{pmatrix}
+        d & -b \\ -c & a 
+    \end{pmatrix} \:.
+\end{align}
+Povšimněme si, jak ji získáme:
+\begin{enumerate}
+    \item Na hlavní diagonále prohodíme prvky.
+    \item Na vedlejší diagonále otočíme znaménka.
+    \item Celou matici vydělíme determinantem původní matice.
+\end{enumerate}
+
+\begin{itemize}
+    \item \textbf{(0.5 bodu)} K maticím
+    \begin{align}
+        \mat K = \begin{pmatrix}
+            4 & 2 \\ 3 & 2
+        \end{pmatrix} \:,\quad
+        \mat L = \begin{pmatrix}
+            10 & 3 \\ 3& 1
+        \end{pmatrix} \:,\quad
+        \mat M = \begin{pmatrix}
+            -9 & 2 \\ -4 & 1
+        \end{pmatrix}
+    \end{align}
+    najděte inverzní, nejdříve pomocí Jordanovy metody, potom vyzkoušejte nové pravidlo.
+\end{itemize}
+
+Ve druhé části domácího úkolu zkuste najít vztah mezi vlastními čísly matice $\mat A$ a $\mat A^{-1}$.
+\begin{itemize}
+    \item \textbf{(0.5 bodu)} Najděte vlastní čísla $\lambda$ matice \begin{align}
+        \mat R = \begin{pmatrix}
+            1 & -1 \\ 1 & 3
+        \end{pmatrix} \:.
+    \end{align}
+    Poté najděte matici $\mat R^{-1}$ a vlastní čísla $\kappa$ této matice. Platí mezi $\kappa$ a $\lambda$ nějaký vztah?
+\end{itemize}
+
+\textbf{Poznámka:} \begin{itemize}
+    \item Zkratku pro počítání inverze 2 krát 2 nepoužívejte v zápočtových testech ani u zkoušky! Můžete ji využít pouze pro rychlou kontrolu.
+\end{itemize}

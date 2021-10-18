@@ -1,0 +1,143 @@
+\section*{Aplikace soustavy lineárních rovnic}
+
+\begin{example}[Křivka nabídky a poptávky]
+    Uvažujme křivku nabídky $S$ danou lineární funkcí \begin{align}
+        P = aQ + b \:, \quad \text{kde } a,b>0
+    \end{align}
+    a křivku poptávky $D$ danou též lineární funkcí \begin{align}
+        P = -cQ + d \:, \quad \text{kde } c,d>0 \:.
+    \end{align}
+    Základní úlohou je najít rovnovážný bod $(Q_0,P_0)$, kde je nabídka rovna poptávce.
+    Pro takový bod máme tedy lineární rovnice
+    \begin{align}
+        -aQ_0 + P_0 = b \:, \quad cQ_0 + P_0 = d\:,
+    \end{align} 
+    maticově zapsáno
+    \begin{align}
+        \begin{pmatrix}
+            -a & 1 \\ c & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            Q_0 \\ P_0
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            b \\ d
+        \end{pmatrix} \:.
+    \end{align}
+    Takovou soustavu vyřešíme pomocí všech čtyř metod, které jsme potkali v kurzu lineární algebry. Označme si $\mat A = \begin{pmatrix}
+        -a & 1 \\ c & 1
+    \end{pmatrix}$.
+
+    \begin{itemize}
+        \item \textbf{Pomocí Gaussovy eliminace:} setavíme rozšířenou matici soustavy a budeme provádět eřú.
+        \begin{align}
+            \left(\begin{array}{cc|c}
+                -a & 1 & b \\ c & 1 & d
+            \end{array}\right)
+            \sim
+            \left(\begin{array}{cc|c}
+                -ac & c & bc \\ ac & a & ad
+            \end{array}\right)
+            \sim
+            \left(\begin{array}{cc|c}
+                -ac & c & bc \\ 0 & a+c & ad+bc
+            \end{array}\right) \:.
+        \end{align}
+        Druhá rovnice nám říká $(a+c)P_0 = ad+bc$, odtud 
+        \begin{align}
+            \boxed{ P_0 = \frac{ad+bc}{a+c} }
+        \end{align}
+        za předpokladu, že $a+c \neq 0$. Dosazením do první rovnice dostaneme
+        \begin{align}
+            -a Q_0 + \frac{ad+bc}{a+c} = b \:,
+        \end{align}
+        odkud dostaneme
+        \begin{align} 
+            \boxed{ Q_0 =} -\frac{b}{a} + \frac{ad+bc}{a(a+c)} = \frac{-b(a+c) + ad+bc}{a(a+c)} = \frac{-ab-bc + ad + bc}{a(a+c)} = \frac{-ab + ad}{a(a+c)} \boxed{= \frac{d-b}{a+c} } \:.
+        \end{align}
+        
+        \item \textbf{Pomocí Jordanovy metody:}
+        Postupujeme jako u Gausse, ale pokusíme se matici převést na jednotkovou:
+        \begin{align}
+            \left(\begin{array}{cc|c}
+                -a & 1 & b \\ c & 1 & d
+            \end{array}\right)
+            \sim&
+            \left(\begin{array}{cc|c}
+                -ac & c & bc \\ ac & a & ad
+            \end{array}\right)
+            \sim
+            \left(\begin{array}{cc|c}
+                -ac & c & bc \\ 0 & a+c & ad+bc
+            \end{array}\right)
+            \sim \\ \sim&
+            \left(\begin{array}{cc|c}
+                -ac(a+c) & c(a+c) & bc(a+c) \\ 0 & -c(a+c) & -c(ad+bc)
+            \end{array}\right)
+            \sim \\ \sim&
+            \left(\begin{array}{cc|c}
+                -ac(a+c) & 0 & bc(a+c)-c(ad+bc) \\ 0 & -c(a+c) & -c(ad+bc)
+            \end{array}\right)
+            \sim \\ \sim&
+            \left(\begin{array}{cc|c}
+                1 & 0 & \frac{bc(a+c)-c(ad+bc)}{-ac(a+c)} \\ 0 & 1 & \frac{-c(ad+bc)}{-c(a+c)}
+            \end{array}\right) \:.
+        \end{align}
+        Odtud
+        \begin{align}
+            \boxed{Q_0 =} \frac{bc(a+c)-c(ad+bc)}{-ac(a+c)} = - \frac{b}{a} + \frac{ad+bc}{a(a+c)} \boxed{= \frac{d-b}{a+c} } \:,\\
+            \boxed{P_0 =} \frac{-c(ad+bc)}{-c(a+c)} \boxed{= \frac{ad+bc}{a+c} } \:.
+        \end{align}
+
+        \item \textbf{Pomocí Cramerova pravidla:} $\det \mat A = -a-c = -(a+c)$, tedy
+        \begin{align}
+            \boxed{ Q_0 =} - \frac{1}{a+c} \begin{bmatrix}
+                b & 1\\ d & 1
+            \end{bmatrix}
+            = - \frac{b-d}{a+c} \boxed{= \frac{d-b}{a+c} }\:, \quad 
+            \boxed{ P_0 =} - \frac{1}{a+c} \begin{bmatrix}
+               -a & b \\ c & d 
+            \end{bmatrix} = - \frac{-ad-bc}{a+c} \boxed{= \frac{ad+bc}{a+c} }\:.
+        \end{align}
+
+        \item \textbf{Pomocí inverzní matice:}
+        Najdeme inverzní matici $\mat A^{-1}$ a potom řešení můžeme napsat ve tvaru
+        \begin{align}
+            \begin{pmatrix}
+                Q_0 \\ P_0
+            \end{pmatrix}
+            = \mat A^{-1} \begin{pmatrix}
+                b \\ d
+            \end{pmatrix} \:.
+        \end{align} 
+        Použijeme zkratku pro matice $2 \times 2$: \begin{align}
+            \mat A^{-1} = \frac{1}{\det \mat A}\begin{pmatrix}
+                1 & -1  \\ -c & -a
+            \end{pmatrix} = \frac{1}{a+c} \begin{pmatrix}
+                -1 & 1  \\ c & a
+            \end{pmatrix} \:.
+        \end{align}
+        Takže \begin{align}
+            \begin{pmatrix}
+                Q_0 \\ P_0
+            \end{pmatrix}
+            = \frac{1}{a+c}
+            \begin{pmatrix}
+                -1 & 1  \\ c & a
+            \end{pmatrix}
+            \begin{pmatrix}
+                b \\ d
+            \end{pmatrix}
+            = \frac{1}{a+c} \begin{pmatrix}
+                -b+d \\ cb + ad
+            \end{pmatrix} \:,
+        \end{align}
+        takže pro jednotlivé složky
+        \begin{align}
+            \boxed{ Q_0 = \frac{d-b}{a+c} \:, \quad P_0 = \frac{ad+bc}{a+c} }\:.
+        \end{align}
+    \end{itemize}
+    
+    
+\end{example}
