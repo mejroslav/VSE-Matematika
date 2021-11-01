@@ -1,0 +1,114 @@
+\section*{Vlastní čísla}
+
+Zjistili jsme, že násobení vektoru maticí je poměrně početně náročná záležitost. Nyní bychom chtěli nalézt speciální vektory, pro které takové maticové násobení bude jednoduchou záležitostí.
+
+Mějme matici $\mat A$ typu $n \times n$. Mezi všemi vektory $\vc v \in V_n$ zkusme nalézt speciální $\vc u$, pro které se násobení maticí $\mat A$ chová jako obyčejné násobení číslem $\lambda$. Vyřešme proto rovnici
+\begin{align}
+    \mat A \vc u = \lambda \vc u \:.
+\end{align}
+Tato rovnice představuje soustavu lineárních rovnic
+\begin{align}
+    (\mat A - \lambda \mat J) \vc u = \vc 0 \:.
+\end{align}
+Jedná se o homogenní soustavu. O ní víme, že má určitě jedno triviální řešení $\vc u = \vc 0$. Nulový vektor ale není žádný zázrak. Zkusme najít nějaké další.
+
+Představme si, že matice $\mat A - \lambda \mat J$ je regulární. Pak bychom mohli rovnici vynásobit inverzí a dostali bychom
+\begin{align}
+    \vc u = (\mat A - \lambda \mat J)^{-1} \vc 0 = \vc 0 \:,
+\end{align}
+protože násobení nulového vektoru libovolnou maticí je stále nulový vektor. My ale chceme hledat nenulové vektory. Proto požadujeme, aby $\mat A - \lambda \mat J$ byla singulární matice!
+
+Požadavek na singularitu vede na nulovost determinantu:
+\begin{align}
+    \det (\mat A - \lambda \mat J) = 0 \:.
+\end{align}
+Na tuto rovnici se musíme koukat následovně: máme zadánu matici $\mat A$ a hledáme speciální čísla $\lambda$, které této rovnici vyhovují.
+Rovnici říkáme \textbf{vlastní (charakteristická) rovnice} pro matici $\mat A$ a sepciálním číslům $\lambda$ říkáme \textbf{vlastní (charakteristická) čísla} matice $\mat A$. (Výraz vlastní, charakteristický pochází z německého \uv{eigen} - vlastnit. V angličtině se vlastním číslům říká \uv{eigenvalues}.) Vektorům $\vc u$, které splňují rovnici $\mat A \vc u =\lambda \vc u$ říkáme vlastní vektory. Výpočtem vlastních vektorů se nebudeme zabývat. Výpočet vlastních čísel si ovšem ukážeme.
+
+\begin{example}
+    Určíme vlastní čísla matice \begin{align}
+        \mat D = \begin{pmatrix}
+            7 & 5 \\ 6 & 8
+        \end{pmatrix} \:.
+    \end{align}
+    Sestavíme matici
+    \begin{align}
+        \mat D - \lambda \mat J = \begin{pmatrix}
+            7-\lambda & 5 \\ 6 & 8-\lambda
+        \end{pmatrix}
+    \end{align}
+    a spočteme její determinant:
+    \begin{align}
+        \det (\mat D - \lambda \mat J) = (7-\lambda)(8-\lambda) - 5 \cdot 6 = 56 - 7\lambda - 8 \lambda + \lambda^2 - 30 = \lambda^2 - 15 \lambda + 26 \:.
+    \end{align}
+    Potřebujeme tedy vyřešit rovnici
+    \begin{align}
+        \lambda^2 - 15 \lambda + 26 = 0 \:.
+    \end{align}
+    Jejím řešením jsou
+    \begin{align}
+        \lambda_{1,2} =  \frac{15 \pm \sqrt{15^2-4\cdot 26}}{2} = \frac{15 \pm \sqrt{225-104}}{2} = \frac{15 \pm \sqrt{121}}{2} = \frac{15 \pm 11}{2} = 2, 13 \:.
+    \end{align}
+    Nalezli jsme dvě vlastní čísla $\lambda_1 = 2$ a $\lambda_2 = 13$. Každému z těchto čísel přísluší nějaký vlastní vektor, ten ale hledat nebudeme.
+\end{example}
+
+\begin{itemize}
+    \item Matice $n \times n$ má $n$ vlastních čísel. Ne všechna ale musejí být různá, stejně třeba jako kořeny kvadratické rovnice. Některá vlastní čísla se mohou objevit vícekrát, říkáme o nich, že mají \textbf{algebraickou násobnost} větší než 1.
+    \item \textbf{Jakmile je matice singulární, je $0$ jejím vlastním číslem.} To plyne ihned z charakteristické rovnice: $\det (\mat A ) = 0$, tedy $\det (\mat A - 0 \cdot \mat J) = 0$.
+    \item O matici řekneme, že je symetrická, jestliže $\mat A = \mat A^T$. \textbf{Vlastní čísla symetrické matice jsou vždy reálná.} Pokud matice není symetrická, může mít i \textbf{komplexní vlastní čísla}.
+\end{itemize}
+
+\subsection*{Dodatek: vlastní vektory}
+
+\begin{example}
+    Jak bychom v předchozím příkladu hledali vlastní vektory? Pro každé vlastní číslo $\lambda$ máme rovnici $ (\mat D - \lambda \mat J) \vc u = 0$.
+    
+    Pro vlastní číslo $\lambda_1 = 2$ tedy máme rovnici $(\mat D - 2 \mat J) \vc u = 0$. Označíme-li $\vc = \begin{pmatrix}
+        u_1 \\ u_2
+    \end{pmatrix}$, pak řešíme rovnici
+    \begin{align}
+        \begin{pmatrix}
+            7-2 & 5 \\ 6 & 8-2
+        \end{pmatrix}
+        \begin{pmatrix}
+            u_1 \\ u_2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 \\ 0
+        \end{pmatrix} \:.
+    \end{align}
+    Tomu odpovídá soustava rovnic
+    \begin{align}
+        \left(\begin{array}{cc|c}
+            5 & 5 & 0 \\
+            6 & 6 & 0
+        \end{array} \right) \:,
+    \end{align}
+    stačí tedy vzít $u_2 = t \in \R$ a $u_1 = - u_2 = -t$. Vlastní vektor
+    \begin{align}
+        \vc u_1 = \begin{pmatrix}
+            -1 \\ 1
+        \end{pmatrix} \cdot t
+    \end{align}
+    je tedy libovolný násobek vektoru $(-1,1)$. Skutečně, můžeme si ověřit, že maticové násobení pro tento vektor je skutečně stejné jako násobení číslem:
+    \begin{align}
+        \mat D \vc u_1 = \begin{pmatrix}
+            7 & 5 \\ 6 & 8
+        \end{pmatrix}
+        \begin{pmatrix}
+            -t \\ t
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -7t+5t \\ -6t+8t
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -2t \\ 2t
+        \end{pmatrix}
+        = 2 \vc u_1 \:.
+    \end{align}
+
+    Obdobně bychom našli vlastní vektor $\vc u_2$ k vlastnímu číslu $\lambda_2 = 13$.
+\end{example}

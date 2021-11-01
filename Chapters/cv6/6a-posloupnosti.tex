@@ -1,0 +1,129 @@
+\section*{Posloupnosti}
+
+Zobrazení $a: \N \to \R$ přiřazuje přirozeným číslům reálná čísla. To znamená, že číslům $1,2,3,\cdots$ přiřazuje nějaká čísla $a_1, a_2, a_3, \cdots$. Tomuto zobrazení říkáme \textbf{posloupnost}. Jako celek ji označujeme symbolem $\set{a_n}_{n=1}^\infty$. (Někdy též může začínat nulou.)
+
+Řekneme, že posloupnost je:
+\begin{itemize}
+    \item \textbf{rostoucí}, jestliže $a_{m} > a_n$ pro všechna $m>n$,
+    \item \textbf{klesající}, jestliže $a_{m} < a_n$ pro všechna $m>n$,
+    \item \textbf{neklesající}, jestliže $a_{m} \geq a_n$ pro všechna $m>n$,
+    \item \textbf{nerostoucí}, jestliže $a_{m} \leq a_n$ pro všechna $m>n$.
+\end{itemize}
+
+\subsection*{Limita posloupnosti a její výpočet přímo z definice}
+
+Chtěli bychom definovat, co to znamená, že se \uv{členy posloupnosti blíží nějaké hodnotě $A$ s rostoucím $n$}. Učiníme to následovně:
+\begin{enumerate}
+    \item Zvolíme si číslo $\epsilon>0$ a kolem hodnoty $A$ vytvoříme tzv. $\epsilon$-okolí. To bude interval $(A-\epsilon, A+\epsilon)$, který bude mít šířku $2 \epsilon$.
+    \item Podíváme se, zda od nějakého členu $a_{n_0}$ budou již všechny členy posloupnosti ležet v tomto zvoleném okolí. To znamená, pro všechna $n>n_0$ musí platit rovnice
+    \begin{align}
+        A - \epsilon < a_n < A + \epsilon \:.
+    \end{align}
+    \item Pakliže je tato podmínka splněna, zmenšíme $\epsilon$ a znova podmínku ověříme.
+    \item Jestliže je podmínka splněna pro \textbf{libovolně malé} $\epsilon$ (ale stále nenulové, to by totiž nikdy nefungovalo), řekneme, že \textbf{$A$ je vlastní limitou posloupnosti $a_n$ pro $n$ jdoucí do nekonečna} a píšeme \begin{align}
+        \lim_{n \rightarrow \infty} a_n = A \:.
+    \end{align}
+\end{enumerate}
+Obdobně můžeme definovat tzv. nevlastní limitu v $+\infty$. Místo okolí nějaké hodnoty zvolíme číslo $L$ a vytvoříme $L$-okolí bodu $+\infty$, což bude interval $(L,+\infty)$. Bude nás tedy zajímat, zda od nějakého členu $a_{n_0}$ padnou všechny členy posloupnosti do takového okolí, tzn. pro všechna $n>n_0$ musí platit
+\begin{align}
+    L < a_n \:.
+\end{align}
+Jestliže se to povede, $L$ zvýšíme a proces opakujeme. Jestliže nerovnost bude splněna pro (tentokrát) \textbf{libovolně velké} $L$, řekneme, že \textbf{$+\infty$ je nevlastní limitou posloupnosti $a_n$ pro $n$ jdoucí do nekonečna} a píšeme
+\begin{align}
+    \lim_{n \rightarrow \infty} a_n = + \infty \:.
+\end{align}
+Analogicky definujeme limitu v $-\infty$.
+
+\begin{example}[Vlastní limita z definice]
+    Dokažme, že
+    \begin{align}
+        \lim_{n \rightarrow \infty} \frac{n+2}{n} = 1 \:.
+    \end{align}
+    \begin{itemize}
+        \item Kolem jedničky budeme konstruovat okolí. Zkusme nejprve vzít nějaké konkrétní $\epsilon$, např $\epsilon = 1$. Potřebovali bychom pak splnit nerovnici
+        \begin{align}
+            1 - 1 < \frac{n+2}{n} < 1 + 1 \:,
+        \end{align}
+        tedy 
+        \begin{align}
+            0 < \frac{n+2}{n} < 2 \:.
+        \end{align}
+        První nerovnost bude splněna vždy, protože dělíme dvě kladná čísla. Druhou nerovnost převedeme na tvar
+        \begin{align}
+            n+2 < 2n \implies n > 2 \:.
+        \end{align}
+        Všechny členy počínaje třetím členem už tedy vyhovují podmínce: jsou v $1$-okolí bodu $1$. Hledané $n_0$ je tedy v tomto případě $3$.
+
+        \item Zkusme $\epsilon$ zmenšit a vyzkoušejme $\epsilon = 1/2$. Řešíme tedy nerovnici
+        \begin{align}
+            \frac{1}{2} < \frac{n+2}{n} < \frac{3}{2} \:.
+        \end{align}
+        Z první nerovnice dostáváme podmínku $2n+4 > n$, tj. $n>-4$. Z druhé nerovnice dostáváme podmínku $3n> 2n+4$, tedy $n>4$. Zvolíme-li $n_0=5$, pak pro všechna vyšší $n$ je podmínka splněna.
+
+        \item Takhle bychom mohli pokračovat dál a volit postupně menší a menší $\epsilon$. Ale my podmínku potřebujeme ověřit pro libovolně malé $\epsilon$. Proto pojďme řešit naprosto obecnou nerovnici:
+        \begin{align}
+            1-\epsilon < \frac{n+2}{n} < 1+\epsilon \:.
+        \end{align}
+        Z první nerovnice dostáváme
+        \begin{align}
+            (1-\epsilon)n < n+2 \implies \epsilon n > -2 \implies n > -\frac{2}{\epsilon} \:,
+        \end{align}
+        takže ta je splněna pro všechna přirozená $n$.
+        Z druhé nerovnice dostáváme
+        \begin{align}
+            (1+\epsilon)n > n+2 \implies \epsilon n > 2 \implies n > \frac{2}{\epsilon} \:.
+        \end{align}
+        Jakmile si tedy vybereme konkrétní $\epsilon$, najdeme k němu dostatečně vysoké $n_0$ tak, že nerovnice $1-\epsilon < \frac{n+2}{n} < 1 + \epsilon$ bude pro všechna $n>n_0$ splněna. 
+        
+        Kdyby nám někde vyšlo, že $n$ je omezené nějakou horní hodnotou, tak by to znamenalo, že nějaké členy posloupnosti jsou mimo okolí, tím pádem není splněna podmínka pro existenci limity. Nic takového se ale nestalo, $n$ je omezené pouze zdola (číslem $2/\epsilon$).
+
+        \item Protože to lze udělat \textbf{pro každé (libovolně malé)} $\epsilon>0$, dokázali jsme, že skutečně $\lim_{n \rightarrow \infty} \frac{n+2}{n} = 1$.
+    \end{itemize}
+
+    
+\end{example}
+
+\begin{example}[Nevlastní limita z definice]
+    Dokažme, že \begin{align}
+        \lim_{n \rightarrow \infty} n^2 = + \infty \:.
+    \end{align}
+    Zvolme si číslo $L$. Potřebujeme splnit nerovnici
+    \begin{align}
+        L < n^2 \:.
+    \end{align}
+    Zjevně stačí zvolit $n > \sqrt{L}$. Číslo $L$ může být libovolně velké, stejně najdeme člen $n_0$ takový, že pro všechna vyšší $n$ už bude nerovnice splněna. Proto jsme splnili podmínku a ověřili jsme, že $\lim_{n \rightarrow \infty} n^2 = + \infty$.
+\end{example}
+
+
+\begin{example}[Limita je určena jednoznačně]
+    Pokud limita posloupnosti existuje, pak je určena jednoznačně. To je jasné, představme si, že máme dvě limity $A \neq B$. Kolem nich si můžeme udělat dvě různá okolí. Je jasné, že při dostatečně malých $\epsilon$ se tato dvě okolí nebudou protínat. To znamená, pokud všechny členy posloupnosti leží v jednom okolí, nemůžou ležet v druhém okolí. Tím pádem může být limita právě jedna.
+\end{example}
+
+\subsection*{Podposloupnosti}
+
+Mějme nějakou posloupnost $\set{a_n}_{n=1}^\infty$, která má limitu $A$. Jestliže z posloupnosti odstraníme konečný počet členů, její limita se nemůže změnit. To je jasné, protože v definici limity podmínka zněla tak, že nekonečně mnoho členů leží v okolí, pokud z nekonečného množství ubereme konečný počet členů, stále jich bude nekonečně mnoho.
+
+Můžeme si ale vzít i nekonečný počet členů. Například si můžeme vytvořit novou posloupnost $\set{b_n}_{n=1}^\infty$ tak, že vezmeme z původní posloupnosti každý sudý člen, tzn. $b_1 = a_2$, $b_2 = a_4$, \dots, $b_n = a_{2n}$, atd. O posloupnosti $\set{b_n}_{n=1}^\infty$ pak říkáme, že je vybraná z posloupnosti $\set{a_n}_{n=1}^\infty$ nebo také, že je \textbf{podposloupností}. Píšeme $\set{b_n}_{n=1}^\infty \subset \set{a_n}_{n=1}^\infty$.
+
+Platí následující tvrzení: jestliže $\lim_{n \rightarrow \infty} a_n = A$, pak $\lim_{n \rightarrow \infty} b_n = A$ pro jakoukoli podposloupnost $\set{b_n}_{n=1}^\infty \subset \set{a_n}_{n=1}^\infty$.
+
+\begin{example}
+    Kdybychom vybrali každý třetí člen posloupnosti $a_n = \frac{n+2}{n}$, dostali bychom podposloupnost $\set{b_n}_{n=1}^\infty$ danou předpisem
+    \begin{align}
+        b_n = a_{3n} = \frac{(3n)+2}{(3n)} = \frac{3n+2}{3n} \:.
+    \end{align}
+    Platí
+    \begin{align}
+        \lim_{n \rightarrow \infty} \frac{n+2}{n} = 1 = \lim_{n \rightarrow \infty} \frac{3n+2}{3n} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Tvrzení o podposloupnosti se dá využít k důkazu toho, že nějaká limita posloupnosti neexistuje. Například lze snadno ukázat, že posloupnost $a_n = (-1)^n$ nemá limitu.
+    Vybereme-li si totiž jenom sudé členy, dostaneme posloupnost $\set{b_n}$, $b_n = a_{2n} = (-1)^{2n} = 1^n = 1$. Vybereme-li si naopak jenom liché členy, dostaneme posloupnost $\set{c_n}$, $c_n = a_{2n+1} = (-1)^{2n+1} = -1 \cdot (-1)^{2n} = -1 $.
+    Protože 
+    \begin{align}
+        \lim_{n \rightarrow \infty} b_n = 1 \neq -1 = \lim_{n \rightarrow \infty} c_n \:,
+    \end{align}
+    nemůže mít původní posloupnost $\set{a_n}$ limitu.
+\end{example}

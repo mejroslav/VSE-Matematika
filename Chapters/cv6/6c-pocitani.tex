@@ -1,0 +1,336 @@
+\section*{Počítání limit}
+
+Počítat limitu z definice nebo ukazovat, že neexistuje, je náročné. Naštěstí se ukazuje, že stačí znát několik \uv{základních limit} a pro složitější posloupnosti je počítat pomocí nich. Platí totiž:
+\begin{align}
+    \limn (a_n \pm b_n) = \limn a_n \pm \limn b_n \:, \quad
+    \limn (ca_n) = c \limn a_n \:, \quad
+    \limn (a_n b_n) = \limn a_n \cdot \limn b_n \:, \quad
+    \limn \frac{a_n}{b_n} = \frac{\limn a_n}{\limn b_n} \:,
+\end{align}
+pokud příslušné limity existují a i všechny výrazy mají smysl. Proč je důležitý poslední dovětek? Výrazy 
+\begin{align}
+    \infty - \infty \:,\quad 
+    \frac{a}{0} \:,\quad 
+    \frac{\infty}{0} \:,\quad 
+    \frac{\infty}{\infty} \:.
+\end{align}
+definované nejsou.
+
+\subsection*{Polynom dělený polynomem}
+
+Nejprve se zamysleme nad limitami posloupností typu
+\begin{align}
+    a_n = \frac{P_k(n)}{P_l(n)} = 
+    \frac{c_k n^k + c_{k-1} n^{k-1} + \cdots + c_1 n + c_0}
+    {d_l n^l + d_{l-1} n^{l-1} + \cdots + d_1 n + d_0}\:,
+\end{align}
+kde $P_k(n)$ je nějaký polynom stupně $k$ a $P_l$ je polynom stupně $l$, $c_i$ a $d_i$ jsou nějaké koeficienty.
+
+Zde mohou nastat tři situace:
+\begin{itemize}
+    \item $k<l$: jestliže polynom dole má vyšší stupeň, pak $\limn a_n = 0$.
+    \item $k>l$: jestliže polynom nahoře má vyšší stupeň, pak $\limn a_n = \pm \infty$. O znaménku rozhoduje koeficient $c_k$ u nejvyššího členu.
+    \item $k=l$: jestliže polynomy mají stejný stupeň, pak $\limn a_n = \frac{c_k}{d_k}$.
+\end{itemize}
+
+\begin{example}
+    Spočtěme 
+    \begin{align}
+        \limn \frac{n^2-n}{4n^3 + 2n^2 + 1} \:.
+    \end{align}
+    Abychom mohli používat pravidla pro počítání limit a nedostávali nikde nedefinované výrazy, učiníme následující trik: \textbf{z čitatele i jmenovatele vytýkáme nejvyšší mocninu $n$, která se vyskytuje ve jmenovateli}. V tomto případě to je $n^3$, takže vytýkáme
+    \begin{align}
+        \frac{n^2-n}{4n^3 + 2n^2 + 1} = \frac{n^3 (\frac{1}{n} - \frac{1}{n^2})}{n^3 (4 + \frac{2}{n} + \frac{1}{n^3})} = \frac{\frac{1}{n} - \frac{1}{n^2}}{4 + \frac{2}{n} + \frac{1}{n^3}}\:.
+    \end{align}
+    Nyní už můžeme použít pravidlo o součtu a podílu limit:
+    \begin{align}
+        \limn \frac{\frac{1}{n} - \frac{1}{n^2}}{4 + \frac{2}{n} + \frac{1}{n^3}}
+        = \frac{\limn \frac{1}{n} - \limn \frac{1}{n^2}}{\limn 4 + \limn \frac{2}{n} + \limn \frac{1}{n^3}} = \frac{0- 0}{4 + 0 + 0} = \frac{0}{4} = 0 \:.
+    \end{align}
+    Takže
+    \begin{align}
+        \limn \frac{n^2-n}{4n^3 + 2n^2 + 1} = 0\:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Spočtěme
+    \begin{align}
+        \limn \frac{n^5+ 9 n^4}{n^4 - 2n^2 + 3} \:.
+    \end{align}
+    Opět provedeme trik a vytkneme $n^4$:
+    \begin{align}
+        \limn \frac{n^5+ 9 n^4}{n^4 - 2n^2 + 3} =
+        \limn \frac{n^4(n + 9)}{n^4(1 - 2 \frac{1}{n^2} + \frac{3}{n^4})} =
+        \limn \frac{n + 9}{1 - 2 \frac{1}{n^2} + \frac{3}{n^4}}
+        =
+        \frac{\infty + 9}{1 - 0 + 0} = \infty \:.
+    \end{align}
+    Takže
+    \begin{align}
+        \limn \frac{n^5+ 9 n^4}{n^4 - 2n^2 + 3} = + \infty \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Vypočítáme
+    \begin{align}
+        \limn \frac{1-n^4}{1+2n^3} \:.
+    \end{align}
+
+    Stejným způsobem
+    \begin{align}
+        \limn \frac{1-n^4}{1+2n^3} = \limn \frac{n^3(\frac{1}{n^3}-n)}{n^3(\frac{1}{n^3}+2)}
+        =
+        \limn \frac{\frac{1}{n^3}-n}{\frac{1}{n^3}+2}
+        =
+        \frac{0-\infty}{0 + 2} = - \infty \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Vypočítáme
+    \begin{align}
+        \limn \frac{3n^4-1}{1+n+n^2-n^4} \:.
+    \end{align}
+    Opět provádíme stejný trik. Všimněme si, že stupeň polynomu nahoře i dole je stejný, takže výsledkem bude konečné, nenulové číslo.
+    \begin{align}
+        \limn \frac{3n^4-1}{1+n+n^2-n^4} =
+        \limn \frac{n^4(3-\frac{1}{n^4})}{n^4(\frac{1}{n^4}+\frac{1}{n^3}+\frac{1}{n^2}-1)}
+        =
+        \frac{3-0}{0+0+0-1} = -3 \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Spočteme
+    \begin{align}
+        \limn (n-n^2) \:.
+    \end{align}
+    Pokud bychom chtěli ihned dosadit, dostali bychom
+    \begin{align}
+        \limn (n-n^2) = + \infty - \infty \:,
+    \end{align}
+    což je nedefinovaný výraz!
+    Použijeme proto opět trik, vytkneme si $n^2$:
+    \begin{align}
+        \limn (n-n^2) = \limn n^2 ( \frac{1}{n} - 1) = \limn n^2 \cdot \limn (\frac{1}{n}-1) = + \infty \cdot (0-1) = - \infty \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Zamysleme se trochu obecněji. Vyřešme limitu 
+    \begin{align}
+        \limn (c_k n^k + c_{k-1} n^{k-1} + \cdots + c_1 n + c_0) \:.
+    \end{align}
+    Po vytknutí nejvyšší mocniny $n^k$ uvidíme, že nás zajímá pouze koeficient $c_k$ u nejvyšší mocniny, který rozhoduje o tom, zda limita bude $+\infty$ nebo $-\infty$.
+    \begin{align}
+        \limn (c_k n^k + c_{k-1} n^{k-1} + \cdots + c_1 n + c_0) = \limn n^k \cdot \limn (c_k + c_{k-1} \frac{1}{n} + \cdots + c_1 \frac{1}{n^{k-1}} + c_0 \frac{1}{n^k}) = +\infty \cdot c_k \:. 
+    \end{align}
+    Takže pokud $c_k >0$, limita bude $+\infty$, pokud $c_k<0$, bude limita $-\infty$.
+\end{example}
+
+\subsection*{Věta o dvou strážnících}
+
+Zamysleme se nad posloupností
+\begin{align}
+    a_n = \frac{(-1)^n}{n^2} \:.
+\end{align}
+Nemůžeme použít aritmetiku limit, protože posloupnost v čitateli $(-1)^n$ limitu nemá, viz příklad výše. Přesto ale tušíme, že limita této posloupnosti bude nulová, protože do jmenovatele vstupují větší a větší čísla.
+
+V těchto situacích se používá tvrzení, které se nazývá \textbf{věta o sevřené posloupnosti} nebo \textbf{věta o dvou strážnících} nebo též \textbf{věta o sendviči}.
+
+Máme-li dvě posloupnosti $\set{s^{\uparrow}_n}_{n=1}^\infty$ a $\set{s^{\downarrow}_n}_{n=1}^\infty$ a posloupnosti $\set{a_n}_{n=1}^\infty$, pro které platí:
+\begin{enumerate}
+    \item Od jistého členu $n_0$ platí pro všechna $n>n_0$, že $s^{\downarrow}_n \leq a_n \leq s^{\uparrow}_n$,
+    \item $\limn s_n^{\downarrow} = \limn s_n^{\uparrow} = A$,
+\end{enumerate}
+pak i \begin{align}
+    \limn a_n = A \:.
+\end{align}
+Posloupnost $\set{s^{\uparrow}_n}_{n=1}^\infty$ funguje jako \uv{horní strážník}, posloupnost $\set{s^{\downarrow}_n}_{n=1}^\infty$ funguje jako \uv{spodní strážník}. Protože je mezi ně posloupnost $\set{a_n}_{n=1}^\infty$ \uv{vmáčknutá} a oba strážníci mají stejnou limitu, musí ji mít i $\set{a_n}_{n=1}^\infty$.
+
+V našem příkladu můžeme najít takové dva strážníky. Horní strážník bude posloupnost
+\begin{align}
+    s_n^{\uparrow} = + \frac{1}{n^2}
+\end{align}
+a spodní strážník bude
+\begin{align}
+    s_n^{\downarrow} = - \frac{1}{n^2} \:.
+\end{align}
+Určitě platí \begin{align}
+    \limn \frac{1}{n^2} = 0 = \limn -\frac{1}{n^2} \:.
+\end{align}
+Zároveň jistě platí, že \begin{align}
+    -\frac{1}{n^2} \leq \frac{(-1)^n}{n^2} \leq +\frac{1}{n^2} \:.
+\end{align}
+Použijeme tedy větu o dvou strážnících a dostáváme
+\begin{align}
+    \limn \frac{(-1)^n}{n^2} = 0 \:.
+\end{align}
+
+\begin{example}
+    Zkoumejme
+    \begin{align}
+        \limn \frac{\sin \left( \frac{n}{4 \pi}\right)}{n} \:.
+    \end{align}
+    (Cvičení: napište prvních deset členů takové posloupnosti a vyznačte je do grafu.)
+
+    Víme, že
+    \begin{align}
+        -1 \leq \sin (kn) \leq +1 \quad \text{pro libovolné } k \in \R \:.
+    \end{align}
+    Můžeme proto najít dva strážníky. Spodní strážník bude posloupnost $s_n^{\downarrow} = -\frac{1}{n}$ a horní strážník bude $s_n^{\uparrow} = + \frac{1}{n}$. Obě dvě posloupnosti mají limitu $0$, takže
+    \begin{align}
+        \limn \frac{\sin \left( \frac{n}{4 \pi}\right)}{n} = 0 \:.
+    \end{align}
+\end{example}
+
+\begin{example}[Malinko obtížnější]
+    Zkoumejme limitu
+    \begin{align}
+        \limn \frac{\sin n + \cos^2 n}{n + \sin n} \:.
+    \end{align}
+    Opět tušíme, že díky $n$ ve jmenovateli bude limita nulová. Kvůli goniometrickým funkcím musíme opět najít dva strážníky. 
+    Čitatel snadno můžeme omezit:
+    \begin{align}
+        -2 \leq \sin n + \cos^2 n \leq 2
+    \end{align}
+    a jmenovatel též:
+    \begin{align}
+       n-1 \leq n + \sin n \leq n + 1
+    \end{align}
+    Takže můžeme vzít strážníky $s_n^{\uparrow} = \frac{+2}{n - 1}$ a $s_n^{\downarrow} = \frac{-2}{n+1}$ (horní strážník je \uv{největší čitatel ku nejmenšímu jmenovateli} a spodní strážník je \uv{nejmenší čitatel ku největšímu jmenovateli}). Oba dva strážníci mají nulovou limitu, takže opět 
+    \begin{align}
+        \limn \frac{\sin n + \cos^2 n}{n + \sin n} = 0 \:.
+    \end{align}
+\end{example}
+
+
+\subsection*{Limity s odmocninami}
+
+\begin{example}
+    Určíme
+    \begin{align}
+        \limn (n-\sqrt{n^2+4}) \:.
+    \end{align}
+    Cvičení: zobrazte si graf funkcí $x$ a $\sqrt{x^2+4}$. Dá se \textrm{něco} říci o chování pro $x \rightarrow +\infty$?
+
+    Pokud bychom dosadili, dostali bychom opět $\infty - \infty$, což není definované. Musíme proto použít další trik, kterému se říká \textbf{rozšíření sdruženým výrazem}.
+    Potkáme-li někde výraz typu \uv{$(\textrm{něco}) - \sqrt{\textrm{odmocnina}}$}, rozšíříme ho výrazem s opačným znaménkem \uv{$(\textrm{něco}) + \sqrt{\textrm{odmocnina}}$}. V našem případě
+    \begin{align}
+        n-\sqrt{n^2+4} = \left( n-\sqrt{n^2+4} \right) \cdot \frac{n + \sqrt{n^2+4}}{n + \sqrt{n^2+4}}
+    \end{align}
+    a podívejme se, co se stane:
+    \begin{align}
+        \left( n-\sqrt{n^2+4} \right) \cdot \frac{n + \sqrt{n^2+4}}{n + \sqrt{n^2+4}}
+        =
+        \frac{n^2 -n \sqrt{n^2+4} + n \sqrt{n^2+4} - (n^2+4)}{n + \sqrt{n^2+4}} 
+        =
+        \frac{n^2 - (n^2+4)}{n + \sqrt{n^2+4}} 
+        =
+        \frac{-4}{n + \sqrt{n^2+4}} 
+        \:.
+    \end{align}
+    Kouzelně jsme se zbavili odmocniny v čitateli a dostali jsme konečné číslo. Ve jmenovateli nám zbyly dva výrazy, do kterých už ovšem můžeme dosadit:
+    \begin{align}
+        \limn \frac{-4}{n + \sqrt{n^2+4}}  =
+        \frac{-4}{\infty + \infty} = 0 \:.
+    \end{align}
+    Takže
+    \begin{align}
+        \limn (n-\sqrt{n^2+4}) = 0 \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        \limn \frac{n^2}{\sqrt{n^4+1}} \:.
+    \end{align}
+    Po dosazení by nám vyšlo $\infty/\infty$, což není definované. Použijeme tedy jiný trik: vytkneme $n^2$ ve jmenovateli (do odmocniny ho převedeme jako $\sqrt{\frac{1}{n^4}}$). Pak už dostaneme konečný výraz:
+    \begin{align}
+        \limn \frac{n^2}{\sqrt{n^4+1}} = \limn \frac{n^2}{n^2 \cdot \sqrt{\frac{1}{n^4}}\sqrt{n^4+1}}
+        =
+        \limn \frac{1}{\sqrt{1 + \frac{1}{n^4}}} = 1 \:.
+    \end{align}
+\end{example}
+
+\subsection*{Limity s mocninnými funkcemi}
+
+\begin{example}
+    Vypočítejme
+    \begin{align}
+        \limn \frac{2^n+3 \cdot 5^n}{4 - 8\cdot 2^n +3^n} \:.
+    \end{align}
+    Tak jako jsme u polynomů vytýkali nejvyšší mocninu ve jmenovateli, zde budeme vytýkat \textbf{mocninu s nejvyšším základem ve jmenovateli}. Zde máme $3^n$, takže vytýkáme
+    \begin{align}
+        \frac{2^n+3 \cdot 5^n}{4 - 8\cdot 2^n +3^n} 
+        =
+         \frac{
+             \left( \frac{2}{3} \right)^n 
+             + 3 \cdot \left(\frac{5}{3} \right)^n
+             }
+         {
+              4 \cdot \left(\frac{1}{3} \right)^n
+            - 8 \cdot \left( \frac{2}{3}\right)^n 
+            + \left( \frac{3}{3} \right)^n} 
+    \end{align}
+    a nyní můžeme dosadit. Vzpomeňme si na geometrickou posloupnost, viz výše.
+    \begin{align}
+        \limn \frac{2^n+3 \cdot 5^n}{4 - 8\cdot 2^n +3^n} =
+        \limn
+        \frac{
+            \left( \frac{2}{3} \right)^n 
+            + 3 \cdot \left(\frac{5}{3} \right)^n
+            }
+        {
+            4 \cdot \left( \frac{1}{3} \right)^n
+           - 8 \cdot \left( \frac{2}{3}\right)^n 
+           + \left( \frac{3}{3} \right)^n} 
+        =
+        \frac{0+3 \cdot \infty}{0 - 0 + 1} = + \infty \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Vypočítejme
+    \begin{align}
+        \limn  \frac{2^n}{3 \cdot 2^n + 4}  \:.
+    \end{align}
+    Opět vytkneme $2^n$ a dostaneme
+    \begin{align}
+        \limn \frac{2^n}{3 \cdot 2^n + 4} = \limn \frac{1}{3 + \frac{4}{2^n}} = \frac{1}{3 + 0} = \frac{1}{3} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Vypočítejme (používáme zde desetinnou tečku namísto desetinné čárky)
+    \begin{align}
+        \limn \frac{(0.04)^{n+1}-2}{(0.2)^{2n}+4} \:.
+    \end{align}
+    Výpočet je jednoduchý, jen si musíme vzpomenout na pravidla pro počítání s mocninami:
+    \begin{align}
+        \frac{(0.04)^{n+1}-2}{(0.2)^{2n}+4} =
+        \frac{0.04 \cdot (0.04)^{n} - 2}{(0.2^2)^n + 4} =
+        \frac{0.04 \cdot (0.04)^{n} - 2}{(0.04)^n + 4} \:,
+    \end{align}
+    takže
+    \begin{align}
+        \limn \frac{(0.04)^{n+1}-2}{(0.2)^{2n}+4}
+        =
+        \limn \frac{0.04 \cdot (0.04)^{n} - 2}{(0.04)^n + 4}
+        =
+        \limn \frac{0 - 2}{0 +4} = - \frac{1}{2} \:.
+    \end{align}
+\end{example}
+
+\subsection*{Shrnutí a závěrečné poznámky}
+Typické příklady na limity posloupností spadají do jedné ze čtyř kategorií:
+\begin{itemize}
+    \item \textbf{Limity typu \uv{polynom/polynom}}. Zde je situace jednoduchá, vytkneme člen s nejvyšší mocninou ve jmenovateli. Mohou nastat tři situace, které se odvíjejí od stupňů jednotlivých polynomů.
+    \item \textbf{Limity s mocninnými funkcemi}. Zde se vytýká mocnina s nejvyšším základem ve jmenovateli. Jinak všechno stojí na pochopení geometrické posloupnosti.
+    \item \textbf{Limity s periodickými funkcemi a $(-1)^n$}. Zde se používá věta o dvou strážnících. Důležité je nalézt správně horního a spodního strážníka.
+    \item \textbf{Limity s odmocninou}. Zde se vyplatí většinou rozšiřovat sdruženým výrazem. Vyžadují asi nejvíce cviku.
+\end{itemize}
+
+Později se seznámíme s tzv. l'Hospitalovým pravidlem, které nám umožní počítat některé limity daleko rychleji. Vyžaduje ale umění derivací. 

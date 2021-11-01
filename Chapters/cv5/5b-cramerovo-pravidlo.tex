@@ -1,0 +1,66 @@
+\section*{Cramerovo pravidlo}
+
+Cramerovo pravidlo nám umožňuje řešit soustavu $n$ rovnic o $n$ neznámých
+\begin{align}
+    \mat A \vc x = \vc b \:, 
+    \quad \text{kde}\quad 
+    \vc x = \begin{pmatrix}
+        x_1 \\ x_2 \\ \vdots \\ x_n
+    \end{pmatrix} \:,\quad
+    \vc b = \begin{pmatrix}
+        b_1 \\ b_2 \\ \vdots \\ b_n
+    \end{pmatrix} \:.
+\end{align}
+Je-li matice $\mat A$ regulární, pak má soustava právě jedno řešení. Jednotlivé neznámé $x_j$ (složky vektoru $\vc x$) lze napočítat vztahem
+\begin{align}
+    \boxed{ x_j = \frac{\det \mat A_j}{\det \mat A} }\:,
+\end{align}
+kde matice $\mat A_j$ vznikne tak, že na $j$-tý sloupec matice $\mat A$ dosadíme vektor pravých stran $\vc b$.
+
+\begin{example}
+    Pomocí Cramerova pravidla řešme soustavu 
+    \begin{align}
+        x_1 + 4 x_2 + x_3 = 3 \:, \\ 3 x_1 - x_2 - x_3 = 1 \:, \\ 2x_1 + x_2 + 2x_3 = 6 \:.
+    \end{align}
+    Sestavíme si matici soustavy a vektor pravých stran
+    \begin{align}
+        \mat A  = \begin{pmatrix}
+            1 & 4 & 1 \\ 3 & -1 & -1 \\ 2 & 1 & 2
+        \end{pmatrix} \:,
+        \vc b = \begin{pmatrix}
+            3 \\ 1 \\ 6
+        \end{pmatrix} \:.
+    \end{align}
+    Nyní můžeme sestavit dílčí matice
+    \begin{align}
+        \mat A_1 = \begin{pmatrix}
+            3 & 1 & 6 \\ 3 & -1 & -1 \\ 2 & 1 & 2
+        \end{pmatrix}
+        \:, \quad
+        \mat A_2  = \begin{pmatrix}
+            1 & 4 & 1 \\ 3 & 1 & 6 \\ 2 & 1 & 2
+        \end{pmatrix} \:, \quad
+        \mat A  = \begin{pmatrix}
+            1 & 4 & 1 \\ 3 & -1 & -1 \\ 3 & 1 & 6
+        \end{pmatrix} \:.
+    \end{align}
+    Spočítáme determinanty
+    \begin{align}
+        \det \mat A = -28 \:, \quad \det \mat A_1 = -28 \:, \quad \det \mat A_2 = 0 \:, \quad \det \mat A_3 = -56
+    \end{align}
+    a můžeme psát jednotlivé složky:
+    \begin{align}
+        x_1 = \frac{-28}{-28} = 1 \:, \quad x_2 = 0 \:, \quad x_3 = \frac{-56}{-28} = 2 \:,
+    \end{align}
+    nebo chceme-li vektorově
+    \begin{align}
+        \vc x = \begin{pmatrix}
+            1 \\ 0 \\ 2
+        \end{pmatrix} \:.
+    \end{align}
+\end{example}
+
+\begin{itemize}
+    \item Cramerovo pravidlo lze použít pouze v případě, že soustava má právě jedno řešení. Jinak bychom měli matici $\mat A$ singulární.
+    \item Výpočetně není Cramerovo pravidlo příliš výhodné. Hodí se nám ale v situacích, kde máme velkou soustavu, ale potřebujeme znát pouze některé proměnné a zbylé ne. Pak se možná vyplatí spočítat pár determinantů namísto Gaussovy eliminace. Rovněž se Cramerovo pravidlo může hodit pro soustavy s parametrem.
+\end{itemize}

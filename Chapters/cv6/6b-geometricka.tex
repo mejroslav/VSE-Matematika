@@ -1,0 +1,187 @@
+\section*{Geometrická posloupnost}
+
+Jedna z nejpoužívanějších posloupností je tzv. geometrická posloupnost, která je zadaná předpisem \begin{align}
+    a_{n+1} = q \cdot a_n \:.
+\end{align}
+
+Bývá zvykem ji zadávat \uv{od nuly}, tedy zadáním členu $a_0$. Číslu $q$ říkáme \textbf{kvocient}. Takže její první členy vypadají následovně
+\begin{align}
+    a_0 = \textrm{zadané} \:, \quad
+    a_1 = q a_0 \:, \quad
+    a_2 = q (q a_0) = q^2 a_0 \:, \quad
+    a_3 = q^3 a_0 \:,
+    \cdots
+\end{align}
+a snadno přijdeme na to, jak spočítat $n$-tý člen:
+\begin{align}
+    a_n = q^n a_0 \:.
+\end{align}
+
+Jakou má taková posloupnost limitu? Může nastat několik případů:
+\begin{itemize}
+    \item Případ $q>1$. Jestliže stále násobíme číslem vyšším než jedna, dostaneme se časem libovolně vysoko. Kdybychom se ptali na limitu, vidíme, že nerovnice
+    \begin{align}
+        L < a_0 q^n
+    \end{align}
+    má řešení $n > \log_q \frac{L}{a_0}$, tedy $\limn a_n = \limn a_0 q^n = +\infty$.
+
+    \item Případ $q=1$. Ten je jednoduchý: $a_n = a_0$, takže $\limn a_n = a_0$.
+    
+    \item Případ $0<q<1$. Zde se zase dostaneme libovolně blízko k nule. nerovnice
+    \begin{align}
+        -\epsilon < a_0 q^n < + \epsilon
+    \end{align}
+    má opět řešení $n > \log_q \frac{\epsilon}{a_0}$ (logaritmus bereme se základem menší než $1$, takže je to klesající funkce a znaménko nerovnosti se obrací). Takže $\limn a_n = 0$.
+
+    \item Případ $q=-1$. Zde se nám členy střídají: $a_n = (-1)^n a_0$. Už víme, že taková posloupnost limitu nemá.
+    
+    \item Případ $-1<q<0$. Členy sice oscilují, ale stále více se přibližují k nule. K výpočtu limity můžeme použít větu o dvou strážnících (viz dále) - strážníky budou posloupnosti $b_n = + a_0 (-q)^n$ a $c_n = -a_0 (-q)^n$. Obě tyto posloupnosti mají nulovou limitu, takže $\limn a_n = 0 $.
+
+    \item Případ $q < -1$. Členy posloupnosti se vzdalují od nuly a posloupnost osciluje. Takže limitu nemá.
+\end{itemize}
+
+Uvedené poznatky se dají shrnout do zápisu
+\begin{align}
+    \boxed{\limn q^n = \begin{cases}
+        + \infty & q > 1 \\
+        1 & q=1 \\
+        0 & -1<q<1 \\
+        \mathrm{neexistuje} & q<-1 
+    \end{cases} }\:. 
+\end{align}
+
+\begin{example}[Složený úrok]
+    Označme $D_0$ počáteční dluh a $u$ úrokovou míru vyjádřenou v procentech ($1 \% = 0.01$). Nechť se úrok přičítá každý další rok.
+    
+    Po prvním roce bude celková dlužná částka $D_1 = D_0 + D_0 u = D_0 (1 + u)$, po druhém roce $D_2 = D_1 + D_1 u = D_0 (1+u)^2$, atd. Je jasné, že máme co do činění s geometrickou posloupností a výsledná dlužná částka po $n$-letech bude 
+    \begin{align}
+        D_t = D_0 (1+u)^n \:.
+    \end{align}
+    Kvocient je v tomto případě $q = 1 + u$.
+\end{example}
+
+\begin{example}[Každé procento je důležité - podle Mankiwa]
+    Mnoho lidí má tendenci podceňovat rozdíl mezi malými čísly v tendenci růstu nějaké veličiny. Jaký je rozdíl mezi $1 \%$ a $3 \%$, vždyť rozdíl činí pouhá $2 \%$? 
+
+    S nabytými znalostmi o geometrické posloupnosti na tuto otázku snadno odpovíme. Představme si počáteční úrok $D_0 = 100\,000$ a dvě úrokové míry $u_1 = 1 \% = 0.01$ a $u_2 = 3 \% = 0.03$. Jaké budou dlužné částky po třiceti letech?
+    \begin{align}
+        D_{30}(u_1) = D_0 \cdot (1+u_1)^{10} =  100\,000 \cdot (1+0.01)^{30} = 100\,000 \cdot 1.01^{30} = 100\,000 \cdot 1.348 = 134\,800 \:, \\
+        D_{30}(u_2) = D_0 \cdot (1+u_2)^{30} =  100\,000 \cdot (1+0.03)^{30} = 100\,000 \cdot 1.03^{30} = 100\,000 \cdot 2.427 = 242\,700 \:.
+    \end{align}
+    To je více než dvojnásobný rozdíl!
+\end{example}
+
+\begin{example}[Pravidlo sedmdesáti I]
+    Akumulačním efektům procent se dá porozumět pomocí poučky, která se nazývá \textbf{pravidlo sedmdesáti}. Zní takto: \uv{\textit{vzroste-li nějaká veličina o $x$ procent ročně, pak se zdvojnásobí přibližně za $\frac{70}{x}$ let}}.
+    Jestliže je tedy úrok $1\%$, pak se dlužná částka zdvojnásobí za $70$ let. Jestliže je však úrok $3\%$, pak se dlužná částka zdvojnásobí za pouhých $70/3=23$ let. Stejně tak je třeba dívat se na tempa růstu HDP a podobně.
+\end{example}
+\begin{example}[Pravidlo sedmdesáti II - odvození]
+    Zákon sedmdesáti se dá matematicky odvodit pomocí derivací. Pro zájemce ho sem připisuji a doporučuji se k němu vrátit později.
+
+    Ptáme-li se, za jak dlouho se daná částka zdvojnásobí, řešíme rovnici pro neznámou $n$:
+    \begin{align}
+        2 A = A  \left( 1+ \frac{x}{100} \right)^n \:,
+    \end{align}
+    kde $A$ je počáteční částka, $x$ je růst v $\%$ a $n$ je počet let. Vidíme, že rovnice na $A$ vůbec nezávisí:
+    \begin{align}
+        2 = \left( 1+ \frac{x}{100} \right)^n \:,
+    \end{align}
+    takže
+    \begin{align}
+        \ln 2 = n \cdot \ln \left( 1 + \frac{x}{100} \right) \:.
+    \end{align}
+    Dostáváme vztah, který je přesný:
+    \begin{align}
+        n = \frac{\ln 2}{\ln \left(1 + \frac{x}{100}\right)} \:.
+    \end{align}
+    Je ale poněkud komplikovaný a moc z něho není vidět. Zkusme ho zjednodušit.
+    Podívejme se na funkci
+    \begin{align}
+        g(x) = \ln \left(1 + \frac{x}{100}\right) \:.
+    \end{align}
+    Zkusme využít toho, že $x$ není příliš velké. Udělejme aproximaci této funkce kolem nuly. Víme, že
+    \begin{align}
+        g(x) \approx g(0) + g'(0) \cdot x \:.
+    \end{align}
+    Takže potřebujeme derivaci složené funkce:
+    \begin{align}
+        g'(x) = \frac{1}{1 + \frac{x}{100}} \frac{1}{100}
+    \end{align}
+    V nule je
+    \begin{align}
+        g'(0) = \frac{1}{100} \:.
+    \end{align}
+    Takže
+    \begin{align}
+        \ln \left(1 + \frac{x}{100}\right) = \ln 1 + \frac{1}{100} x = \frac{x}{100} \:.
+    \end{align}
+    Dosazením do vzorečku pro $n$ máme
+    \begin{align}
+        n \approx \frac{\ln 2 }{\frac{x}{100}} = \frac{\ln 2 \cdot 100}{x}
+    \end{align}
+    a ještě využijeme toho, že $\ln 2 \approx 0.693 \approx 0.7$, tedy $\ln 2 \cdot 100 \approx 70$. Dostáváme vzoreček
+    \begin{align}
+        n \approx \frac{70}{x}
+    \end{align}
+    a tím jsme dokázali, že pravidlo sedmdesáti skutečně funguje, alespoň pro $x$, které nejsou příliš velké.
+\end{example}
+
+
+
+
+\subsection*{Dodatek: geometrická řada}
+
+Ještě více než geometrickou posloupnost jako takovou nás zajímá, kolik dostaneme, když budeme jednotlivé členy sčítat.
+Součet takových členů symbolicky zapisujeme pomocí symbolu $\sum$, který pochází z řeckého písmena \uv{sigma} $\Sigma$.
+\begin{align}
+    \sum_{j=0}^n a_j = a_0 + a_1 + a_2 + \cdots a_n \:.
+\end{align}
+
+Napišme si, jak bude vypadat geometrická suma:
+\begin{align}
+    \sum_{j=0}^n a_j = a_0 + a_0 q + a_0 q^2 + a_0 q^3 + \cdots + a_0 q^n \:.
+\end{align}
+Vidíme, že ze všech členů můžeme vytknout $a_0$ a zajímá nás tedy jenom součet
+\begin{align}
+    s_n = 1 + q + q^2 + \cdots + q^n \:.
+\end{align}
+Součet této řady se dá nalézt pomocí následující triku. Celou rovnici vynásobme $q$
+\begin{align}
+    q s_n = q + q^2 + q^3 + \cdots + q \cdot q^n
+\end{align}
+a odečtěme je:
+\begin{align}
+    q s_n - s_n = q + q^2 + q^3 + \cdots + q \cdot q^n - 1 - q -q^2 - \cdots - q^n \:.
+\end{align}
+Skoro všechny členy napravo se odečtou! Zůstane tam pouze
+\begin{align}
+    (q-1) s_n =  q \cdot q^n - 1 = q^{n+1} - 1 \:.
+\end{align}
+Odtud dostáváme
+\begin{align}
+    \sum_{j=1}^n q^j = s_n = \frac{q^{n+1}-1}{q-1}
+\end{align}
+a součet geomerické řady je 
+\begin{align}
+    \sum_{j=1}^n a_0 q^j = a_0 \frac{q^{n+1}-1}{q-1} \:.
+\end{align}
+Představme si, že bychom sčítání prováděli dál a dál. K jaké hodnotě by se součet blížil? Jinými slovy, jaká je limita takové geometrické řady?
+Platí \begin{align}
+    \sum_{j=1}^\infty a_0 q^j = \limn \sum_{j=1}^n a_0 q^j = 
+    \limn a_0 \frac{q^{n+1}-1}{q-1} \:.
+\end{align}
+Z předchozího víme, že pro $q>1$ je limita rovna $a_0 \infty$ a pro $q<-1$ neexistuje, jediný zajímavý případ je $-1<q<1$. V tom případě
+\begin{align}
+    \boxed{\sum_{j=1}^\infty a_0 q^j = a_0 \frac{0-1}{q-1} = a_0 \frac{1}{1-q}} \:.
+\end{align}
+
+\begin{example}
+    Spočtěme řadu
+    \begin{align}
+        \sum_{j=0}^\infty \frac{1}{2^j} = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{16} + \frac{1}{32} + \cdots \:.
+    \end{align}
+    Kvocient je $q = \frac{1}{2} \in (-1,1)$, takže
+    \begin{align}
+        \sum_{j=0}^\infty \frac{1}{2^j} = 1 \cdot \frac{1}{1-\frac{1}{2}} = \frac{1}{\frac{1}{2}} = 2 \:.
+    \end{align}
+\end{example}

@@ -1,6 +1,6 @@
 \section*{Determinant}
 
-Determinant je číslo definované pro čtvercovou matici, které nám pomůže určit, jestli je matice regulární nebo singulární. Označujeme jej symbolem $\det \mat A$ anebo $|\mat A|$.
+\textbf{Determinant} je číslo definované pro čtvercovou matici, které nám pomůže určit, jestli je matice regulární nebo singulární. Označujeme jej symbolem $\det \mat A$ anebo $|\mat A|$.
 
 Platí následující tvrzení:
 \begin{align}
@@ -51,14 +51,13 @@ Platí následující tvrzení:
         \end{align}
     \end{example}
     
-    \item \textbf{vyšší řády:} pro počítání determinantů matic vyšších řádů se používá nejčastěji tzv. \textbf{Laplaceův rozvoj}. Opět si napíšeme místo obecného vztahu princip, kterým se provádí:
+    \item \textbf{vyšší řády:} pro počítání determinantů matic vyšších řádů se používá nejčastěji tzv. \textbf{Laplaceův rozvoj} (rozvoj podle řádku/sloupce). Opět si napíšeme místo obecného vztahu princip, kterým se provádí:
     \begin{enumerate}
         \item Vybereme si určitý řádek nebo sloupec (nejčastěji takový, ve kterém je nejvíce nul).
         \item Elementy v řádku označíme znaménky. Prvek $a_{ij}$ dostane znaménko rovné $(-1)^{i+j}$, tzn. $+1$ je-li součet sloupce a řádku sudé číslo, $-1$, je-li liché.
         \item Sestavíme tzv. minory matice. Minor získáme vždy tak, že vynecháme právě zvolený řádek i sloupec.
         \item Spočítáme determinanty jednotlivých minorů.
-        \item Každý determinant minoru vynásobíme prvkem, jehož řádek a sloupec jsme zrovna vynechali.
-        \item Takto získané determinanty sečteme i s příslušnými znaménky.
+        \item Výsledný determinant získáme tak, že projíždíme všechny členy v řádku (sloupci) a sčítáme součiny \uv{prvek krát znaménko krát determinant minoru}.
     \end{enumerate}
     Na první pohled to vypadá složitě, ale není tomu tak.
     \begin{example}
@@ -122,7 +121,7 @@ Platí následující tvrzení:
 
             \item Nyní můžeme psát:
             \begin{align}
-                \det \mat B = (-1) \cdot (-31) + (+1) \cdot 0 + (-1) \cdot 0 + (+1) \cdot 69 = 31 + 69 = 100 \:.
+                \det \mat B = 1 \cdot (-1) \cdot (-31) +  0\cdot (+1) + 0 \cdot (-1) + 1 \cdot (+1) \cdot 69 = 31 + 69 = 100 \:.
             \end{align}
         \end{enumerate}
 
@@ -163,11 +162,11 @@ Platí následující tvrzení:
                 2 & 0  & -1 & 1 \\
                 0 & 0  & 4 & 1
             \end{vmatrix}
-            = -9 \cdot \det \mat P_1 + 3 \cdot \det \mat P_2 \:.
+            = -9 \cdot \det \mat M_3 + 3 \cdot \det \mat M_5 \:.
         \end{align}
-        Musíme spočítat oba dva determinanty. Pro $\det \mat P_1$ můžeme ihned použít rozvoj podle prvního sloupce:
+        Musíme spočítat oba dva determinanty. Pro $\det \mat M_3$ můžeme ihned použít rozvoj podle prvního sloupce:
         \begin{align}
-            \det \mat P_1 = 1 \cdot
+            \det \mat M_3 = 1 \cdot
             \begin{vmatrix}
                  1 & -2 & 3 \\
                  0 & 4 & 1 \\
@@ -175,9 +174,9 @@ Platí následující tvrzení:
             \end{vmatrix}
             =  -14 \:.
         \end{align}
-        Pro $\det \mat P_2$ můžeme použít rozvoj podle druhého sloupce:
+        Pro $\det \mat M_5$ můžeme použít rozvoj podle druhého sloupce:
         \begin{align}
-            \det \mat P_2 = (-1) \cdot 1 \cdot \begin{vmatrix}
+            \det \mat M_5 = (-1) \cdot 1 \cdot \begin{vmatrix}
                 0 & -2 & 3 \\
                 2 & -1 & 1 \\
                 0 & 4 & 1
@@ -238,4 +237,45 @@ Výpočet determinantu můžeme provádět i tak, že provádíme podobné řád
         \end{vmatrix}
         = \frac{1}{24} \cdot 4 \cdot (-9) \cdot (-10) = 15 \:.
     \end{align}
+\end{example}
+
+\begin{example}
+    Spočteme determinant
+    \begin{align}
+        \begin{vmatrix}
+            2 & -1 & 0 \\
+            0 & 1 & -1 \\
+            -6 & 4 & -1
+        \end{vmatrix} \:.
+    \end{align}
+    Můžeme opět postupovat Sarrusovým pravidlem:
+    \begin{align}
+        \begin{vmatrix}
+            2 & -1 & 0 \\
+            0 & 1 & -1 \\
+            -6 & 4 & -1
+        \end{vmatrix} = -2 + 0 -6 - 0 - 0 +8 =0 \:.
+    \end{align}
+    Nebo můžeme postupovat řádkovými úpravami:
+    \begin{align}
+        \begin{vmatrix}
+            2 & -1 & 0 \\
+            0 & 1 & -1 \\
+            -6 & 4 & -1
+        \end{vmatrix} 
+        =
+        \begin{vmatrix}
+            2 & -1 & 0 \\
+            0 & 1 & -1 \\
+            0 & 1 & -1
+        \end{vmatrix}
+        =
+        \begin{vmatrix}
+            2 & -1 & 0 \\
+            0 & 1 & -1 \\
+            0 & 0 & 0
+        \end{vmatrix}
+        = 0 \:.
+    \end{align}
+    Determinant je nulový, to odpovídá tomu, že je původní matice singulární.
 \end{example}
