@@ -12,9 +12,11 @@ pokud příslušné limity existují a i všechny výrazy mají smysl. Proč je 
     \infty - \infty \:,\quad 
     \frac{a}{0} \:,\quad 
     \frac{\infty}{0} \:,\quad 
-    \frac{\infty}{\infty} \:.
+    \frac{\infty}{\infty} \:,\quad
+    0 \cdot \infty
 \end{align}
 definované nejsou.
+
 
 \subsection*{Polynom dělený polynomem}
 
@@ -38,7 +40,14 @@ Zde mohou nastat tři situace:
     \begin{align}
         \limn \frac{n^2-n}{4n^3 + 2n^2 + 1} \:.
     \end{align}
-    Abychom mohli používat pravidla pro počítání limit a nedostávali nikde nedefinované výrazy, učiníme následující trik: \textbf{z čitatele i jmenovatele vytýkáme nejvyšší mocninu $n$, která se vyskytuje ve jmenovateli}. V tomto případě to je $n^3$, takže vytýkáme
+
+    První, o co bychom se mohli pokusit, je dosadit ihned výraz $+\infty$ za proměnnou $n$. Dostali bychom
+    \begin{align}
+        \frac{\infty^2 - \infty}{4 \infty^3 + 2 \infty^2 + 1} \:.
+    \end{align}
+    Ale výrazy $\infty - \infty$ ani $\frac{\infty}{\infty}$ nejsou definované!
+
+    Abychom se vyhli nedefinovaným výrazům, učiníme následující trik: \textbf{z čitatele i jmenovatele vytýkáme nejvyšší mocninu $n$, která se vyskytuje ve jmenovateli}. V tomto případě to je $n^3$, takže vytýkáme
     \begin{align}
         \frac{n^2-n}{4n^3 + 2n^2 + 1} = \frac{n^3 (\frac{1}{n} - \frac{1}{n^2})}{n^3 (4 + \frac{2}{n} + \frac{1}{n^3})} = \frac{\frac{1}{n} - \frac{1}{n^2}}{4 + \frac{2}{n} + \frac{1}{n^3}}\:.
     \end{align}

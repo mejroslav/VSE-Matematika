@@ -1,0 +1,146 @@
+\section*{Počítání derivací}
+
+Derivace elementárních funkcí je potřeba naučit se nazpaměť z tabulky.
+
+\subsection*{Derivace polynomů a obecné mocniny}
+
+Pro derivaci mocniny se používá vztah
+\begin{align}
+    (x^k) = k x^{k-1} \quad \text{platný pro } k \in \R \:.
+\end{align}
+Všimněme si, že se výpočet sestává ze dvou kroků. Mocnina $k$ u $x^k$ \uv{spadne} před něj a v exponentu zůstane mocnina o jedničku snížená, $x^{k-1}$, dohromady $k x^{k-1}$.
+
+\begin{example}
+    Spočítáme derivaci funkce 
+    \begin{align}
+        f(x) = 2x^3 - 4x^2 + 8x - 1 \:.
+    \end{align}
+
+    Můžeme derivovat člen po členu: 
+    \begin{align}
+        (2x^3)'=2 \cdot (x^3)' = 2 \cdot (3 x^2) = 6 x^2 \:.
+    \end{align}
+    Obdobně
+    \begin{align}
+        (4x^2)' = 4 \cdot 2x = 8x \:.
+    \end{align}
+    Připomeňme, že $x^1=x$ a $x^0=1$. Z třetího členu dostaneme tedy
+    \begin{align}
+        (8x)'=(8x^1)'=8 \cdot (1x^0)= 8 \cdot (1 \cdot 1) = 8
+    \end{align}
+    a ze čtvrtého
+    \begin{align}
+        (1)' = 1 \cdot (x^0)'= 1 \cdot (0 \cdot x^{-1}) = 0 \:. 
+    \end{align}
+    Teď stačí jen všechno sečíst:
+    \begin{align}
+        f'(x) =  6 x^2 - 8x + 8 \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Spočítáme derivaci funkce
+    \begin{align}
+        g(x) = x^{10} + \frac{1}{x^{10}} \:.
+    \end{align}
+    Na první člen použijeme vztah a máme $(x^{10})' = 10 x^9$. Druhý člen $\frac{1}{x^{10}}$ se dá stejně tak zapsat jako $x^{-10}$ a platí pro něj stejné pravidlo:
+    \begin{align}
+        \left( \frac{1}{x^{10}}\right)' = (x^{-10})' = (-10) x^{-11} = - \frac{10}{x^{11}} \:.
+    \end{align}
+    Pozor, často má člověk tendenci dělat v tomto chyby a psát $(x^{-10})'=-10 x^{-9}$, což je chyba!
+    Celkově 
+    \begin{align}
+        g'(x) = 10 x^9 - \frac{10}{x^{11}} \:.
+    \end{align}
+\end{example}
+
+\subsection*{Derivace ostatních elementárních funkcí}
+
+\begin{example}
+    Spočteme
+    \begin{align}
+        (\sin x - \cos x)' \:.
+    \end{align}
+
+    Platí
+    \begin{align}
+        (\sin x - \cos x)' = (\sin x)' - (\cos x)' = \cos x + \sin x \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        [4e^{3x} + \ln (4x) - \arctg x]' =& 4 (e^{3x})' + (\ln 4 + \ln x)' - (\arctg x)' = 4 \cdot 3 e^{3x} + 0 + \frac{1}{x} - \frac{1}{1+x^2} = \\
+        =& 12 e^{3x} + \frac{1}{x} - \frac{1}{1+x^2} \:.
+        \:.
+    \end{align}
+\end{example}
+
+\subsection*{Derivace součinu a podílu}
+
+Pro derivaci součinu platí
+\begin{align}
+    (fg)'=f'g + f g' \neq f'g'
+\end{align}
+a pro derivaci podílu platí
+\begin{align}
+    \left( \frac{f}{g} \right)' = \frac{f'g - g' f}{g^2} \neq \left( \frac{f'}{g'} \right) \:.
+\end{align}
+
+\begin{example}
+    \begin{align}
+        \left[ (2x+4)\cdot x^4 \right]' = (2x+4)' x^4 + (2x+4) (x^4)' = 2 x^4 + 
+        (2x+4) \cdot 4x^3 = 2 x^4 + 8x^4 + 16 x^3 = 10 x^4 + 16 x^3 \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        (x \sin x)' = \sin x + x \cos x \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Pravidlo platí i pro více součinů:
+    \begin{align}
+        (fgh)' = f'gh+fg'h+fgh' \:.
+    \end{align}
+    Například
+    \begin{align}
+        [(x^2+4x+1)(x-2)e^{2x}]' =& \textcolor{blue}{(x^2+4x+1)'}(x-2)e^{2x} + (x^2+4x+1)\textcolor{blue}{(x-2)'}e^{2x} + (x^2+4x+1)(x-2) \textcolor{blue}{(e^{2x})'} = \\
+        =& (2x + 4)(x-2)e^{2x} + (x^2+4x+1) \cdot 1 \cdot e^{2x} + (x^2+4x+1)(x-2) \cdot 2e^{2x} = \\
+        =& (2x^2+4x-4x-8) e^{2x} + (x^2+4x+1) e^{2x} + (2x^3+8x^2-2x-4x^2-16x-4)e^x = \\
+        =& (2x^3 + 7x^2 - 14x - 11) e^x \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        (\arcsin x \sin x)' = \frac{1}{\sqrt{1-x^2}} \sin x + \arcsin x \cos x \:. 
+    \end{align}
+\end{example}
+
+\begin{example}
+    \begin{align}
+        \left( \frac{x^2+7x}{x^2-1} \right)' =& \frac{(x^2-1)(x^2+7x)'-(x^2-1)'(x^2+7x)}{(x^2-1)^2} = 
+        \frac{(x^2-1)(2x+7)-(2x)(x^2+7x)}{(x^2-1)^2} = \\
+        =&
+        \frac{2x^3 - 2x + 7x^2 - 7 - 2x^3 - 14 x^2}{(x^2-1)^2} =
+        \frac{-7x^2 - 2x - 7}{x^4 - 2x^2 + 1} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Pokud člověk zapomene vztah pro derivaci funkce $\tg x$, není problém si ji spočítat:
+    \begin{align}
+        (\tg x)' = \left( \frac{\sin x}{\cos x} \right)' = \frac{(\sin x)' \cos x - (\cos x)' \sin x}{\cos^2 x} = \frac{\cos^2 x + \sin^2 x}{\cos^2 x}\:.
+    \end{align}
+    Poslední člen lze upravit dvěma způsoby. Buďto jako součet zlomků
+    \begin{align}
+        (\tg x)' = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = 1 + \tg^2 x 
+    \end{align}
+    anebo s využitím identity $\sin^2 x + \cos^2 x = 1$,
+    \begin{align}
+        (\tg x)' = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} \:.
+    \end{align}
+\end{example}

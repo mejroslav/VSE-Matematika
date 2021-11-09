@@ -1,0 +1,99 @@
+\subsection*{Věta o limitě složené funkce}
+
+Jestliže limita vnitřní funkce je $\lim_{x \rightarrow x_0} \textcolor{orange}{g(x)} = \textcolor{ForestGreen}{A}$ a limita vnější funkce je $\lim_{\textcolor{ForestGreen}{x \rightarrow  A}} \textcolor{red}{f(x)} = \textcolor{blue}{B}$, pak limita složené funkce je
+\begin{align}
+    \lim_{x \rightarrow x_0} \textcolor{red}{f}[\textcolor{orange}{g(x)}] =  \lim_{\textcolor{ForestGreen}{y \rightarrow A}} \textcolor{red}{f}(y) = \textcolor{blue}{B} \:.
+\end{align}
+
+Toto tvrzení nám umožňuje počítat komplikované limity, které vzniknou skládáním spojitých funkcí.
+\begin{enumerate}
+    \item Nejdříve spočítáme limitu vnitřní funkce $\textcolor{orange}{g(x)}$ v daném bodě $x_0$. Vyjde nám hodnota $\textcolor{ForestGreen}{A}$.
+    \item Hodnotu $\textcolor{ForestGreen}{A}$ vezmeme jako bod, ve kterém počítáme limitu vnější funkce $\textcolor{red}{f(x)}$.
+    \item Proměnnou ve vnější funkci přeznačíme na nějaké jiné písmenko (třeba $y$) pro lepší čitelnost.
+    \item Spočítáme limitu vnější funkce $\textcolor{red}{f(y)}$ pro $\textcolor{ForestGreen}{y \rightarrow A}$. Vyjde nám nějaká hodnota $\textcolor{Blue}{B}$.
+    \item Hodnota $\textcolor{Blue}{B}$ je limitou složené funkce $\textcolor{red}{f}[\textcolor{orange}{g(x)}]$ v původním bodě $x_0$.
+\end{enumerate}
+
+\begin{example}
+    Určíme
+    \begin{align}
+        \lim_{x \rightarrow \infty} e^{-x^4} \:.
+    \end{align}
+    Pracujeme zde se složenou funkcí, kde vnitřní funkce je $\textcolor{Orange}{g(x) = -x^4}$ a vnější funkce je $\textcolor{Red}{f(y) = e^y}$. Platí
+    \begin{align}
+        \lim_{x \rightarrow \infty} \textcolor{Orange}{(-x^4)} = \textcolor{ForestGreen}{- \infty }\:, \quad \lim_{\textcolor{ForestGreen}{y \rightarrow - \infty}} \textcolor{Red}{e^{y}} = \textcolor{Blue}{0} \:, 
+    \end{align}
+    takže
+    \begin{align}
+        \lim_{x \rightarrow \infty} e^{-x^4} = \textcolor{Blue}{0} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Určíme
+    \begin{align}
+        \lim_{x \rightarrow \infty} e^{\frac{\sin x}{x}} \:.
+    \end{align}
+    Vnitřní funkce je $\textcolor{Orange}{g(x) = \frac{\sin x}{x}}$, vnější je $\textcolor{Red}{f(y) = e^y}$. Platí
+    \begin{align}
+        \lim_{x \rightarrow \infty} \textcolor{Orange}{\frac{\sin x}{x}} = \textcolor{ForestGreen}{0} \: \text{ (podle věty o dvou strážnících) } \:, \quad \lim_{y \rightarrow \textcolor{ForestGreen}{0}} \textcolor{Red}{e^y} = \textcolor{Blue}{1} \:,
+    \end{align}
+    takže
+    \begin{align}
+        \lim_{x \rightarrow \infty} e^{\frac{\sin x}{x}} = \textcolor{Blue}{1} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Určíme
+    \begin{align}
+        \lim_{x \rightarrow -\infty} \left[ \arctg \left( \frac{x-2 \pi}{x^3} \right) + \arctg \left( \frac{x^2}{\pi^2} \right) \right] \:.
+    \end{align}
+    Podíváme se na jednotlivé sčítance a nakonec zkusíme použít aritmetiku limit.
+    Platí \begin{align}
+        \lim_{x \rightarrow -\infty} \textcolor{Orange}{\frac{x-2 \pi}{x^3}} = \textcolor{ForestGreen}{0} \:, \quad \lim_{\textcolor{ForestGreen}{y \rightarrow 0}} \textcolor{red}{\arctg y} = 0 \quad \implies \lim_{x \rightarrow -\infty} \arctg \left( \frac{x-2 \pi}{x^3} \right) = 0 \:, \\
+        \lim_{x \rightarrow -\infty} \textcolor{Orange}{\frac{x^2}{\pi^2}} = \textcolor{ForestGreen}{+ \infty} \:, \quad \lim_{\textcolor{ForestGreen}{y \rightarrow + \infty}} \textcolor{red}{\arctg y} = \frac{\pi}{2} \quad \implies \lim_{x \rightarrow -\infty} \arctg \left( \frac{x^2}{\pi^2} \right) = \frac{\pi}{2} \:.
+    \end{align}
+    Celkově
+    \begin{align}
+        \lim_{x \rightarrow -\infty} \left[ \arctg \left( \frac{x-2 \pi}{x^3} \right) + \arctg \left( \frac{x^2}{\pi^2} \right) \right] = 0 + \frac{\pi}{2} = \frac{\pi}{2} \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Určíme
+    \begin{align}
+        \lim_{x \rightarrow \infty} \arctg (1-x^2) \ln \left( \frac{x-2}{x} \right) \:.
+    \end{align}
+    Limitu zkusíme převést na součin dvou limit:
+    \begin{align}
+        \lim_{x \rightarrow \infty} \arctg (1-x^2) \ln \left( \frac{x-2}{x} \right) = \lim_{x \rightarrow \infty} \arctg (1-x^2)  \cdot \lim_{x \rightarrow \infty} \ln \left( \frac{x-2}{x} \right) \:.
+    \end{align}
+    Napřed vypočítáme první limitu. Vnitřní funkce je $g(x) = (1-x^2)$ a vnější $f(y) = \arctg (y)$. Platí
+    \begin{align}
+        \lim_{x \rightarrow \infty} (1-x^2) = - \infty \:, \quad \lim_{x \rightarrow \infty} \arctg (1-x^2) = \lim_{y \rightarrow - \infty} \arctg (y) = - \frac{\pi}{2} \:.
+    \end{align}
+    Nyní vypočítáme druhou limitu. Vnitřní funkce je $g(x) = \frac{x-2}{x}$, vnější $f(y) = \ln y$. Takže
+    \begin{align}
+        \lim_{x \rightarrow \infty} \frac{x-2}{x} = 1 \:, \quad \lim_{x \rightarrow \infty} \ln \left( \frac{x-2}{x} \right) = \lim_{y \rightarrow 1} \ln y = \ln 1 = 0 \:.
+    \end{align}
+    Celkově máme
+    \begin{align}
+        \lim_{x \rightarrow \infty} \arctg (1-x^2) \ln \left( \frac{x-2}{x} \right) = \left( - \frac{\pi}{2} \right) \cdot 0 = 0 \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Spočítáme
+    \begin{align}
+        \lim_{x \rightarrow - \infty} \sqrt{\frac{1-x^3}{1-x}} \:.
+    \end{align}
+    Vnitřní funkce je $g(x) = \frac{1-x^3}{1-x}$ a vnější $f(y) = \sqrt{y}$. Takže
+    \begin{align}
+        \lim_{x \rightarrow - \infty} \frac{1-x^3}{1-x} =
+        \lim_{x \rightarrow - \infty} \frac{x(\frac{1}{x} - x^2)}{x(\frac{1}{x}-1)} = 
+        \frac{0-\infty}{0-1} = + \infty \:, \\
+        \lim_{x \rightarrow - \infty} \sqrt{\frac{1-x^3}{1-x}} = \lim_{y \rightarrow + \infty} \sqrt{y} = + \infty \:.
+    \end{align}
+\end{example}
+

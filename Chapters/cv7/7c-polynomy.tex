@@ -1,0 +1,173 @@
+\section*{Počítání limit funkcí}
+
+Aritmetika limit platí i pro funkce. Typově se používají podobné triky jako v příkladech pro limity posloupností. Základní limity jsou uvedeny zde:
+
+\begin{align}
+    &\lim_{x \rightarrow - \infty } \frac{1}{x} = 0 = \lim_{x \rightarrow + \infty } \frac{1}{x} \:, \quad
+    \lim_{x \rightarrow 0-} \frac{1}{x} = - \infty \:, \quad \lim_{x \rightarrow 0+} \frac{1}{x} = + \infty \:, \\
+    &\lim_{x \rightarrow + \infty} x^k = + \infty \text{ pro jakékoli } k \in \N \:, \quad
+    \lim_{x \rightarrow - \infty} x^k = \begin{cases}
+        + \infty & \text{ pro } k \text{ sudé} \\
+        - \infty & \text{ pro } k \text{ liché}
+    \end{cases} \:, \\
+    &\lim_{x \rightarrow +\infty} e^x = + \infty \:, \quad \lim_{x \rightarrow -\infty} e^x = 0 \:, \\
+    &\lim_{x \rightarrow 0+} \ln x = - \infty \:, \quad \lim_{x \rightarrow +\infty} \ln x = + \infty \:,\\
+    &\lim_{x \rightarrow \pm \infty} \sin x \:, \quad \lim_{x \rightarrow \pm \infty} \cos x  \text{ neexistují} \:, \\
+    &\lim_{x \rightarrow -\infty} \arctg x = - \frac{\pi}{2} \:, \quad \lim_{x \rightarrow +\infty} \arctg x = \frac{\pi}{2} \:, \\
+    &\lim_{x \rightarrow -\infty} \arccotg x = \pi \:, \quad \lim_{x \rightarrow +\infty} \arccotg x = 0 \:.
+\end{align}
+
+
+\begin{example}
+    Spočteme
+    \begin{align}
+        \lim_{x \rightarrow -\infty} \frac{2x^3-4x^2+x+1}{x^2-8x} \:.
+    \end{align}
+    Pokud počítáme nevlastní limitu podílu polynomů, využíváme triku vytýkání nejvyšší mocniny ve jmenovateli. Takže vytkneme $x^2$ a máme
+    \begin{align}
+        \lim_{x \rightarrow -\infty} \frac{2x^3-4x^2+x+1}{x^2-8x} =
+        \lim_{x \rightarrow -\infty} \frac{x^2 \left( 2x - 4 + \frac{1}{x} + \frac{1}{x^2}\right)}{x^2 \left( 1 - \frac{8}{x} \right)} =
+        \lim_{x \rightarrow -\infty} \frac{2x - 4 + \frac{1}{x} + \frac{1}{x^2}}{1 - \frac{8}{x}}
+    \end{align}
+    a do takového výrazu již můžeme dosadit. Jenom opatrně, dosazujeme $-\infty$, takže
+    \begin{align}
+        \lim_{x \rightarrow -\infty} \frac{2x^3-4x^2+x+1}{x^2-8x} = \frac{2 \cdot (-\infty) - 4 + 0 + 0}{1 - 0} = - \infty \:.
+    \end{align}
+\end{example}
+
+
+\subsection*{Limity typu \uv{$\frac{a}{0}$}.}
+
+Již víme, že $\frac{a}{0}$ není definovaný výraz. Nyní se musíme naučit vypořádat s limitami podílu polynomů ve vlastních bodech, kde se takové výrazy objeví. Využijeme k tomu následující tvrzení.
+
+Jestliže platí
+\begin{align}
+    \lim_{x \rightarrow x_0+} f(x) = 0 \:, \quad f(x) \geq 0 \text{ na pravém okolí } P^+(x_0) \:,
+\end{align}
+pak
+\begin{align}
+    \lim_{x \rightarrow x_0+} \frac{1}{f(x)} = + \infty \:.
+\end{align}
+Jestliže platí
+\begin{align}
+    \lim_{x \rightarrow x_0+} f(x) = 0 \:, \quad f(x) \leq 0 \text{ na pravém okolí } P^+(x_0) \:,
+\end{align}
+pak
+\begin{align}
+    \lim_{x \rightarrow x_0+} \frac{1}{f(x)} = - \infty \:.
+\end{align}
+Analogické tvrzení platí pro limitu zleva a levé okolí.
+
+\begin{example}
+    Vypočítejme limity \begin{align}
+        \lim_{x \rightarrow 2-} \frac{1}{x-2} \:, \quad \lim_{x \rightarrow 2+} \frac{1}{x-2} \:, \quad \lim_{x \rightarrow 2} \frac{1}{x-2} \:.
+    \end{align}
+    Platí $\lim_{x \rightarrow 2-} (x-2) = 0 = \lim_{x \rightarrow 2+} (x-2) \:.$
+    Nyní se stačí podívat na to, jaké znaménko má funkce $(x-2)$ na levém a pravém okolí dvojky.
+    \begin{itemize}
+        \item Na levém okolí nuly, tj. pro $x<2$, je $x-2<0$. Proto podle předchozího tvrzení platí \begin{align}
+            \lim_{x \rightarrow 2-} \frac{1}{x-2} = - \infty \:.
+        \end{align}
+
+        \item Na pravém okolí nuly, tj. pro $x>2$, je $x-2>0$. Proto podle předchozího tvrzení platí \begin{align}
+            \lim_{x \rightarrow 2-} \frac{1}{x-2} = + \infty \:.
+        \end{align}
+
+        \item Protože se limita zprava a zleva nerovnají,
+        \begin{align}
+            \lim_{x \rightarrow 2} \frac{1}{x-2} \text{ neexistuje} \:. 
+        \end{align}
+    \end{itemize}
+
+\end{example}
+
+
+\begin{example}
+    Nechť \begin{align}
+        f(x) = \frac{x^3-2x^2+1}{x^2-4} \:.
+    \end{align}
+    Vypočteme
+    \begin{enumerate}[label=(\roman*)]
+        \item $\lim_{x \rightarrow +\infty} f(x)$,
+        \item $\lim_{x \rightarrow -\infty} f(x)$,
+        \item $\lim_{x \rightarrow 0} f(x)$,
+        \item $\lim_{x \rightarrow -2 -} f(x)$,
+        \item $\lim_{x \rightarrow -2 +} f(x)$,
+        \item $\lim_{x \rightarrow 2 -} f(x)$,
+        \item $\lim_{x \rightarrow -2 +} f(x)$.
+    \end{enumerate}
+
+    \begin{enumerate}[label=(\roman*)]
+        \item Zde nemůžeme dostadit přímo, dostali bychom $\frac{\infty}{\infty}$. Můžeme si ale pomoci stejným trikem jakou u posloupností: \begin{align}
+            \lim_{x \rightarrow +\infty} \frac{x^3-2x^2+1}{x^2-4} =
+            \lim_{x \rightarrow +\infty} \frac{x - 2 + \frac{1}{x^2}}{1 - \frac{4}{x^2}} =
+            \frac{+\infty - 2 + 0}{1 - 0} = + \infty \:.
+        \end{align}
+
+        \item \begin{align}
+            \lim_{x \rightarrow -\infty} \frac{x^3-2x^2+1}{x^2-4} =
+            \lim_{x \rightarrow -\infty} \frac{x - 2 + \frac{1}{x^2}}{1 - \frac{4}{x^2}} =
+            \frac{-\infty - 2 + 0}{1 - 0} = - \infty \:.
+        \end{align}
+
+        \item Zde dosadit můžeme rovnou, nedostaneme se k nedefinovanému výrazu: \begin{align}
+            \lim_{x \rightarrow 0} \frac{x^3-2x^2+1}{x^2-4} =
+            \frac{0-0+1}{0-4} = - \frac{1}{4} \:.
+        \end{align}
+
+        \item Kdybychom dosadili rovnou, dostali bychom
+        \begin{align}
+            \lim_{x \rightarrow -2 -} \frac{x^3-2x^2+1}{x^2-4} = \frac{-8 - 8 + 1}{4 - 4} = \frac{-15}{0} \:,
+        \end{align}
+        což není definovaný výraz. Proto máme co do činění s limitou typu $\frac{a}{0}$. V tom případě se podíváme na to, jaké znaménko má funkce ve jmenovateli na levém okolí minus dvojky: $x^2-4 > 0$ pro $x<-2$. Takže 
+        \begin{align}
+            \lim_{x \rightarrow -2 -} \frac{1}{x^2-4} = - \infty \:.
+        \end{align}
+        Nyní už stačí použít aritmetiku limit (čitatel má limitu konečnou):
+        \begin{align}
+            \lim_{x \rightarrow -2 -} \frac{x^3-2x^2+1}{x^2-4} = \lim_{x \rightarrow -2 -} (x^3-2x^2+1) \cdot \lim_{x \rightarrow -2 -} \frac{1}{x^2-4} = -15 \cdot (-\infty) = + \infty \:.
+        \end{align}
+
+        \item Podobně, $x^2-4<0$ pro $-2<x<2$, takže na pravém okolí $-2$ je jmenovatel záporný. Proto
+        \begin{align}
+            \lim_{x \rightarrow -2 +} \frac{x^3-2x^2+1}{x^2-4} = \lim_{x \rightarrow -2 +} (x^3-2x^2+1) \cdot \lim_{x \rightarrow -2 +} \frac{1}{x^2-4} = -15 \cdot (+\infty) = - \infty \:.
+        \end{align}
+        \item Analogicky.
+        \item Analogicky.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Určíme limitu
+    \begin{align}
+        \lim_{x \rightarrow 3+} \frac{x^2}{6-2x} \:.
+    \end{align}
+    Opět vidíme
+    \begin{align}
+        \lim_{x \rightarrow 3+} 6 - 2x = 0 \:, \quad 6 - 2x < 0 \text{ pro } x>3 \:,
+    \end{align}
+    tedy podle tvrzení o $\frac{a}{0}$ platí
+    \begin{align}
+        \lim_{x \rightarrow 3+} \frac{x^2}{6-2x} = 9 \cdot (+\infty) = + \infty \:.
+    \end{align}
+\end{example}
+
+\begin{example}
+    Určíme limitu
+    \begin{align}
+        \lim_{x \rightarrow 1-} \frac{x^2-2x+1}{x^3-x} \:.
+    \end{align}
+    Pokud bychom použili tvrzení $\frac{a}{0}$ hned, dostali bychom nedefinovaný výraz
+    \begin{align}
+        \lim_{x \rightarrow 1-} \frac{x^2-2x+1}{x^3-x} = \lim_{x \rightarrow 1-} (x^2-2x+1) \cdot \lim_{x \rightarrow 1-} \frac{1}{x^3-x} = 0 \cdot \infty \:.
+    \end{align}
+    To se stalo díky tomu, že čitatel má kořen roven $1$. Stačí ho tedy rozložit do závorek a něco zkrátit:
+    \begin{align}
+        \lim_{x \rightarrow 1-} \frac{x^2-2x+1}{x^3-x} = \lim_{x \rightarrow 1-} \frac{(x-1)^2}{x(x-1)(x+1)} = \lim_{x \rightarrow 1-} \frac{x-1}{x(x+1)}
+    \end{align}
+    a můžeme klidně dosadit
+    \begin{align}
+        \lim_{x \rightarrow 1-} \frac{x-1}{x(x+1)} = \frac{0}{2} = 0 \:.
+    \end{align}
+\end{example}
+

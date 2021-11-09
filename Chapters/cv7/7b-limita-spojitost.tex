@@ -1,2 +1,164 @@
 \section*{Limita a spojitost funkce}
 
+\subsection*{Limita funkce}
+
+Podobně, jako jsme zavedli limitu posloupnosti, bychom chtěli zavést limitu funkce v nějakém bodě, tj. chceme popsat fakt, že se funkční hodnoty $f(x)$ blíží k nějaké hodnotě $A$, když se hodnoty nezávislé proměnné $x$ blíží k nějakému bodu $x_0$.
+
+Nejprve definujeme okolí bodu $x_0 \in \R$. Zvolíme si nějaké číslo $\delta > 0$ a vytvoříme interval $(x_0-\delta, x_0 + \delta)$, který nazveme \textbf{$\delta$-okolím bodu $x_0$} (označujeme ho $U_\delta(x_0)$). Dále definujeme \textbf{prstencové okolí bodu $x_0$} (označujeme ho $P_\delta(x_0)$) tak, že vezmeme okolí $U_\delta(x_0)$ a odebereme z něho bod $x_0$, tedy
+\begin{align}
+    P_\delta(x_0) = U_\delta(x_0) \setminus \set{x_0} = (x_0 - \delta, x_0) \cup (x_0, x_0 + \delta) \:. 
+\end{align}
+
+Když už máme pojem okolí, můžeme definovat \textbf{limitu funkce v bodě $x_0$}. Řekneme, že funkce $f$ má v bodě $x_0$ limitu $A$, jestliže pro libovolně malé $\epsilon >0$ existuje $\delta > 0$ takové, že pro všechna $x \in P_\delta (x_0)$ platí $f(x) \in U_\epsilon(A)$.
+
+Protože tato definice není při prvním čtení příliš srozumitelná a zároveň je jedna z nejdůležitějších v celé matematice, pojďme ji opět rozebrat krok po kroku.
+\begin{enumerate}
+    \item Zvolíme si $\epsilon>0$ a k němu přiřadíme pás o šířce $2\epsilon$ kolem hodnoty $A$, tj. okolí $U_\epsilon(A)$ (\uv{na $y$-ové ose}).
+    \item Podíváme se, zda existuje nějaké prstencové okolí okolo bodu $x_0$ o šířce $2\delta$, tj. $P_\delta (x_0)$ (\uv{na $x$-ové ose}) s následující vlastností: když si vybereme jakékoli $x$ z takového prstencového okolí a podíváme se na funkční hodnotu $f(x)$, bude ležet v okolí (pásu) $U_\epsilon(A)$, tj. bude platit
+    \begin{align}
+        A - \epsilon < f(x) < A + \epsilon \:.
+    \end{align}
+    \item Jestliže to platí pro každý bod $x$ z $P_\delta(x_0)$, pak jsme podmínku splnili.
+    \item V takovém případě $\epsilon$ zmenšíme a proces opakujeme. Ono $\delta$, které pokaždé určí okolí $P_\delta (x_0)$, bude pokaždé jiné (čím menší $\epsilon$, tím bude $\delta$ menší). Důležité ale je, že vždy musí nějaké takové existovat.
+    \item Jestliže se nám podaří najít ke všem $\epsilon$ nějaké $\delta$ okolí, pro které bude podmínka splněna, můžeme prohlásit, že je limita funkce $f$ v bodě $x_0$ rovna hodnotě $A$. Píšeme
+    \begin{align}
+        \lim_{x \rightarrow x_0} f(x) = A \:.
+    \end{align}
+    \item Všimněme si, že nás vlastně vůbec nezajímá, co se děje přímo v bodě $x_0$, ve kterém limitu hledáme, zajímá nás pouze jeho prstencové okolí. Takže v bodě $x_0$ dokonce ani nemusí být funkce $f$ definována, nebo tam může mít libovolnou hodnotu.
+\end{enumerate}
+
+Stejným způsobem bychom mohli definovat \textbf{limitu zprava} a \textbf{limitu zleva}.\newline Zadefinujeme si pravé prstencové okolí $P_{\delta}^{+}(x_0) = (x_0, x_0 + \delta)$ a levé prstencové okolí $P_{\delta}^{-}(x_0) = (x_0 - \delta, x_0)$ a budeme se dívat na $x$ pouze v těchto okolí, tzn. napravo, resp. nalevo od bodu $x_0$. Skutečnost, že má funkce limitu zprava, resp. zleva, značíme
+\begin{align}
+    \lim_{x \rightarrow x_0 +} f(x) = A \:, \quad \lim_{x \rightarrow x_0 -} f(x) = A \:.
+\end{align}
+
+Nakonec ještě definujeme limity v nevlastních bodech $\pm \infty$. Definice limity je stejná, akorát musíme definovat okolí nekonečna. To bude prostě interval ohraničený nějakým \uv{velkým číslem} $\delta$: $P_\delta(+\infty) = (\delta, \infty)$ a $P_\delta(-\infty) = (-\infty, -\delta)$.
+
+\begin{example}
+    Uvažujme funkci $f(x) = \frac{1}{x}$ a spočtěme její limity v \begin{enumerate}[label=(\roman*)]
+        \item bodě $2$,
+        \item v bodě $0$ zprava,
+        \item v bodě $0$ zleva,
+        \item v bodě $0$,
+        \item v bodě $-\infty$.
+    \end{enumerate}
+
+    \begin{enumerate}[label=(\roman*)]
+        \item Pohledem na graf funkce vidíme, že by limita mohla být $\frac{1}{2}$. Nyní to ověříme pomocí definice. Zvolíme si číslo $\epsilon$. Protože ho chceme libovolně malé, pracujme rovnou obecně. Potřebujeme nalézt interval, na kterém platí
+        \begin{align}
+             \frac{1}{2} - \epsilon < \frac{1}{x} < \frac{1}{2} + \epsilon \:.
+        \end{align}
+        Z první nerovnice dostáváme
+        \begin{align}
+            x < \frac{1}{\frac{1}{2} - \epsilon} = \frac{1}{\frac{1 - 2 \epsilon}{2}} = \frac{2}{1 - 2 \epsilon}\:,
+        \end{align}
+        z druhé nerovnice máme
+        \begin{align}
+            x > \frac{1}{\frac{1}{2} + \epsilon} = \frac{2}{1 + 2 \epsilon}\:.
+        \end{align}
+        Takže pokud si vezmeme libovolné číslo v intervalu
+        \begin{align}
+            x \in \left( \frac{2}{1 + 2 \epsilon}, \frac{2}{1 - 2 \epsilon} \right) \:,
+        \end{align}
+        bude nerovnice splněna.
+
+        Například pokud vezmeme $\epsilon = \frac{1}{4}$, stačí zařídit
+        \begin{align}
+            x \in \left( \frac{2}{1 + \frac{1}{2}}, \frac{2}{1 - \frac{1}{2}} \right)
+            = \left( \frac{4}{3}, 4 \right) \:.
+        \end{align}
+        Označme si nalezený interval $I_\frac{1}{2}$. Připomínáme, že se koukáme na okolí bodu $2$. Můžeme třeba vzít $\delta = \frac{2}{3}$ a tím dostat 
+        \begin{align}
+            P_{\frac{2}{3}}(2) = \left( \frac{4}{3}, 2 \right) \cup \left( 2, \frac{8}{3} \right) \:,
+        \end{align}
+        který zřejmě leží celý v $I_\frac{1}{2}$. Nebo bychom mohli vzít $\delta = \frac{1}{3}$ a tím dostat 
+        \begin{align}
+            P_{\frac{1}{3}}(2) = \left( \frac{5}{3}, 2 \right) \cup \left( 2, \frac{7}{3} \right) \:.
+        \end{align}
+        Nemůžeme si zvolit $\delta$ moc velké, protože např.
+        \begin{align}
+            P_{1000}(2) = (-998,1002)
+        \end{align}
+        už se nevejde do intervalu $I_\frac{1}{2}$, což potřebujeme, abychom splnili původní nerovnici.
+
+        Pro každé zvolené $\epsilon$ bychom našli nějaké $\delta$-prstencové okolí bodu $2$ takové, abychom nerovnici splnili. Tím pádem můžeme prohlásit, že
+        \begin{align}
+            \lim_{x \rightarrow 2} \frac{1}{x} = \frac{1}{2} \:.
+        \end{align}
+
+        \item Pokud se přibližujeme s $x$ zprava k nule, tj. bereme kladná čísla, utíká funkce k $+\infty$. Zkusme to opět ověřit.
+        
+        Okolí bodu $+\infty$ uděláme tak, že si vezmeme nějaké (tentokrát hodně velké) číslo $L$ a budeme řešit nerovnici
+        \begin{align}
+            L < \frac{1}{x} \:.
+        \end{align}
+        To je jednoduché, řešením je
+        \begin{align}
+           0 < x < \frac{1}{L} \:.
+        \end{align}
+        To znamená, když si vezmeme jakékoli $\delta < \frac{1}{L}$, na pravém prstencovém okolí bodu $0$ budou funkční hodnoty v okolí $+\infty$. (Povšimněme si, $L$ je velké, takže $\frac{1}{L}$ je hodně malé číslo.) Tím pádem je
+        \begin{align}
+            \lim_{x \rightarrow 0+} \frac{1}{x} = + \infty \:.
+        \end{align}
+
+        \item Pokud se přibližujeme k $x$ zleva k nule, tj. bereme pouze záporná čísla, utíká funkce k $-\infty$. Vezmeme si tedy hodně velké číslo $K$ a budeme řešit nerovnici
+        \begin{align}
+            \frac{1}{x} < - K \:.
+        \end{align}
+        Řešením je
+        \begin{align}
+            0 > x > - \frac{1}{K} \:.
+        \end{align}
+        Takže zase můžeme vzít $\delta < \frac{1}{K}$, vytvořit levé okolí bodu $0$ a všechny hodnoty funkce budou v okolí bodu $-\infty$. Takže
+        \begin{align}
+            \lim_{x \rightarrow 0-} \frac{1}{x} = - \infty \:.
+        \end{align}
+    
+        \item Pokud se budeme dívat na bod $0$ z obou stran, narazíme na problém. Zleva se nám totiž funkční hodnoty blíží k $-\infty$, zatímco zprava k $+\infty$. Už víme, že skutečně limita zprava a zleva jsou různé. Takže
+        \begin{align}
+            \lim_{x \rightarrow 0} \frac{1}{x} \text{ není definována, protože } \lim_{x \rightarrow 0-} \frac{1}{x} = - \infty \neq + \infty = \lim_{x \rightarrow 0+} \frac{1}{x} \:.
+        \end{align}
+
+        \item Jak to bude okolo bodu $-\infty$? Tam se funkční hodnoty blíží nule. Zkoumejme tedy nerovnici
+        \begin{align}
+            -\epsilon <\frac{1}{x} < \epsilon \:. 
+        \end{align}
+        Řešením je
+        \begin{align}
+            x > -\frac{1}{\epsilon} \text{ a } x < \frac{1}{\epsilon} \:.
+        \end{align}
+        Nás zajímají $x$, které jsou hodně malé, tzn. bereme v úvahu druhou možnost. Ke každému $\epsilon >0$ zase najdeme $\delta$ tak velké, že $\delta < \frac{1}{\epsilon}$ a na intervalu $P_\delta(-\infty) = (-\infty, -\delta)$ bude nerovnice splněna. Proto
+        \begin{align}
+            \lim_{x \rightarrow -\infty} \frac{1}{x} = 0 \:.
+        \end{align}
+    \end{enumerate}
+\end{example}
+
+K praktickému počítání se zase využívá aritmetika limit, která platí i pro funkce, ve vlastních i nevlastních bodech.
+
+\subsection*{Spojitost funkce}
+
+Nyní můžeme zavést pojem spojitosti. Řekneme, že funkce $f(x)$ je spojitá v bodě $x_0$, jestliže \begin{align}
+    \lim_{x \rightarrow x_0} f(x) = f(x_0) \:.
+\end{align}
+Na pravé straně máme hodnotu funkce v bodě $x_0$, to znamená hodnotu, kterou snadno vypočítáme dosazením do předpisu funkce. Na levé straně máme naopak limitu, to znamená, že se vůbec nekoukáme na bod $x_0$ jako takový, pouze na jeho okolí.
+
+Dále můžeme definovat spojitost funkce na intervalu $I$. Řekneme, že $f$ je spojitá na $I$, jestliže je spojitá v každém bodě $x_0 \in I$.
+
+
+\begin{remark}
+    Vágně řečeno se dá říct, že \uv{funkce je spojitá na intervalu $I$ tehdy, jestliže se dá její graf nakreslit jedním tahem}. 
+    Samozřejmě, že pojem spojitosti matematici vymysleli inspirováni právě touto vlastností. Nicméně, od konce 18. století se začal tento koncept formalizovat, tak, abychom mohli podat definici spojitosti bez ohledu na to, jestli dokážeme kreslit grafy tužkou na papír nebo ne. Proto byl vymyšlen koncept limity posloupnosti a funkce. Nikdo dlouho nenacházel žádný rozpor mezi \uv{kreslením spojitých grafů na papír} a \uv{abstraktním konceptem spojitosti pomocí limit}.
+
+    Koncept tzv. $\epsilon-\delta$ gymnastiky zavedl německý matematik žijící v Praze \textbf{Bernard Bolzano} (1781-1848). Byl rovněž knězem, který působil dlouhá léta v kostele Nejsvětějšího Salvátora v Praze hned u Karlova mostu.
+
+    O generaci mladší byl německý matematik \textbf{Karl Weierstrass} (1815-1897). Ten obdivoval Bolzanovy práce a začal se zabývat \uv{extrémními příklady} funkcí. K velkému překvapení celé matematické komunity jednoho dne na přednášce vymyslel funkci, která je všude spojitá (ve smyslu matematické definice pomocí limit), ale její graf vůbec nelze nakreslit (nemá nikde derivaci, to znamená, můžeme pouze znázornit hodnoty v některých bodech, ale funkce se mění tak divoce, že není možné libovolné dva body propojit obyčejnou úsečkou). Tato patologická funkce se stala základem pro studium tzv. \textbf{fraktálních křivek}, vykazuje totiž jakousi \uv{soběpodobnost}. I po více než 150 letech je stále předmětem zkoumání, např. teprve před třemi lety byla zjištěna její fraktální dimenze. Více se lze dočíst \href{https://en.wikipedia.org/wiki/Weierstrass_function}{na tomto odkazu} a \href{https://www.youtube.com/watch?v=jz1fugkBGNA}{zde} je hezké video o konstrukci takové funkce.
+\end{remark}
+
+\subsection*{Bolzanova věta}
+
+Představme si spojitou funkci $f$ na intervalu $[x_1,x_2]$ s krajními hodnotami $f(x_1)$ a $f(x_2)$. Přirozeně očekáváme, že pro každou hodnotu $y$ mezi $f(x_1)$ a $f(x_2)$ najdeme hodnotu $x$ takovou, že $y=f(x)$, protože funkce $f$ nedělá žádné skoky, bude nabývat všech mezihodnot. Tato intuice je skutečně správná. Dokazuje to výsledek, který dokázali společně již zmíněný Bernard Bolzano s francouzským matematikem Jeanem Gastonem Darboux (1842-1917).
+
+
+
+\textit{Funkce $f$, která je spojitá na intervalu $[x_1,x_2]$, nabývá všech hodnot mezi $[f(x_1),f(x_2)]$.}
